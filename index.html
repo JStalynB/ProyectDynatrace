@@ -30,7 +30,7 @@
     <table id="problemsTable">
         <thead>
             <tr>
-               
+                <!-- <th>Problem ID</th> -->
                 <th>Display ID</th>
                 <th>Title</th>
                 <th>Impact Level</th>
@@ -39,7 +39,8 @@
                 <th>Affected Entities</th>
                 <th>Management Zones</th>
                 <th>Start Time</th>
-                <th>Problem ID</th>
+                <th>Comments</th> <!-- Nueva columna para comentarios -->
+                <th>Link</th> <!-- Nueva columna para el enlace -->
             </tr>
         </thead>
         <tbody>
@@ -50,7 +51,7 @@
     <script>
         async function getDynatraceData() {
             try {
-                const response = await fetch('https://thi13215.live.dynatrace.com/api/v2/problems?pageSize=500', {
+                const response = await fetch('https://thi13215.live.dynatrace.com/api/v2/problems', {
                     method: 'GET',
                     headers: {
                         'Authorization': 'Api-Token dt0c01.7UGRV4AW374B7GCU76IONNYC.375Z2Y6DST6IDPANG3IMQTQIMEMU32XHDZVTRP5FGF5Q6LHOZF4OOHRC63FVDGBO',
@@ -64,11 +65,17 @@
 
                 const data = await response.json();
 
-                // Procesamos los datos para agregarlos a la tabla
                 const tableBody = document.querySelector('#problemsTable tbody');
-                data.problems.forEach(problem => {
+
+                // Iterar sobre cada problema y hacer una segunda petición para obtener los comentarios
+                for (const problem of data.problems) {
+                    const comments = await getCommentsForProblem(problem.problemId);
+
                     const row = document.createElement('tr');
 
+                    // const problemIdCell = document.createElement('td');
+                    // problemIdCell.textContent = problem.problemId;
+                    // row.appendChild(problemIdCell);
 
                     const displayIdCell = document.createElement('td');
                     displayIdCell.textContent = problem.displayId;
@@ -103,15 +110,48 @@
                     startTimeCell.textContent = startTime.toLocaleString();
                     row.appendChild(startTimeCell);
 
-                    const problemIdCell = document.createElement('td');
-                    problemIdCell.textContent = problem.problemId;
-                    row.appendChild(problemIdCell);
+                    const commentsCell = document.createElement('td');
+                    commentsCell.textContent = comments.length > 0 
+                        ? comments.map(comment => comment.content).join(' | ') 
+                        : 'No comments';
+                    row.appendChild(commentsCell);
 
+                    // Añadir enlace al problema
+                    const linkCell = document.createElement('td');
+                    const link = document.createElement('a');
+                    link.href = `https://thi13215.live.dynatrace.com/#problems/problemdetails;gtf=today;gf=all;pid=${problem.problemId}`;
+                    link.textContent = 'Ver problema';
+                    link.target = '_blank'; // Abre el enlace en una nueva pestaña
+                    linkCell.appendChild(link);
+                    row.appendChild(linkCell);
 
                     tableBody.appendChild(row);
-                });
+                }
             } catch (error) {
                 console.error('Error al obtener los datos de Dynatrace:', error);
+            }
+        }
+
+        // Función para obtener los comentarios de cada problema
+        async function getCommentsForProblem(problemId) {
+            try {
+                const response = await fetch(`https://thi13215.live.dynatrace.com/api/v2/problems/${problemId}/comments`, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': 'Api-Token dt0c01.7UGRV4AW374B7GCU76IONNYC.375Z2Y6DST6IDPANG3IMQTQIMEMU32XHDZVTRP5FGF5Q6LHOZF4OOHRC63FVDGBO',
+                        'Accept': 'application/json; charset=utf-8'
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Error fetching comments for problem ${problemId}`);
+                }
+
+                const data = await response.json();
+                return data.comments || []; // Retornar los comentarios o un array vacío si no hay
+            } catch (error) {
+                console.error('Error al obtener comentarios:', error);
+                return [];
             }
         }
 

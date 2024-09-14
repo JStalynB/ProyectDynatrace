@@ -51,7 +51,7 @@
     <script>
         async function getDynatraceData() {
             try {
-                const response = await fetch('https://thi13215.live.dynatrace.com/api/v2/problems', {
+                const response = await fetch('https://thi13215.live.dynatrace.com/api/v2/problems?pageSize=500&from=now-24h', {
                     method: 'GET',
                     headers: {
                         'Authorization': 'Api-Token dt0c01.7UGRV4AW374B7GCU76IONNYC.375Z2Y6DST6IDPANG3IMQTQIMEMU32XHDZVTRP5FGF5Q6LHOZF4OOHRC63FVDGBO',

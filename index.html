@@ -12,6 +12,7 @@
         table {
             width: 100%;
             border-collapse: collapse;
+            table-layout: fixed; /* Establece un tamaño fijo para todas las columnas */
         }
         table, th, td {
             border: 1px solid black;
@@ -19,6 +20,8 @@
         th, td {
             padding: 10px;
             text-align: left;
+            word-wrap: break-word;
+            width: auto;
         }
         th {
             background-color: #f2f2f2;
@@ -104,12 +107,7 @@
     // Aplicar los filtros antes de mostrar los problemas
     function applyFilters(problem) {
         return (
-            problem.severityLevel.toLowerCase().includes(filters.severity) &&
-            problem.title.toLowerCase().includes(filters.title) &&
-            problem.displayId.toLowerCase().includes(filters.displayId) &&
-            problem.impactLevel.toLowerCase().includes(filters.impactLevel) &&
-            problem.status.toLowerCase().includes(filters.status) &&
-            problem.affectedEntities.map(entity => entity.name || entity.entityId).join(', ').toLowerCase().includes(filters.affectedEntities)
+            problem.impactLevel.toLowerCase() === 'infrastructure' // Filtrar solo los problemas con Impact Level "INFRASTRUCTURE"
         );
     }
 

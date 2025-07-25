@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Monitor de Alertas</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+
+<body>
+
+  <div id="reminderPanel" style="
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fffae6;
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+  font-weight: bold;
+  z-index: 1000;
+  display: none;
+"></div>
+
+  <h1>Monitor de Alertas Dinámico</h1>
+  
+      <!-- Filtro dinámico por Impact Level -->
+    <label for="impactFilter"><strong>Filtrar por Impact Level:</strong></label>
+    <select id="impactFilter" multiple>
+      <option value="INFRASTRUCTURE">Infrastructure</option>
+      <option value="SERVICES">Services</option>
+      <option value="APPLICATION">Application</option>
+      <option value="ENVIRONMENT">Environment</option>
+    </select>
+ <!-- <button id="exportBtn">Exportar a Excel</button> -->
+  <!-- espacio -->
+  <br><br>
+  <label for="searchInput"><strong>Buscar Alertas:</strong></label>
+ <input type="text" id="excludeFilter" placeholder="Excluir alertas que contengan... (ej. aks, prometheus)" style="width: 100%; margin-bottom: 10px;">
+
+
+  <section id="alerts-section">
+    <h2>Alertas en Tiempo Real</h2>
+    <table id="alertTable">
+      <thead>
+        <tr>
+          <!-- <th>Status</th> -->
+          <th>Problem ID</th>
+          <th>Cause</th>
+          <th>Problem Title</th>
+          <th>Start Time</th>
+          <!-- <th>Enlace</th> -->
+          <th>Comentarios</th>
+           <th>Manual de conocimiento N1</th>
+           <th>administración de torres</th>
+
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <section id="csv-section">
+    <h2>Contenido del CSV</h2>
+    <table id="csvTable">
+      <thead></thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <audio id="alertSound" src="assets/audio/alert.mp3" preload="auto"></audio>
+
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

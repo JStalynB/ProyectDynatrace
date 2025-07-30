@@ -1,4 +1,4 @@
-﻿Concatenar;Id Conocimiento;Torre;Nombre Componente;Tipo de evento;Descripción Error;Solución;Tipo Documento;Fecha creación;Responsable Torre;Estado;Fecha aprobación;Responsable de Aprobación;Fecha última actualización;Ticket relacionado;# KDB Service Now;OBSERVACIÓN;Automatización;Documento
+Concatenar;Id Conocimiento;Torre;Nombre Componente;Tipo de evento;Descripción Error;Solución;Tipo Documento;Fecha creación;Responsable Torre;Estado;Fecha aprobación;Responsable de Aprobación;Fecha última actualización;Ticket relacionado;# KDB Service Now;OBSERVACIÓN;Automatización;Documento
 "DRECXDB002
 CPU Saturation AIX DCA";PSKB0001;BDD;"DRECXDB002
 ";CPU Saturation;CPU Saturation AIX DCA;"1. Ingresar a cyberark mediante el link https://privilegiados.uio.bpichincha.com/PasswordVault/v10/
@@ -1024,9 +1024,11 @@ ecbpprw96Workaround definido y probado. En ambiente productivo;PSKB0068;WINTEL;e
 ";Bitacora;27/05/2025;Arsecio Vergara;Aprobado;Pendiente;Johana Mendoza;;;;Pendiente revision Workaround, revision del flujo y aprobacion para la ejecucion de la tarea;;
 "precwcl010
 precwcl006
-precwcl005Alta utilización de tarjeta de red";PSKB0070;WINTEL;"precwcl010
+precwcl005
+precwcl009Alta utilización de tarjeta de red";PSKB0070;WINTEL;"precwcl010
 precwcl006
-precwcl005";Networking;Alta utilización de tarjeta de red;"Para verificar se debe realizar los siguientes pasos:
+precwcl005
+precwcl009";Networking;Alta utilización de tarjeta de red;"Para verificar se debe realizar los siguientes pasos:
 1. Ingresar al servidor alertado
 2. Dar click derecho sobre la barra de tareas e Ingresar al administrador de tareas
 3.  Ir a Performance>Open Resourse Monitor>Network

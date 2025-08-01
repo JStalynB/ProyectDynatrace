@@ -8,6 +8,11 @@ const apiUrl = 'https://xyc10065.live.dynatrace.com/api/v2/problems?from=now-7d&
 const apiToken = 'dt0c01.CRWQXFVRIB44RW7ZZYDCLGI3.UJXXLEFF7VZHPN26IRVAVTJOURI5B4BSD4TKI7MC2PAHCD6NPDO6Y5IIYJPPNRQ2';
 
 
+// ========== entorno no productivo ==========
+const apiUrlEnP = 'https://xyc10065.live.dynatrace.com/api/v2/problems?from=now-7d&to=now&problemSelector=status(\"open\")&pageSize=500';
+const apiTokenEnP = 'dt0c01.CRWQXFVRIB44RW7ZZYDCLGI3.UJXXLEFF7VZHPN26IRVAVTJOURI5B4BSD4TKI7MC2PAHCD6NPDO6Y5IIYJPPNRQ2';
+
+
 async function fetchProblems() {
   try {
     const response = await fetch(apiUrl, {
@@ -84,27 +89,7 @@ async function handleNewAlerts(problems) {
       // linkCell.appendChild(link);
       // row.appendChild(linkCell);
 
-      const commentsCell = document.createElement('td');
-      const commentsUrl = `https://xyc10065.live.dynatrace.com/api/v2/problems/${problem.problemId}/comments`;
-      fetch(commentsUrl, {
-        method: 'GET',
-        headers: {
-          'Authorization': `Api-Token ${apiToken}`,
-          'accept': 'application/json; charset=utf-8'
-        }
-      })
-        .then(res => res.json())
-        .then(data => {
-          commentsCell.innerHTML = (data.comments || []).map(c =>
-            `<span class="comment">${c.content || c.text || c.message}</span>`
-          ).join('') || 'Sin comentarios';
-        })
-        .catch(error => {
-          commentsCell.textContent = 'Error al cargar comentarios';
-        });
-      row.appendChild(commentsCell);
 
-      // ==========================
       // Enriquecimiento csv manual de conocimiento
       // ==========================
       // agregar para ver la solucion 
@@ -153,6 +138,32 @@ async function handleNewAlerts(problems) {
 
       row.appendChild(torreResolutora);
       tableBody.appendChild(row);
+
+
+
+            // comentarios
+
+      const commentsCell = document.createElement('td');
+      const commentsUrl = `https://xyc10065.live.dynatrace.com/api/v2/problems/${problem.problemId}/comments`;
+      fetch(commentsUrl, {
+        method: 'GET',
+        headers: {
+          'Authorization': `Api-Token ${apiToken}`,
+          'accept': 'application/json; charset=utf-8'
+        }
+      })
+        .then(res => res.json())
+        .then(data => {
+          commentsCell.innerHTML = (data.comments || []).map(c =>
+            `<span class="comment">${c.content || c.text || c.message}</span>`
+          ).join('') || 'Sin comentarios';
+        })
+        .catch(error => {
+          commentsCell.textContent = 'Error al cargar comentarios';
+        });
+      row.appendChild(commentsCell);
+
+      // ==========================
     });
 
   if (problems.length > 0) playAudioAlert();

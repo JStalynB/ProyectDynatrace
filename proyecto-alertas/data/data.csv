@@ -437,8 +437,7 @@ PRECBPSG03 Memory Saturation;PSKB0028;BDD;PRECBPSG03 ;Memory Saturation;Memory S
  4. Visualizamos en la parte derecha el porcentaje de memoria computacional (% Comp). Si el porcentaje es mayor al 93% y el evento persiste más de 15 minutos notificar a BDD.
 Nota: El evento que presenta por saturacion de memoria en dynatrace  no es la real se debe verificar el dashbord de unix el cual toma  la memoria computacional, si se encuentra en rojo, reportar, caso contrario cerrar indicando que es un evento controlado y no reporta la memoria real https://xyc10065.live.dynatrace.com/index.jsp?state=W5OHiIGFgThLgMK_4bTMuLyC81C6RRzc95p8TRdR4L0&code=2679782c-1aab-46f4-8246-bce697239142#dashboard;gtf=-10m;gf=all;id=3e82d414-3faa-4997-ae73-fc014376add0";Bitacora;30/1/2025;Henry Mañay;Aprobado;30/5/2025;David Medina;;INC0081770;KB0058120;;;
 "PRECXDB003
-PRECXDB002Memory Saturation";PSKB0029;BDD;"PRECXDB003
-PRECXDB002";Memory Saturation;Memory Saturation;"1. Ingresar a cyberark mediante el link https://privilegiados.uio.bpichincha.com/PasswordVault/v10/
+PRECXDB002Memory Saturation";PSKB0029;BDD;PRECXDB003;Memory Saturation;Memory Saturation;"1. Ingresar a cyberark mediante el link https://privilegiados.uio.bpichincha.com/PasswordVault/v10/
 2. Buscar el servidor afectado (columa C Nombre Componente)
 3. Conectar por la opcion ssh (cyberak)
 4. En una consola del servidor ejecutamos el comando ""topas"".                                                                                                                                                                                   
@@ -465,67 +464,26 @@ JOIN gv$sql sql ON sess.sql_id = sql.sql_id
 WHERE sess.status = 'ACTIVE' AND sql.sql_text LIKE 'ALTER INDEX%                                                                                                                                                                                                                                                     
 6. Si los  querys retorna sessiones de backup,index o estadisticas corresponde a un evento controlado, caso contrario si no existe la ejecución de estos querys y el evento  persiste más de 15 minutos notificar a BDD.
 Nota: cerrar como contrado ya que no es una bdd transaccional solo maneja ebs referencs  que es de consultas en el caso que la alerta sobrepase los 97% y dure mas de 15 min elevar a bdd  ";Bitacora;30/1/2025;Henry Mañay;Aprobado;30/5/2025;David Medina;;INC0244333;KB0058126;;;
-"PPECXDB002
-PPECXDB003
-PPECXDB004
-PPECXDB005
-CPU Saturation AIX";PSKB0034;BDD;"PPECXDB002
-PPECXDB003
-PPECXDB004
-PPECXDB005
-";CPU Saturation;CPU Saturation AIX;"
-De acuerdo a las verificaciones realizadas los servidores a continuación son parte del proyecto de Bancs Preproducción los mismos que todavía no están entregados a base de datos producción para su respectiva administración por lo cual cualquier evento reportado por dynatrace relacionado a  Jesús Viciosa 
-javicios@pichincha.com
-ahmirand@pichincha.com
-fdgarcia@pichincha.com
-luiafern@pichincha.com";Bitacora;30/1/2025;Henry Mañay;Aprobado;30/5/2025;David Medina;;INC0331425;KB0058127;;;
 "Servidores Oracleerror por temas de firewoll o cuando trata de llegar a la bdd  el cual no registra el archivelog 
 ejemplo de error
-Oracle Database PPWSO2IS1:Oracle Errores ORA ORA-16055 - Oracle Database PPWSO2IS1";PSKB0035;BDD;Servidores Oracle;Evento Oracle;"error por temas de firewoll o cuando trata de llegar a la bdd  el cual no registra el archivelog 
+Oracle Database PPWSO2IS1:Oracle Errores ORA ORA-16055 - Oracle Database PPWSO2IS1";PSKB0035;BDD;ORA-16055;Evento Oracle;"error por temas de firewoll o cuando trata de llegar a la bdd  el cual no registra el archivelog 
 ejemplo de error
 Oracle Database PPWSO2IS1:Oracle Errores ORA ORA-16055 - Oracle Database PPWSO2IS1";"cerra el evento como controlado siempre se va a presentar estos tipos de errores ya que por algun cambios o versionamientos en la red o firewall se va a notificar en el alert log de la bdd  y presentandose el codifo de error ora-16055
 ";Bitacora;26/5/2025;Henry Mañay;Aprobado;28/5/2025;Johana Mendoza;;;;;;
 "Servidores Oracleerror por temas de generación de File Server (RFS)  archivos de sincronización de datagard
 ejemplo de error
-Oracle Database PPWSO2IS1:Oracle Errores ORA ORA-16040 - Oracle Database PPWSO2IS1";PSKB0036;BDD;Servidores Oracle;Evento Oracle;"error por temas de generación de File Server (RFS)  archivos de sincronización de datagard
+Oracle Database PPWSO2IS1:Oracle Errores ORA ORA-16040 - Oracle Database PPWSO2IS1";PSKB0036;BDD;16040;Evento Oracle;"error por temas de generación de File Server (RFS)  archivos de sincronización de datagard
 ejemplo de error
 Oracle Database PPWSO2IS1:Oracle Errores ORA ORA-16040 - Oracle Database PPWSO2IS1";"cerra el evento como controlado siempre se va a presentar estos tipos de errores ya que por algun cambios o versionamientos en la red o firewall se va a notificar en el alert log de la bdd  y presentandose el codifo de error ora-16040
 Tambie se puede verificar por el siguiente link si se desincronizo los archive del datagar cuando son por mucho tiempo y el siguiente datshboard va aparecer como rojo y va a salatar una nueva alerta de error de replicai  
 https://xyc10065.apps.dynatrace.com/ui/apps/dynatrace.classic.dashboards/#dashboard;gtf=-2h;gf=all;id=e971dc37-57d2-485b-a704-02b1f2b5a549";Bitacora;26/5/2025;Henry Mañay;Aprobado;28/5/2025;Johana Mendoza;;;;;;
 "Servidores Oracleerror por problema de compilacion de codigo o permisos al conectarse a la bdd
 ejemplo de error
-Oracle Database LOGINS21:Oracle Errores ORA ORA-12012 - Oracle Database LOGINS21";PSKB0037;BDD;Servidores Oracle;Evento Oracle;"error por problema de compilacion de codigo o permisos al conectarse a la bdd
+Oracle Database LOGINS21:Oracle Errores ORA ORA-12012 - Oracle Database LOGINS21";PSKB0037;BDD;12012;Evento Oracle;"error por problema de compilacion de codigo o permisos al conectarse a la bdd
 ejemplo de error
 Oracle Database LOGINS21:Oracle Errores ORA ORA-12012 - Oracle Database LOGINS21";cerra el evento como controlado  el evento debe cerrar como controlado ya que las aplicaciones son las cuales se encargan de realizar compliaciones de codigo y cuadno falla les da este tipo de evento ;Bitacora;26/5/2025;Henry Mañay;Aprobado;28/5/2025;Johana Mendoza;;;;;;
 PRECXDB006Nuimero de sessiones activas en la bdd;PSKB0038;BDD;PRECXDB006;Active Sessions BD;Nuimero de sessiones activas en la bdd;cerra el evento como controlado  Revisando el dynatrace de la alerta se verifica que las sesiones se suben cada fin de mes por  la depuración de bancs  por lo cual pueden cerrar el evento como Monitoreo N1  como controlado por depuración de bancs  cada fin de mes ;Bitacora;28/5/2025;Henry Mañay;Aprobado;30/5/2025;Johana Mendoza;;;;;;
 PRECXDB007Nuimero de sessiones activas en la bdd;PSKB0039;BDD;PRECXDB007;Active Sessions BD;Nuimero de sessiones activas en la bdd;cerra el evento como controlado Revisando el dynatrace de la alerta se verifica que las sesiones se suben cada fin de mes por  la depuración de bancs  por lo cual pueden cerrar el evento como Monitoreo N1  como controlado por depuración de bancs  cada fin de mes ;Bitacora;28/5/2025;Henry Mañay;Aprobado;30/5/2025;Johana Mendoza;;;;;;
-"ecbpbinp1
-precxodb002
-PRECLMN006
-PRECBPCM01
-preclmn005
-ecbplxapp23
-PRECBPHCA1
-PRECBPMP02
-(WAS Batch Motor Pagos 1)Hay una saturación del CPU,  debido al proceso que realiza respaldos de una BDD de 00:00 a 01:20, todos los días.
-OJO: si toma más de este tiempo se debe escalar ";PSKB0041;UNIX;"ecbpbinp1
-precxodb002
-PRECLMN006
-PRECBPCM01
-preclmn005
-ecbplxapp23
-PRECBPHCA1
-PRECBPMP02
-(WAS Batch Motor Pagos 1)";CPU Saturation;"Hay una saturación del CPU,  debido al proceso que realiza respaldos de una BDD de 00:00 a 01:20, todos los días.
-OJO: si toma más de este tiempo se debe escalar ";"Articulo de conocimiento TCSECU_N1_UNIX_Saturación CPU-Memoria_procesos.docx
-Ruta: https://pichincha.sharepoint.com/:w:/r/sites/DOCUMENTACION_INFRAESTRUCTURA/Documentos%20compartidos/13.%20Documentaci%C3%B3n%20Gesti%C3%B3n%20Infraestructura%20%26%20OTI/Art%C3%ADculos%20de%20Conocimiento/N1/TCSECU_N1_UNIX_Saturaci%C3%B3n%20CPU-Memoria_procesos.docx?d=w21688e1140294a5083e56c18809ae1db&csf=1&web=1&e=ychHxe";Articulo de Conocimiento;30/1/2025;Ricardo Urbina;En certificación;30/5/2025;Johana Mendoza;;"INC0279021
-INC0232269
-INC0151245
-INC0299664
-INC0272258
-INC0031992
-INC0081723
-INC0126968";;;;
 precbpyn01Existen procesos que provocan la saturación del CPU. De ser el proceso BPBKAR se debe a que se esta ejecutando un respaldo por lo que puede alertar cpu y memoria;PSKB0045;UNIX;precbpyn01;CPU Saturation;Existen procesos que provocan la saturación del CPU. De ser el proceso BPBKAR se debe a que se esta ejecutando un respaldo por lo que puede alertar cpu y memoria;"1. Ingresar al servidor mediante Cyberark.
 2. Verificar el espacio utilizado del file system /Respaldo en la columa %Used: ingresando el siguiente comando: df -gt /Nombre del file 
 3. Depurar y acceder al servidor precbpyn01, ingresando el comando: cd /Nombre del file  
@@ -550,13 +508,12 @@ OJO: Si ya se eliminaron todos los archivos dentro del directorio VIOS, y el fil
 6. Verificar el porcentaje usado en la columna %Used, usando el comando df -gt /Nombre del file. Ejemplo: df -gt /Respaldo.  
 7. Repetir el procedimiento anterior si al eliminar los archivos, aún sigue alertado o cerca del umbral, el file system.";Bitacora;30/1/2025;Ricardo Urbina;Aprobado;30/5/2025;Johana Mendoza;;INC0258525;;;;
 "PRECBPMP02
-(WAS Batch Motor Pagos 1)Existen procesos que provocan la saturación de Memoria. Existe todos los dias un pico de CPU a las 8 am hasta las 8:20 am.";PSKB0046;UNIX;"PRECBPMP02
-(WAS Batch Motor Pagos 1)";Memory Saturation;Existen procesos que provocan la saturación de Memoria. Existe todos los dias un pico de CPU a las 8 am hasta las 8:20 am.;"1. Validar que la alerta se encuentre acitva en Dynatrace.
+(WAS Batch Motor Pagos 1)Existen procesos que provocan la saturación de Memoria. Existe todos los dias un pico de CPU a las 8 am hasta las 8:20 am.";PSKB0046;UNIX;PRECBPMP02;Memory Saturation;Existen procesos que provocan la saturación de Memoria. Existe todos los dias un pico de CPU a las 8 am hasta las 8:20 am.;"1. Validar que la alerta se encuentre acitva en Dynatrace.
 2. El servidor PRECBPMP02 se ejecutan procesos por control M de los servicios regularmente desde las 08:00 a las 08:30 que provocan saturación  de memoria en el servidor. Si se encuentra en este horario se debe esperar a que se normalice el consumo de memoria.
 3. En el caso de que no se normalice el consumo de memoria escalar a la torre para el análisis.
 4. En el caso de que se normalice el consumo de memoria y la alerta no persista en Dynatrace cerrar el ticket.
 ";Bitacora;30/1/2025;Ricardo Urbina;Aprobado;30/5/2025;Johana Mendoza;;INC0331999;;;;
-ecbpfcnp1, ecbpfcnp2Existen procesos propios de la aplicación que provocan la saturación de CPU. Existe en horario 08:00 - 22:00.;PSKB0047;UNIX;ecbpfcnp1, ecbpfcnp2;CPU Saturation;Existen procesos propios de la aplicación que provocan la saturación de CPU. Existe en horario 08:00 - 22:00.;"1. Validar en Dynatrace que servidor se relaciona con la alerta.
+ecbpfcnp1, ecbpfcnp2Existen procesos propios de la aplicación que provocan la saturación de CPU. Existe en horario 08:00 - 22:00.;PSKB0047;UNIX;ecbpfcnp1;CPU Saturation;Existen procesos propios de la aplicación que provocan la saturación de CPU. Existe en horario 08:00 - 22:00.;"1. Validar en Dynatrace que servidor se relaciona con la alerta.
 2.Ingresar al servidor mediante Cyberark.
 3. Ejecutar el comando topas.
 4. Aplastar la letra T (para que comunique todos los procesos que se están ejecutando).
@@ -569,95 +526,11 @@ DRECBPYN01Existen procesos que provocan la saturación de Memoria. Servidores em
 2. Realizar seguimiento hasta su finalización.
 3. El error debe solventarse automáticamente.";Bitacora;30/1/2025;Ricardo Urbina;Aprobado;30/5/2025;Johana Mendoza;;INC0310405;;;;
 ;PSKB0049;UNIX;"PRECBPMP02
-(WAS Batch Motor Pagos 1)";Memory Saturation;Existen procesos que provocan la saturación de Memoria. Existe todos los dias un pico de CPU a las 8 am hasta las 8:20 am.;"1. Validar que la alerta se encuentre acitva en Dynatrace.
+";Memory Saturation;Existen procesos que provocan la saturación de Memoria. Existe todos los dias un pico de CPU a las 8 am hasta las 8:20 am.;"1. Validar que la alerta se encuentre acitva en Dynatrace.
 2. El servidor PRECBPMP02 se ejecutan procesos por control M de los servicios regularmente desde las 08:00 a las 08:30 que provocan saturación  de memoria en el servidor. Si se encuentra en este horario se debe esperar a que se normalice el consumo de memoria.
 3. En el caso de que no se normalice el consumo de memoria escalar a la torre para el análisis.
 4. En el caso de que se normalice el consumo de memoria y la alerta no persista en Dynatrace cerrar el ticket.";Bitacora;30/1/2025;Ricardo Urbina;Aprobado;30/5/2025;Johana Mendoza;;INC0331999;;;;
-"ecbpebsb2
-ecbphabn2
-ecbpmiht1Existen procesos que provocan la saturación de Memoria. Evento relacionado con picos y comportamiento continuo debido a un proceso puntual. ";PSKB0052;UNIX;"ecbpebsb2
-ecbphabn2
-ecbpmiht1";Memory Saturation;Existen procesos que provocan la saturación de Memoria. Evento relacionado con picos y comportamiento continuo debido a un proceso puntual. ;"Articulo de conocimiento TCSECU_N1_UNIX_Saturación CPU-Memoria_procesos.docx
-Ruta: https://pichincha.sharepoint.com/:w:/r/sites/DOCUMENTACION_INFRAESTRUCTURA/Documentos%20compartidos/13.%20Documentaci%C3%B3n%20Gesti%C3%B3n%20Infraestructura%20%26%20OTI/Art%C3%ADculos%20de%20Conocimiento/N1/TCSECU_N1_UNIX_Saturaci%C3%B3n%20CPU-Memoria_procesos.docx?d=w21688e1140294a5083e56c18809ae1db&csf=1&web=1&e=ychHxe";Articulo de Conocimiento;30/1/2025;Ricardo Urbina;En certificación;30/5/2025;Johana Mendoza;;"INC0229156
-INC0231288
-INC0232678";;;;
-ecbpfcpp1 / ecbpfcpp2Se cambia los archivos mas antiguos de la ruta saturada a un nuevo directorio.;PSKB0055;UNIX;ecbpfcpp1 / ecbpfcpp2;DISCO SATURACION/LOW SPACE;Se cambia los archivos mas antiguos de la ruta saturada a un nuevo directorio.;"1. Validar en Dynatrace que proceso se relaciona con la alerta.
-2.Ingresar al servidor mediante Cyberark.
-3. Ejecutar el comando  df -gt /Nombre del file. Ejemplo: df -gt /opt/IBM 
-4. Ingresar al siguiente directorio dentro del file correspondiente, donde se generan los ""java cores"". Ejemplo: cd /opt/IBM/WebSphere/AppServer/profiles/AppSrv01 
-5. Digitar el siguiente comando para enlistar los archivos, desde el más antiguo al más reciente: ls -lrt 
-5. 1. Al final del listado generado, observar los archivos que corresponden a los logs realcionados con errores de la aplicación con el siguiente patrón: 
-core.20XXXXXX.XXXXXX.XXXXXX.XXXX.dmp 
-javacore.20XXXXXX.XXXXXX.XXXXXX.XXXX.txt
-Snap.20XXXXXX.XXXXXX.XXXXXX.XXXX.trc 
-jitdump.20XXXXXX.XXXXXX.XXXXXX.XXXX.dmp 
-7. Mover los archivos a otro espacio con mayor espacio de almacenamiento, usando el comando: mv <archivo_1> <archivo_2> <archivo_N> /Nombre del directorio. Ejemplo: mv <archivo_1> <archivo_2> <archivo_N> /bk_mksysb/ecbpfcpp1/ecbpfcpp1-coredumps.
-8. Verificar que los archivos se movieron, digitando el comando: ls -lrt /bk_mksysb/ecbpfcpp1/ecbpfcpp1-coredumps 
-9. Verificar el porcentaje utilizado del file system (columna %Used) se haya reducido, ingresar el siguiente comando: df -gt /opt/IBM
-10. Realizar el mismo proceso de depuración con el servidor ecbpfcpp2, modificando el comando del punto 7 y 8: ecbpfcpp2.
-11. Finalizado el proceso de depuración para los dos servidores ecbpfcpp1 y ecbpfcpp2, comunicar a la torre UNIX, para analizar los logs.";Bitacora;30/1/2025;Ricardo Urbina;Aprobado;30/5/2025;Johana Mendoza;;INC0282790;;;Nominado;
 preclsd001Umbral del 80% o Superior;PSKB0056;UNIX;preclsd001;DISCO SATURACION/LOW SPACE;Umbral del 80% o Superior;El FS /nxlog debe ser depurado por la Célula de Seguridad de Banco, dueño del servicio de nxlog se debe escalar la alerta al grupo TEC_BP_N3_PLATAFORMA_CS con responsable ERICK DAMIAN RISUENO BENITEZ, validar responsable de la aplicación. Enviar correo a los siguientes destinatarios frazambr, errisuen, plataformacentralizada, usrpctcs con el detalle de la alerta.;Bitacora;30/1/2025;Ricardo Urbina;Aprobado;30/5/2025;Johana Mendoza;;INC0279957;;;;
-"ecbplxakp1
-ecbplxakp2
-ecbplxakp3
-ecbplxakp5
-ecbplxakp6
-ecbplxakp7
-Este procedimiento permite conocer el estado del cluster de KAFKA";PSKB0057;UNIX;"ecbplxakp1
-ecbplxakp2
-ecbplxakp3
-ecbplxakp5
-ecbplxakp6
-ecbplxakp7
-";Evento en proceso de Aplicación;Este procedimiento permite conocer el estado del cluster de KAFKA;"1.- Ingresar a cada servidor por cyberack en el orden que se detalla a continuación:
-1.1. ecbplxakp1
-sh HealthCheckConectoresKafka.sh : Luego de la ejecucíón se deben revisar que todos los conectores esten en running.
-ps -ef | grep -i standalone : Luego de esta ejecución se debe revisa que este el proceso stndalone.
-sh HealthCheckKafka.sh : Luego de ejecutar el comando se debe esperar que el numero de topicos no sobrepase 500.
-systemctl status kafka:Se debe verificar que el servicio este activo
-1.2 ecbplxakp2
-systemctl status kafka: Se debe verificar que el servicio este activo
-1.3 ecbplxakp3
-sh HealthCheckConnectorsKafka.sh : Luego de la ejecucíón se deben revisar que todos los conectores esten en running.
-ps -ef | grep -i standalone : Luego de esta ejeución se debe revisa que este el proceso stndalone.
-systemctl status kafka: Se debe verificar que el servicio este activo
-1.4 ecbplxakp5
-systemctl status zookeeper.service: Se debe verificar que el servicio este activo
-1.5 ecbplxakp6
-systemctl status zookeeper.service: Se debe verificar que el servicio este activo
-1.6 ecbplxakp7
-systemctl status zookeeper.service: Se debe verificar que el servicio este activo.
-NOTA: Si los resultados no son los esperados se debe comunicar con el stabdby de turno de la torre UNIX
-SUGERENCIA: Tomar la referenci del documento TCSECU_N1_UNIX_PROCEDIMIENTO_REVISION_KAFKA para mas detalles";Bitacora;30/1/2025;Edgar Ortiz;Aprobado;30/5/2025;Johana Mendoza;;"ecbplxakp1: 
-INC0113219
-
-ecbplxakp2
-INC0026434
-
-ecbplxakp3
-INC0064765
-
-ecbplxakp5
-INC0070600
-
-ecbplxakp6
-INC0049404
-";"Revisar
-Gestión Incidentes";"ecbplxakp1: 
-KDB0058048
-
-ecbplxakp2
-KDB0058049
-
-ecbplxakp3
-KDB0058050
-
-
-ecbplxakp5
-KDB0058051
-
-ecbplxakp6
-KDB0058052";Nominado;
 "PRECBPSG01Este procedimiento permite conocer el estado de los 
 SNA- CICS en SIGLOXXI";PSKB0058;UNIX;PRECBPSG01;CICS SNA;"Este procedimiento permite conocer el estado de los 
 SNA- CICS en SIGLOXXI";"Ingresar al servidor por cyberack en el orden que se detalla a continuación:
@@ -703,35 +576,7 @@ cd BACKUP_HMC (en caso de que BACKUP_HMC más)
 NOTA: cada vez que se ralice el paso 8, es necesario validar el estado del file system con el comando df -gt /Respaldo. Validar hasta que se tenga un porcentaje de %Used del 70% aproximadamente.
 SUGERENCIA: Tomar la referenci del documento TCSECU_N1_UNIX_Depuración_file_system_precbpyn01 para mas detalles";Bitacora;30/1/2025;Bryan Meza;Aprobado;30/5/2025;Johana Mendoza;;INC0280011;"Revisar
 Gestión Incidentes";KDB0058054;Nominado;
-"PRECBPOC13
-PRECBPOC14Este procedimiento permite realizar la depuración del file system /backup de los servidores PRECBPOC13 y PRECBPOC14";PSKB0060;UNIX;"PRECBPOC13
-PRECBPOC14";Incremento de espacio en filesystem;Este procedimiento permite realizar la depuración del file system /backup de los servidores PRECBPOC13 y PRECBPOC14;"Ingresar a los servidores PRECBPOC13 y PRECBPOC14 mediante Cyberark.
-1. Verificar el porcentaje de uso del file system /backup: df -gt /backup
-2. Ingresamos al directorio de logs del file system con el comando: cd /backup/LOGS
-3. Previo a depurar el file system, es importante consultar con respaldos cuando fue el último backup que generaron de los servidores PRECBPOC13 y PRECBPOC14, específicamente del file system /backup.
-4. Con la confirmación de que, si existe un respaldo vigente, se puede proceder a depurar los logs más antiguos a partir del día sábado. Con el siguiente comando, se podrá ir validando si existen logs antiguos para ser depurados:
-find . -type f -mtime +7 -ls | head
-find . -type f -mtime +7 -ls | tail
-find . -type f -mtime +7 | wc -l
-NOTA: una vez que el comando muestra un resultado, es importante presionar CONTROL + C para recuperar el control de la consola.
-5. El valor “+7” en el comando anterior indica que se van a buscar los archivos que tengas más de 7 días de antigüedad. Si al momento de ejecutar el comando no se tiene ningún resultado, se debe disminuir el valor del número hasta un máximo de ""+5""
-NOTA: es recomendable empezar con el valor de “+7”.
-6. Una vez que se determina cuales logs se van a depurar, se debe ingresar el siguiente comando, donde el valor de “+7” es el que se determinó en el paso anterior.
-find . -type f -mtime +7 -exec rm -f {} \; 
-NOTA: Comando para eliminar archivos mayores a 7 días.Validar siempre que se encuentren en la ruta /backup/LOGS (pwd)
-7. Para validar si disminuyó el espacio utilizado del file system, se ingresa el comando y se valida el %Used: df -gt /backup
-NOTA: Si los resultados no son los esperados se debe comunicar con el stabdby de turno de la torre UNIX
-SUGERENCIA: Tomar la referenci del documento TCSECU_N1_UNIX_Depuración_file_system_WAS_omni para mas detalles";Articulo de Conocimiento;30/1/2025;Bryan Meza;Aprobado;30/5/2025;Johana Mendoza;;"PRECBPOC13: 
-INC0083886
-
-
-PRECBPOC14:
-INC0106812";"Revisar
-Gestión Incidentes";"PRECBPOC13:
-KB0058055
-
-PRECBPOC14:
-KB0058056";Nominado;Link
+;;;;;;;;;;;;;;;;;;
 PRECBPSG01En caso de encontrar el FS /var/log alertado se realiza los siguientes pasos para su depuración;PSKB0061;UNIX;PRECBPSG01;Incremento de espacio en filesystem;En caso de encontrar el FS /var/log alertado se realiza los siguientes pasos para su depuración;"Nota: No se debe eliminar ni los directorios ni los archivos, se debe realizar la copia del contenido de los archivos en un backup y posterior se lo vacia.
 
 Ingresar al servidor que presenta la alerta en este caso PRECBPSG01
@@ -812,14 +657,6 @@ Nota: En caso de que posterior a los 20 minutos siga el incidente, comunicar al 
 INC0351821";;;;
 preclsa022TCP connectivity;PSKB0065;UNIX;preclsa022;Evento-nxlog;TCP connectivity;La alerta por conectividad de NXLOG debe ser escalado a la Célula de Seguridad de Banco, quienes son los dueños del servicio de nxlog, se debe escalar al grupo TEC_BP_N3_PLATAFORMA_CS con responsable ERICK DAMIAN RISUENO BENITEZ, validar responsable de la aplicación. Enviar correo a los siguientes destinatarios frazambr, errisuen, plataformacentralizada, usrpctcs con el detalle de la alerta.;Bitacora;30/1/2025;Ricardo Urbina;Aprobado;30/5/2025;Johana Mendoza;;INC0279957;;;;
 preclsa009TCP connectivity;PSKB0066;UNIX;preclsa009;Evento-nxlog;TCP connectivity;La alerta por conectividad de NXLOG debe ser escalado a la Célula de Seguridad de Banco, quienes son los dueños del servicio de nxlog, se debe escalar al grupo TEC_BP_N3_PLATAFORMA_CS con responsable ERICK DAMIAN RISUENO BENITEZ, validar responsable de la aplicación. Enviar correo a los siguientes destinatarios frazambr, errisuen, plataformacentralizada, usrpctcs con el detalle de la alerta.;Bitacora;30/1/2025;Ricardo Urbina;Aprobado;30/5/2025;Johana Mendoza;;INC0279957;;;;
-ecbpprap17 y ecbpprap18Caso verificado y coordinado con TEUNO y BP;PSKB0067;WINTEL;ecbpprap17 y ecbpprap18;DISCO SATURACION/LOW SPACE;Caso verificado y coordinado con TEUNO y BP;"1. Ingresar al servidor mediante el Cyberark.
-2. Dentro del servidor ingresar al disco C, e ingresar a la carpeta ""temp"", dentro de la carpeta ""treesize"".
-3. Ejecutar como administrador el programa ""treesize"".
-4. Verificar qué esta saturando el disco.
-5. Tomar una captura a la pantalla y generar un correo dirigido a Jessica Cabrera jessica.cabrera@teuno.com (administradores de los discos C y D de esos servidores).
-6. En el correo especificar, la necesidad de depuración de los discos al generar una alerta en la infraestructura.
-7. Una vez ejecutada la depuración la alerta no debe persentarse.";Bitacora;30/1/2025;Juan Robalino;Aprobado;Pendiente;Johana Mendoza;;"
-INC0245708";KB0057987;Registrado y aprobado en Service Now;;
 ecbpprw96Workaround definido y probado. En ambiente productivo;PSKB0068;WINTEL;ecbpprw96;DISCO SATURACION/LOW SPACE;Workaround definido y probado. En ambiente productivo;"1. Ingresar al servidor alertado
 2. Abrir el programa ""TreeSizeFree-Portable"" que se encuentra en la siguiente ruta C:\temp\TreeSizeFree-Portable (click derecho y correr como administrador)
 3. Proceder con la depuración de archivos con extesión .log con tiempo de antiguedad mayor a un mes de la ruta ""D:\sitios\pub\Tcs.Checklist\log"". ";Bitacora;30/1/2025;Juan Robalino;Aprobado;Pendiente;Johana Mendoza;;INC0028455;KB0058046;Registrado en Service Now;;
@@ -831,18 +668,6 @@ ecbpprw96Workaround definido y probado. En ambiente productivo;PSKB0068;WINTEL;e
 5. Si luego de 10 a 15 minutos la alerta no se recupera en Dynatrace se debe transferir la tarea de incidente a Wintel, si la alerta se recupera se debe proceder a cerrar la tarea asignada.
  
 ";Bitacora;27/5/2025;Arsecio Vergara;Aprobado;Pendiente;Johana Mendoza;;;;Pendiente revision Workaround, revision del flujo y aprobacion para la ejecucion de la tarea;;
-"precwcl010
-precwcl006
-precwcl005
-precwcl009Alta utilización de tarjeta de red";PSKB0070;WINTEL;"precwcl010
-precwcl006
-precwcl005
-precwcl009";Networking;Alta utilización de tarjeta de red;"Para verificar se debe realizar los siguientes pasos:
-1. Ingresar al servidor alertado
-2. Dar click derecho sobre la barra de tareas e Ingresar al administrador de tareas
-3.  Ir a Performance>Open Resourse Monitor>Network
-4. Luego en la sección de Network Activity> Dar click sobre Total (B/Sec) para ordenar descendentemente
-5. Si el proceso que mas consume se llama ""pbx_exchange.exe"" es porque se debe a procesos de respaldos, por lo cual no se debe generar incidente, solo mantener el monitoreo.";Bitacora;30/1/2025;Arsecio Vergara;Aprobado;Pendiente;Johana Mendoza;;;;;;
 DRECXDB008CPU Saturation;PSKB0071;BDD;DRECXDB008;CPU Saturation;CPU Saturation;"1. Ingresamos al cyberark.
 2. Buscar el nombre del servidor afectado.(columa C Nombre Componente)
 3,conectar por la opcion plsql
@@ -893,37 +718,718 @@ NOTA: cerrar el evento como controlado en caso que la alerta dure mas de 15 minu
 3. ejecutamos el comando ""topas"".                                                                                                                                                                                   
  4. Visualizamos en la parte derecha el porcentaje de memoria computacional (% Comp). Si el porcentaje es mayor al 93% y el evento persiste más de 15 minutos notificar a BDD.
 Nota: El evento que presenta por saturacion de memoria en dynatrace  no es la real se debe verificar el dashbord de unix el cual toma  la memoria computacional, si se encuentra en rojo, reportar, caso contrario cerrar indicando que es un evento controlado y no reporta la memoria real https://xyc10065.live.dynatrace.com/index.jsp?state=W5OHiIGFgThLgMK_4bTMuLyC81C6RRzc95p8TRdR4L0&code=2679782c-1aab-46f4-8246-bce697239142#dashboard;gtf=-10m;gf=all;id=3e82d414-3faa-4997-ae73-fc014376add0";Bitacora;18/7/2025;Henry Mañay;En proceso;18/7/2025;Santiago Valencia;N/A;;;;;
-;;BDD;;CPU Saturation;;;;;;;;;;;;;;
-;;BDD;;CPU Saturation;;;;;;;;;;;;;;
-;;BDD;;CPU Saturation;;;;;;;;;;;;;;
-;;BDD;;CPU Saturation;;;;;;;;;;;;;;
-;;BDD;;CPU Saturation;;;;;;;;;;;;;;
-;;BDD;;CPU Saturation;;;;;;;;;;;;;;
-;;BDD;;CPU Saturation;;;;;;;;;;;;;;
-;;BDD;;CPU Saturation;;;;;;;;;;;;;;
-;;BDD;;CPU Saturation;;;;;;;;;;;;;;
-;;BDD;;CPU Saturation;;;;;;;;;;;;;;
-;;BDD;;CPU Saturation;;;;;;;;;;;;;;
-;;BDD;;CPU Saturation;;;;;;;;;;;;;;
-;;BDD;;CPU Saturation;;;;;;;;;;;;;;
-;;BDD;;CPU Saturation;;;;;;;;;;;;;;
-;;BDD;;CPU Saturation;;;;;;;;;;;;;;
-;;BDD;;CPU Saturation;;;;;;;;;;;;;;
-;;BDD;;CPU Saturation;;;;;;;;;;;;;;
-;;BDD;;CPU Saturation;;;;;;;;;;;;;;
-;;BDD;;CPU Saturation;;;;;;;;;;;;;;
-;;BDD;;CPU Saturation;;;;;;;;;;;;;;
-;;BDD;;CPU Saturation;;;;;;;;;;;;;;
-;;BDD;;CPU Saturation;;;;;;;;;;;;;;
-;;BDD;;CPU Saturation;;;;;;;;;;;;;;
-;;BDD;;CPU Saturation;;;;;;;;;;;;;;
-;;BDD;;CPU Saturation;;;;;;;;;;;;;;
-;;BDD;;CPU Saturation;;;;;;;;;;;;;;
-;;BDD;;CPU Saturation;;;;;;;;;;;;;;
-;;BDD;;CPU Saturation;;;;;;;;;;;;;;
-;;BDD;;CPU Saturation;;;;;;;;;;;;;;
-;;BDD;;CPU Saturation;;;;;;;;;;;;;;
-;;BDD;;CPU Saturation;;;;;;;;;;;;;;
-;;BDD;;CPU Saturation;;;;;;;;;;;;;;
-;;BDD;;CPU Saturation;;;;;;;;;;;;;;
-;;BDD;;CPU Saturation;;;;;;;;;;;;;;
+"precwcl010
+precwcl006
+precwcl005
+precwcl009Alta utilización de tarjeta de red";PSKB0070;WINTEL;"precwcl010
+";Networking;Alta utilización de tarjeta de red;"Para verificar se debe realizar los siguientes pasos:
+1. Ingresar al servidor alertado
+2. Dar click derecho sobre la barra de tareas e Ingresar al administrador de tareas
+3.  Ir a Performance>Open Resourse Monitor>Network
+4. Luego en la sección de Network Activity> Dar click sobre Total (B/Sec) para ordenar descendentemente
+5. Si el proceso que mas consume se llama ""pbx_exchange.exe"" es porque se debe a procesos de respaldos, por lo cual no se debe generar incidente, solo mantener el monitoreo.";Bitacora;30/1/2025;Arsecio Vergara;Aprobado;Pendiente;Johana Mendoza;;;;;;
+;PSKB0070;WINTEL;precwcl006;Networking;Alta utilización de tarjeta de red;"Para verificar se debe realizar los siguientes pasos:
+1. Ingresar al servidor alertado
+2. Dar click derecho sobre la barra de tareas e Ingresar al administrador de tareas
+3.  Ir a Performance>Open Resourse Monitor>Network
+4. Luego en la sección de Network Activity> Dar click sobre Total (B/Sec) para ordenar descendentemente
+5. Si el proceso que mas consume se llama ""pbx_exchange.exe"" es porque se debe a procesos de respaldos, por lo cual no se debe generar incidente, solo mantener el monitoreo.";Bitacora;30/1/2025;Arsecio Vergara;Aprobado;Pendiente;Johana Mendoza;;;;;;
+;PSKB0070;WINTEL;precwcl005;Networking;Alta utilización de tarjeta de red;"Para verificar se debe realizar los siguientes pasos:
+1. Ingresar al servidor alertado
+2. Dar click derecho sobre la barra de tareas e Ingresar al administrador de tareas
+3.  Ir a Performance>Open Resourse Monitor>Network
+4. Luego en la sección de Network Activity> Dar click sobre Total (B/Sec) para ordenar descendentemente
+5. Si el proceso que mas consume se llama ""pbx_exchange.exe"" es porque se debe a procesos de respaldos, por lo cual no se debe generar incidente, solo mantener el monitoreo.";Bitacora;30/1/2025;Arsecio Vergara;Aprobado;Pendiente;Johana Mendoza;;;;;;
+;PSKB0070;WINTEL;precwcl009;Networking;Alta utilización de tarjeta de red;"Para verificar se debe realizar los siguientes pasos:
+1. Ingresar al servidor alertado
+2. Dar click derecho sobre la barra de tareas e Ingresar al administrador de tareas
+3.  Ir a Performance>Open Resourse Monitor>Network
+4. Luego en la sección de Network Activity> Dar click sobre Total (B/Sec) para ordenar descendentemente
+5. Si el proceso que mas consume se llama ""pbx_exchange.exe"" es porque se debe a procesos de respaldos, por lo cual no se debe generar incidente, solo mantener el monitoreo.";Bitacora;30/1/2025;Arsecio Vergara;Aprobado;Pendiente;Johana Mendoza;;;;;;
+ecbpprap17 y ecbpprap18Caso verificado y coordinado con TEUNO y BP;PSKB0067;WINTEL;ecbpprap17;DISCO SATURACION/LOW SPACE;Caso verificado y coordinado con TEUNO y BP;"1. Ingresar al servidor mediante el Cyberark.
+2. Dentro del servidor ingresar al disco C, e ingresar a la carpeta ""temp"", dentro de la carpeta ""treesize"".
+3. Ejecutar como administrador el programa ""treesize"".
+4. Verificar qué esta saturando el disco.
+5. Tomar una captura a la pantalla y generar un correo dirigido a Jessica Cabrera jessica.cabrera@teuno.com (administradores de los discos C y D de esos servidores).
+6. En el correo especificar, la necesidad de depuración de los discos al generar una alerta en la infraestructura.
+7. Una vez ejecutada la depuración la alerta no debe persentarse.";Bitacora;30/1/2025;Juan Robalino;Aprobado;Pendiente;Johana Mendoza;;"
+INC0245708";KB0057987;Registrado y aprobado en Service Now;;
+ecbpprap17 y ecbpprap18Caso verificado y coordinado con TEUNO y BP;PSKB0067;WINTEL;ecbpprap18;DISCO SATURACION/LOW SPACE;Caso verificado y coordinado con TEUNO y BP;"1. Ingresar al servidor mediante el Cyberark.
+2. Dentro del servidor ingresar al disco C, e ingresar a la carpeta ""temp"", dentro de la carpeta ""treesize"".
+3. Ejecutar como administrador el programa ""treesize"".
+4. Verificar qué esta saturando el disco.
+5. Tomar una captura a la pantalla y generar un correo dirigido a Jessica Cabrera jessica.cabrera@teuno.com (administradores de los discos C y D de esos servidores).
+6. En el correo especificar, la necesidad de depuración de los discos al generar una alerta en la infraestructura.
+7. Una vez ejecutada la depuración la alerta no debe persentarse.";Bitacora;30/1/2025;Juan Robalino;Aprobado;Pendiente;Johana Mendoza;;"
+INC0245708";KB0057987;Registrado y aprobado en Service Now;;
+"PRECXDB003
+PRECXDB002Memory Saturation";PSKB0029;BDD;PRECXDB002;Memory Saturation;Memory Saturation;"1. Ingresar a cyberark mediante el link https://privilegiados.uio.bpichincha.com/PasswordVault/v10/
+2. Buscar el servidor afectado (columa C Nombre Componente)
+3. Conectar por la opcion ssh (cyberak)
+4. En una consola del servidor ejecutamos el comando ""topas"".                                                                                                                                                                                   
+5. Visualizamos en la parte derecha el porcentaje de memoria computacional (% Comp). Si el porcentaje es mayor al 93% y el evento persiste más de 15 minutos notificar a BDD.
+Nota: El evento que presenta por saturacion de memoria en dynatrace  no es la real se debe verificar el dashbord de unix el cual toma  la memoria computacional, si se encuentra en rojo, reportar, caso contrario cerrar indicando que es un evento controlado y no reporta la memoria real https://xyc10065.live.dynatrace.com/index.jsp?state=W5OHiIGFgThLgMK_4bTMuLyC81C6RRzc95p8TRdR4L0&code=2679782c-1aab-46f4-8246-bce697239142#dashboard;gtf=-10m;gf=all;id=3e82d414-3faa-4997-ae73-fc014376add0";Bitacora;30/1/2025;Henry Mañay;Aprobado;30/5/2025;David Medina;;INC0046496;KB0058122;;;
+"PPECXDB002
+PPECXDB003
+PPECXDB004
+PPECXDB005
+CPU Saturation AIX";PSKB0034;BDD;PPECXDB002;CPU Saturation;CPU Saturation AIX;"
+De acuerdo a las verificaciones realizadas los servidores a continuación son parte del proyecto de Bancs Preproducción los mismos que todavía no están entregados a base de datos producción para su respectiva administración por lo cual cualquier evento reportado por dynatrace relacionado a  Jesús Viciosa 
+javicios@pichincha.com
+ahmirand@pichincha.com
+fdgarcia@pichincha.com
+luiafern@pichincha.com";Bitacora;30/1/2025;Henry Mañay;Aprobado;30/5/2025;David Medina;;INC0331425;KB0058127;;;
+"PPECXDB002
+PPECXDB003
+PPECXDB004
+PPECXDB005
+CPU Saturation AIX";PSKB0034;BDD;PPECXDB003;CPU Saturation;CPU Saturation AIX;"
+De acuerdo a las verificaciones realizadas los servidores a continuación son parte del proyecto de Bancs Preproducción los mismos que todavía no están entregados a base de datos producción para su respectiva administración por lo cual cualquier evento reportado por dynatrace relacionado a  Jesús Viciosa 
+javicios@pichincha.com
+ahmirand@pichincha.com
+fdgarcia@pichincha.com
+luiafern@pichincha.com";Bitacora;30/1/2025;Henry Mañay;Aprobado;30/5/2025;David Medina;;INC0331425;KB0058127;;;
+"PPECXDB002
+PPECXDB003
+PPECXDB004
+PPECXDB005
+CPU Saturation AIX";PSKB0034;BDD;PPECXDB004;CPU Saturation;CPU Saturation AIX;"
+De acuerdo a las verificaciones realizadas los servidores a continuación son parte del proyecto de Bancs Preproducción los mismos que todavía no están entregados a base de datos producción para su respectiva administración por lo cual cualquier evento reportado por dynatrace relacionado a  Jesús Viciosa 
+javicios@pichincha.com
+ahmirand@pichincha.com
+fdgarcia@pichincha.com
+luiafern@pichincha.com";Bitacora;30/1/2025;Henry Mañay;Aprobado;30/5/2025;David Medina;;INC0331425;KB0058127;;;
+"PPECXDB002
+PPECXDB003
+PPECXDB004
+PPECXDB005
+CPU Saturation AIX";PSKB0034;BDD;PPECXDB005;CPU Saturation;CPU Saturation AIX;"
+De acuerdo a las verificaciones realizadas los servidores a continuación son parte del proyecto de Bancs Preproducción los mismos que todavía no están entregados a base de datos producción para su respectiva administración por lo cual cualquier evento reportado por dynatrace relacionado a  Jesús Viciosa 
+javicios@pichincha.com
+ahmirand@pichincha.com
+fdgarcia@pichincha.com
+luiafern@pichincha.com";Bitacora;30/1/2025;Henry Mañay;Aprobado;30/5/2025;David Medina;;INC0331425;KB0058127;;;
+"ecbpbinp1
+precxodb002
+PRECLMN006
+PRECBPCM01
+preclmn005
+ecbplxapp23
+PRECBPHCA1
+PRECBPMP02
+(WAS Batch Motor Pagos 1)Hay una saturación del CPU,  debido al proceso que realiza respaldos de una BDD de 00:00 a 01:20, todos los días.
+OJO: si toma más de este tiempo se debe escalar ";PSKB0041;UNIX;ecbpbinp1;CPU Saturation;"Hay una saturación del CPU,  debido al proceso que realiza respaldos de una BDD de 00:00 a 01:20, todos los días.
+OJO: si toma más de este tiempo se debe escalar ";"Articulo de conocimiento TCSECU_N1_UNIX_Saturación CPU-Memoria_procesos.docx
+Ruta: https://pichincha.sharepoint.com/:w:/r/sites/DOCUMENTACION_INFRAESTRUCTURA/Documentos%20compartidos/13.%20Documentaci%C3%B3n%20Gesti%C3%B3n%20Infraestructura%20%26%20OTI/Art%C3%ADculos%20de%20Conocimiento/N1/TCSECU_N1_UNIX_Saturaci%C3%B3n%20CPU-Memoria_procesos.docx?d=w21688e1140294a5083e56c18809ae1db&csf=1&web=1&e=ychHxe";Articulo de Conocimiento;30/1/2025;Ricardo Urbina;En certificación;30/5/2025;Johana Mendoza;;"INC0279021
+INC0232269
+INC0151245
+INC0299664
+INC0272258
+INC0031992
+INC0081723
+INC0126968";;;;
+"ecbpbinp1
+precxodb002
+PRECLMN006
+PRECBPCM01
+preclmn005
+ecbplxapp23
+PRECBPHCA1
+PRECBPMP02
+(WAS Batch Motor Pagos 1)Hay una saturación del CPU,  debido al proceso que realiza respaldos de una BDD de 00:00 a 01:20, todos los días.
+OJO: si toma más de este tiempo se debe escalar ";PSKB0041;UNIX;precxodb002;CPU Saturation;"Hay una saturación del CPU,  debido al proceso que realiza respaldos de una BDD de 00:00 a 01:20, todos los días.
+OJO: si toma más de este tiempo se debe escalar ";"Articulo de conocimiento TCSECU_N1_UNIX_Saturación CPU-Memoria_procesos.docx
+Ruta: https://pichincha.sharepoint.com/:w:/r/sites/DOCUMENTACION_INFRAESTRUCTURA/Documentos%20compartidos/13.%20Documentaci%C3%B3n%20Gesti%C3%B3n%20Infraestructura%20%26%20OTI/Art%C3%ADculos%20de%20Conocimiento/N1/TCSECU_N1_UNIX_Saturaci%C3%B3n%20CPU-Memoria_procesos.docx?d=w21688e1140294a5083e56c18809ae1db&csf=1&web=1&e=ychHxe";Articulo de Conocimiento;30/1/2025;Ricardo Urbina;En certificación;30/5/2025;Johana Mendoza;;"INC0279021
+INC0232269
+INC0151245
+INC0299664
+INC0272258
+INC0031992
+INC0081723
+INC0126968";;;;
+"ecbpbinp1
+precxodb002
+PRECLMN006
+PRECBPCM01
+preclmn005
+ecbplxapp23
+PRECBPHCA1
+PRECBPMP02
+(WAS Batch Motor Pagos 1)Hay una saturación del CPU,  debido al proceso que realiza respaldos de una BDD de 00:00 a 01:20, todos los días.
+OJO: si toma más de este tiempo se debe escalar ";PSKB0041;UNIX;PRECLMN006;CPU Saturation;"Hay una saturación del CPU,  debido al proceso que realiza respaldos de una BDD de 00:00 a 01:20, todos los días.
+OJO: si toma más de este tiempo se debe escalar ";"Articulo de conocimiento TCSECU_N1_UNIX_Saturación CPU-Memoria_procesos.docx
+Ruta: https://pichincha.sharepoint.com/:w:/r/sites/DOCUMENTACION_INFRAESTRUCTURA/Documentos%20compartidos/13.%20Documentaci%C3%B3n%20Gesti%C3%B3n%20Infraestructura%20%26%20OTI/Art%C3%ADculos%20de%20Conocimiento/N1/TCSECU_N1_UNIX_Saturaci%C3%B3n%20CPU-Memoria_procesos.docx?d=w21688e1140294a5083e56c18809ae1db&csf=1&web=1&e=ychHxe";Articulo de Conocimiento;30/1/2025;Ricardo Urbina;En certificación;30/5/2025;Johana Mendoza;;"INC0279021
+INC0232269
+INC0151245
+INC0299664
+INC0272258
+INC0031992
+INC0081723
+INC0126968";;;;
+"ecbpbinp1
+precxodb002
+PRECLMN006
+PRECBPCM01
+preclmn005
+ecbplxapp23
+PRECBPHCA1
+PRECBPMP02
+(WAS Batch Motor Pagos 1)Hay una saturación del CPU,  debido al proceso que realiza respaldos de una BDD de 00:00 a 01:20, todos los días.
+OJO: si toma más de este tiempo se debe escalar ";PSKB0041;UNIX;PRECBPCM01;CPU Saturation;"Hay una saturación del CPU,  debido al proceso que realiza respaldos de una BDD de 00:00 a 01:20, todos los días.
+OJO: si toma más de este tiempo se debe escalar ";"Articulo de conocimiento TCSECU_N1_UNIX_Saturación CPU-Memoria_procesos.docx
+Ruta: https://pichincha.sharepoint.com/:w:/r/sites/DOCUMENTACION_INFRAESTRUCTURA/Documentos%20compartidos/13.%20Documentaci%C3%B3n%20Gesti%C3%B3n%20Infraestructura%20%26%20OTI/Art%C3%ADculos%20de%20Conocimiento/N1/TCSECU_N1_UNIX_Saturaci%C3%B3n%20CPU-Memoria_procesos.docx?d=w21688e1140294a5083e56c18809ae1db&csf=1&web=1&e=ychHxe";Articulo de Conocimiento;30/1/2025;Ricardo Urbina;En certificación;30/5/2025;Johana Mendoza;;"INC0279021
+INC0232269
+INC0151245
+INC0299664
+INC0272258
+INC0031992
+INC0081723
+INC0126968";;;;
+"ecbpbinp1
+precxodb002
+PRECLMN006
+PRECBPCM01
+preclmn005
+ecbplxapp23
+PRECBPHCA1
+PRECBPMP02
+(WAS Batch Motor Pagos 1)Hay una saturación del CPU,  debido al proceso que realiza respaldos de una BDD de 00:00 a 01:20, todos los días.
+OJO: si toma más de este tiempo se debe escalar ";PSKB0041;UNIX;preclmn005;CPU Saturation;"Hay una saturación del CPU,  debido al proceso que realiza respaldos de una BDD de 00:00 a 01:20, todos los días.
+OJO: si toma más de este tiempo se debe escalar ";"Articulo de conocimiento TCSECU_N1_UNIX_Saturación CPU-Memoria_procesos.docx
+Ruta: https://pichincha.sharepoint.com/:w:/r/sites/DOCUMENTACION_INFRAESTRUCTURA/Documentos%20compartidos/13.%20Documentaci%C3%B3n%20Gesti%C3%B3n%20Infraestructura%20%26%20OTI/Art%C3%ADculos%20de%20Conocimiento/N1/TCSECU_N1_UNIX_Saturaci%C3%B3n%20CPU-Memoria_procesos.docx?d=w21688e1140294a5083e56c18809ae1db&csf=1&web=1&e=ychHxe";Articulo de Conocimiento;30/1/2025;Ricardo Urbina;En certificación;30/5/2025;Johana Mendoza;;"INC0279021
+INC0232269
+INC0151245
+INC0299664
+INC0272258
+INC0031992
+INC0081723
+INC0126968";;;;
+"ecbpbinp1
+precxodb002
+PRECLMN006
+PRECBPCM01
+preclmn005
+ecbplxapp23
+PRECBPHCA1
+PRECBPMP02
+(WAS Batch Motor Pagos 1)Hay una saturación del CPU,  debido al proceso que realiza respaldos de una BDD de 00:00 a 01:20, todos los días.
+OJO: si toma más de este tiempo se debe escalar ";PSKB0041;UNIX;ecbplxapp23;CPU Saturation;"Hay una saturación del CPU,  debido al proceso que realiza respaldos de una BDD de 00:00 a 01:20, todos los días.
+OJO: si toma más de este tiempo se debe escalar ";"Articulo de conocimiento TCSECU_N1_UNIX_Saturación CPU-Memoria_procesos.docx
+Ruta: https://pichincha.sharepoint.com/:w:/r/sites/DOCUMENTACION_INFRAESTRUCTURA/Documentos%20compartidos/13.%20Documentaci%C3%B3n%20Gesti%C3%B3n%20Infraestructura%20%26%20OTI/Art%C3%ADculos%20de%20Conocimiento/N1/TCSECU_N1_UNIX_Saturaci%C3%B3n%20CPU-Memoria_procesos.docx?d=w21688e1140294a5083e56c18809ae1db&csf=1&web=1&e=ychHxe";Articulo de Conocimiento;30/1/2025;Ricardo Urbina;En certificación;30/5/2025;Johana Mendoza;;"INC0279021
+INC0232269
+INC0151245
+INC0299664
+INC0272258
+INC0031992
+INC0081723
+INC0126968";;;;
+"ecbpbinp1
+precxodb002
+PRECLMN006
+PRECBPCM01
+preclmn005
+ecbplxapp23
+PRECBPHCA1
+PRECBPMP02
+(WAS Batch Motor Pagos 1)Hay una saturación del CPU,  debido al proceso que realiza respaldos de una BDD de 00:00 a 01:20, todos los días.
+OJO: si toma más de este tiempo se debe escalar ";PSKB0041;UNIX;PRECBPHCA1;CPU Saturation;"Hay una saturación del CPU,  debido al proceso que realiza respaldos de una BDD de 00:00 a 01:20, todos los días.
+OJO: si toma más de este tiempo se debe escalar ";"Articulo de conocimiento TCSECU_N1_UNIX_Saturación CPU-Memoria_procesos.docx
+Ruta: https://pichincha.sharepoint.com/:w:/r/sites/DOCUMENTACION_INFRAESTRUCTURA/Documentos%20compartidos/13.%20Documentaci%C3%B3n%20Gesti%C3%B3n%20Infraestructura%20%26%20OTI/Art%C3%ADculos%20de%20Conocimiento/N1/TCSECU_N1_UNIX_Saturaci%C3%B3n%20CPU-Memoria_procesos.docx?d=w21688e1140294a5083e56c18809ae1db&csf=1&web=1&e=ychHxe";Articulo de Conocimiento;30/1/2025;Ricardo Urbina;En certificación;30/5/2025;Johana Mendoza;;"INC0279021
+INC0232269
+INC0151245
+INC0299664
+INC0272258
+INC0031992
+INC0081723
+INC0126968";;;;
+"ecbpbinp1
+precxodb002
+PRECLMN006
+PRECBPCM01
+preclmn005
+ecbplxapp23
+PRECBPHCA1
+PRECBPMP02
+(WAS Batch Motor Pagos 1)Hay una saturación del CPU,  debido al proceso que realiza respaldos de una BDD de 00:00 a 01:20, todos los días.
+OJO: si toma más de este tiempo se debe escalar ";PSKB0041;UNIX;PRECBPMP02;CPU Saturation;"Hay una saturación del CPU,  debido al proceso que realiza respaldos de una BDD de 00:00 a 01:20, todos los días.
+OJO: si toma más de este tiempo se debe escalar ";"Articulo de conocimiento TCSECU_N1_UNIX_Saturación CPU-Memoria_procesos.docx
+Ruta: https://pichincha.sharepoint.com/:w:/r/sites/DOCUMENTACION_INFRAESTRUCTURA/Documentos%20compartidos/13.%20Documentaci%C3%B3n%20Gesti%C3%B3n%20Infraestructura%20%26%20OTI/Art%C3%ADculos%20de%20Conocimiento/N1/TCSECU_N1_UNIX_Saturaci%C3%B3n%20CPU-Memoria_procesos.docx?d=w21688e1140294a5083e56c18809ae1db&csf=1&web=1&e=ychHxe";Articulo de Conocimiento;30/1/2025;Ricardo Urbina;En certificación;30/5/2025;Johana Mendoza;;"INC0279021
+INC0232269
+INC0151245
+INC0299664
+INC0272258
+INC0031992
+INC0081723
+INC0126968";;;;
+"ecbpbinp1
+precxodb002
+PRECLMN006
+PRECBPCM01
+preclmn005
+ecbplxapp23
+PRECBPHCA1
+PRECBPMP02
+(WAS Batch Motor Pagos 1)Hay una saturación del CPU,  debido al proceso que realiza respaldos de una BDD de 00:00 a 01:20, todos los días.
+OJO: si toma más de este tiempo se debe escalar ";PSKB0041;UNIX;(WAS Batch Motor Pagos 1);CPU Saturation;"Hay una saturación del CPU,  debido al proceso que realiza respaldos de una BDD de 00:00 a 01:20, todos los días.
+OJO: si toma más de este tiempo se debe escalar ";"Articulo de conocimiento TCSECU_N1_UNIX_Saturación CPU-Memoria_procesos.docx
+Ruta: https://pichincha.sharepoint.com/:w:/r/sites/DOCUMENTACION_INFRAESTRUCTURA/Documentos%20compartidos/13.%20Documentaci%C3%B3n%20Gesti%C3%B3n%20Infraestructura%20%26%20OTI/Art%C3%ADculos%20de%20Conocimiento/N1/TCSECU_N1_UNIX_Saturaci%C3%B3n%20CPU-Memoria_procesos.docx?d=w21688e1140294a5083e56c18809ae1db&csf=1&web=1&e=ychHxe";Articulo de Conocimiento;30/1/2025;Ricardo Urbina;En certificación;30/5/2025;Johana Mendoza;;"INC0279021
+INC0232269
+INC0151245
+INC0299664
+INC0272258
+INC0031992
+INC0081723
+INC0126968";;;;
+ecbpfcnp1, ecbpfcnp2Existen procesos propios de la aplicación que provocan la saturación de CPU. Existe en horario 08:00 - 22:00.;PSKB0047;UNIX;ecbpfcnp2;CPU Saturation;Existen procesos propios de la aplicación que provocan la saturación de CPU. Existe en horario 08:00 - 22:00.;"1. Validar en Dynatrace que servidor se relaciona con la alerta.
+2.Ingresar al servidor mediante Cyberark.
+3. Ejecutar el comando topas.
+4. Aplastar la letra T (para que comunique todos los procesos que se están ejecutando).
+5. Aplastar 3 vecces seguidas la letra c y validar el consumo de CPU.
+6. Validar que servicios tiene mayor consumo de CPU; para este servidor si existe saturación por procesos java, se debe realizar un monitoreo por 45 minutos, en el caso de que el consumo de CPU no se normalice, escalar a la torre UNIX con la evidencia correspondiente. Si los procesos que producen la sauración no corresponden a java escalar inmediatamente a la torre UNIX.
+7. Monitorear ejecución hasta su finalización. 
+8. Validar que la alerta no persista en Dynatrace.
+9. Cerrar el ticket.";Bitacora;30/1/2025;Ricardo Urbina;Aprobado;30/5/2025;Johana Mendoza;;INC0057193;;;;
+"ecbpebsb2
+ecbphabn2
+ecbpmiht1Existen procesos que provocan la saturación de Memoria. Evento relacionado con picos y comportamiento continuo debido a un proceso puntual. ";PSKB0052;UNIX;ecbpebsb2;Memory Saturation;Existen procesos que provocan la saturación de Memoria. Evento relacionado con picos y comportamiento continuo debido a un proceso puntual. ;"Articulo de conocimiento TCSECU_N1_UNIX_Saturación CPU-Memoria_procesos.docx
+Ruta: https://pichincha.sharepoint.com/:w:/r/sites/DOCUMENTACION_INFRAESTRUCTURA/Documentos%20compartidos/13.%20Documentaci%C3%B3n%20Gesti%C3%B3n%20Infraestructura%20%26%20OTI/Art%C3%ADculos%20de%20Conocimiento/N1/TCSECU_N1_UNIX_Saturaci%C3%B3n%20CPU-Memoria_procesos.docx?d=w21688e1140294a5083e56c18809ae1db&csf=1&web=1&e=ychHxe";Articulo de Conocimiento;30/1/2025;Ricardo Urbina;En certificación;30/5/2025;Johana Mendoza;;"INC0229156
+INC0231288
+INC0232678";;;;
+"ecbpebsb2
+ecbphabn2
+ecbpmiht1Existen procesos que provocan la saturación de Memoria. Evento relacionado con picos y comportamiento continuo debido a un proceso puntual. ";PSKB0052;UNIX;ecbphabn2;Memory Saturation;Existen procesos que provocan la saturación de Memoria. Evento relacionado con picos y comportamiento continuo debido a un proceso puntual. ;"Articulo de conocimiento TCSECU_N1_UNIX_Saturación CPU-Memoria_procesos.docx
+Ruta: https://pichincha.sharepoint.com/:w:/r/sites/DOCUMENTACION_INFRAESTRUCTURA/Documentos%20compartidos/13.%20Documentaci%C3%B3n%20Gesti%C3%B3n%20Infraestructura%20%26%20OTI/Art%C3%ADculos%20de%20Conocimiento/N1/TCSECU_N1_UNIX_Saturaci%C3%B3n%20CPU-Memoria_procesos.docx?d=w21688e1140294a5083e56c18809ae1db&csf=1&web=1&e=ychHxe";Articulo de Conocimiento;30/1/2025;Ricardo Urbina;En certificación;30/5/2025;Johana Mendoza;;"INC0229156
+INC0231288
+INC0232678";;;;
+"ecbpebsb2
+ecbphabn2
+ecbpmiht1Existen procesos que provocan la saturación de Memoria. Evento relacionado con picos y comportamiento continuo debido a un proceso puntual. ";PSKB0052;UNIX;ecbpmiht1;Memory Saturation;Existen procesos que provocan la saturación de Memoria. Evento relacionado con picos y comportamiento continuo debido a un proceso puntual. ;"Articulo de conocimiento TCSECU_N1_UNIX_Saturación CPU-Memoria_procesos.docx
+Ruta: https://pichincha.sharepoint.com/:w:/r/sites/DOCUMENTACION_INFRAESTRUCTURA/Documentos%20compartidos/13.%20Documentaci%C3%B3n%20Gesti%C3%B3n%20Infraestructura%20%26%20OTI/Art%C3%ADculos%20de%20Conocimiento/N1/TCSECU_N1_UNIX_Saturaci%C3%B3n%20CPU-Memoria_procesos.docx?d=w21688e1140294a5083e56c18809ae1db&csf=1&web=1&e=ychHxe";Articulo de Conocimiento;30/1/2025;Ricardo Urbina;En certificación;30/5/2025;Johana Mendoza;;"INC0229156
+INC0231288
+INC0232678";;;;
+ecbpprap17 y ecbpprap18Caso verificado y coordinado con TEUNO y BP;PSKB0067;WINTEL;ecbpprap18;DISCO SATURACION/LOW SPACE;Caso verificado y coordinado con TEUNO y BP;"1. Ingresar al servidor mediante el Cyberark.
+2. Dentro del servidor ingresar al disco C, e ingresar a la carpeta ""temp"", dentro de la carpeta ""treesize"".
+3. Ejecutar como administrador el programa ""treesize"".
+4. Verificar qué esta saturando el disco.
+5. Tomar una captura a la pantalla y generar un correo dirigido a Jessica Cabrera jessica.cabrera@teuno.com (administradores de los discos C y D de esos servidores).
+6. En el correo especificar, la necesidad de depuración de los discos al generar una alerta en la infraestructura.
+7. Una vez ejecutada la depuración la alerta no debe persentarse.";Bitacora;30/1/2025;Juan Robalino;Aprobado;Pendiente;Johana Mendoza;;"
+INC0245708";KB0057987;Registrado y aprobado en Service Now;;
+ecbpfcpp1 / ecbpfcpp2Se cambia los archivos mas antiguos de la ruta saturada a un nuevo directorio.;PSKB0055;UNIX;ecbpfcpp1;DISCO SATURACION/LOW SPACE;Se cambia los archivos mas antiguos de la ruta saturada a un nuevo directorio.;"1. Validar en Dynatrace que proceso se relaciona con la alerta.
+2.Ingresar al servidor mediante Cyberark.
+3. Ejecutar el comando  df -gt /Nombre del file. Ejemplo: df -gt /opt/IBM 
+4. Ingresar al siguiente directorio dentro del file correspondiente, donde se generan los ""java cores"". Ejemplo: cd /opt/IBM/WebSphere/AppServer/profiles/AppSrv01 
+5. Digitar el siguiente comando para enlistar los archivos, desde el más antiguo al más reciente: ls -lrt 
+5. 1. Al final del listado generado, observar los archivos que corresponden a los logs realcionados con errores de la aplicación con el siguiente patrón: 
+core.20XXXXXX.XXXXXX.XXXXXX.XXXX.dmp 
+javacore.20XXXXXX.XXXXXX.XXXXXX.XXXX.txt
+Snap.20XXXXXX.XXXXXX.XXXXXX.XXXX.trc 
+jitdump.20XXXXXX.XXXXXX.XXXXXX.XXXX.dmp 
+7. Mover los archivos a otro espacio con mayor espacio de almacenamiento, usando el comando: mv <archivo_1> <archivo_2> <archivo_N> /Nombre del directorio. Ejemplo: mv <archivo_1> <archivo_2> <archivo_N> /bk_mksysb/ecbpfcpp1/ecbpfcpp1-coredumps.
+8. Verificar que los archivos se movieron, digitando el comando: ls -lrt /bk_mksysb/ecbpfcpp1/ecbpfcpp1-coredumps 
+9. Verificar el porcentaje utilizado del file system (columna %Used) se haya reducido, ingresar el siguiente comando: df -gt /opt/IBM
+10. Realizar el mismo proceso de depuración con el servidor ecbpfcpp2, modificando el comando del punto 7 y 8: ecbpfcpp2.
+11. Finalizado el proceso de depuración para los dos servidores ecbpfcpp1 y ecbpfcpp2, comunicar a la torre UNIX, para analizar los logs.";Bitacora;30/1/2025;Ricardo Urbina;Aprobado;30/5/2025;Johana Mendoza;;INC0282790;;;Nominado;
+ecbpfcpp1 / ecbpfcpp2Se cambia los archivos mas antiguos de la ruta saturada a un nuevo directorio.;PSKB0055;UNIX;ecbpfcpp2;DISCO SATURACION/LOW SPACE;Se cambia los archivos mas antiguos de la ruta saturada a un nuevo directorio.;"1. Validar en Dynatrace que proceso se relaciona con la alerta.
+2.Ingresar al servidor mediante Cyberark.
+3. Ejecutar el comando  df -gt /Nombre del file. Ejemplo: df -gt /opt/IBM 
+4. Ingresar al siguiente directorio dentro del file correspondiente, donde se generan los ""java cores"". Ejemplo: cd /opt/IBM/WebSphere/AppServer/profiles/AppSrv01 
+5. Digitar el siguiente comando para enlistar los archivos, desde el más antiguo al más reciente: ls -lrt 
+5. 1. Al final del listado generado, observar los archivos que corresponden a los logs realcionados con errores de la aplicación con el siguiente patrón: 
+core.20XXXXXX.XXXXXX.XXXXXX.XXXX.dmp 
+javacore.20XXXXXX.XXXXXX.XXXXXX.XXXX.txt
+Snap.20XXXXXX.XXXXXX.XXXXXX.XXXX.trc 
+jitdump.20XXXXXX.XXXXXX.XXXXXX.XXXX.dmp 
+7. Mover los archivos a otro espacio con mayor espacio de almacenamiento, usando el comando: mv <archivo_1> <archivo_2> <archivo_N> /Nombre del directorio. Ejemplo: mv <archivo_1> <archivo_2> <archivo_N> /bk_mksysb/ecbpfcpp1/ecbpfcpp1-coredumps.
+8. Verificar que los archivos se movieron, digitando el comando: ls -lrt /bk_mksysb/ecbpfcpp1/ecbpfcpp1-coredumps 
+9. Verificar el porcentaje utilizado del file system (columna %Used) se haya reducido, ingresar el siguiente comando: df -gt /opt/IBM
+10. Realizar el mismo proceso de depuración con el servidor ecbpfcpp2, modificando el comando del punto 7 y 8: ecbpfcpp2.
+11. Finalizado el proceso de depuración para los dos servidores ecbpfcpp1 y ecbpfcpp2, comunicar a la torre UNIX, para analizar los logs.";Bitacora;30/1/2025;Ricardo Urbina;Aprobado;30/5/2025;Johana Mendoza;;INC0282790;;;Nominado;
+"ecbplxakp1
+ecbplxakp2
+ecbplxakp3
+ecbplxakp5
+ecbplxakp6
+ecbplxakp7
+Este procedimiento permite conocer el estado del cluster de KAFKA";PSKB0057;UNIX;ecbplxakp1;Evento en proceso de Aplicación;Este procedimiento permite conocer el estado del cluster de KAFKA;"1.- Ingresar a cada servidor por cyberack en el orden que se detalla a continuación:
+1.1. ecbplxakp1
+sh HealthCheckConectoresKafka.sh : Luego de la ejecucíón se deben revisar que todos los conectores esten en running.
+ps -ef | grep -i standalone : Luego de esta ejecución se debe revisa que este el proceso stndalone.
+sh HealthCheckKafka.sh : Luego de ejecutar el comando se debe esperar que el numero de topicos no sobrepase 500.
+systemctl status kafka:Se debe verificar que el servicio este activo
+1.2 ecbplxakp2
+systemctl status kafka: Se debe verificar que el servicio este activo
+1.3 ecbplxakp3
+sh HealthCheckConnectorsKafka.sh : Luego de la ejecucíón se deben revisar que todos los conectores esten en running.
+ps -ef | grep -i standalone : Luego de esta ejeución se debe revisa que este el proceso stndalone.
+systemctl status kafka: Se debe verificar que el servicio este activo
+1.4 ecbplxakp5
+systemctl status zookeeper.service: Se debe verificar que el servicio este activo
+1.5 ecbplxakp6
+systemctl status zookeeper.service: Se debe verificar que el servicio este activo
+1.6 ecbplxakp7
+systemctl status zookeeper.service: Se debe verificar que el servicio este activo.
+NOTA: Si los resultados no son los esperados se debe comunicar con el stabdby de turno de la torre UNIX
+SUGERENCIA: Tomar la referenci del documento TCSECU_N1_UNIX_PROCEDIMIENTO_REVISION_KAFKA para mas detalles";Bitacora;30/1/2025;Edgar Ortiz;Aprobado;30/5/2025;Johana Mendoza;;"ecbplxakp1: 
+INC0113219
+
+ecbplxakp2
+INC0026434
+
+ecbplxakp3
+INC0064765
+
+ecbplxakp5
+INC0070600
+
+ecbplxakp6
+INC0049404
+";"Revisar
+Gestión Incidentes";"ecbplxakp1: 
+KDB0058048
+
+ecbplxakp2
+KDB0058049
+
+ecbplxakp3
+KDB0058050
+
+
+ecbplxakp5
+KDB0058051
+
+ecbplxakp6
+KDB0058052";Nominado;
+"ecbplxakp1
+ecbplxakp2
+ecbplxakp3
+ecbplxakp5
+ecbplxakp6
+ecbplxakp7
+Este procedimiento permite conocer el estado del cluster de KAFKA";PSKB0057;UNIX;ecbplxakp2;Evento en proceso de Aplicación;Este procedimiento permite conocer el estado del cluster de KAFKA;"1.- Ingresar a cada servidor por cyberack en el orden que se detalla a continuación:
+1.1. ecbplxakp1
+sh HealthCheckConectoresKafka.sh : Luego de la ejecucíón se deben revisar que todos los conectores esten en running.
+ps -ef | grep -i standalone : Luego de esta ejecución se debe revisa que este el proceso stndalone.
+sh HealthCheckKafka.sh : Luego de ejecutar el comando se debe esperar que el numero de topicos no sobrepase 500.
+systemctl status kafka:Se debe verificar que el servicio este activo
+1.2 ecbplxakp2
+systemctl status kafka: Se debe verificar que el servicio este activo
+1.3 ecbplxakp3
+sh HealthCheckConnectorsKafka.sh : Luego de la ejecucíón se deben revisar que todos los conectores esten en running.
+ps -ef | grep -i standalone : Luego de esta ejeución se debe revisa que este el proceso stndalone.
+systemctl status kafka: Se debe verificar que el servicio este activo
+1.4 ecbplxakp5
+systemctl status zookeeper.service: Se debe verificar que el servicio este activo
+1.5 ecbplxakp6
+systemctl status zookeeper.service: Se debe verificar que el servicio este activo
+1.6 ecbplxakp7
+systemctl status zookeeper.service: Se debe verificar que el servicio este activo.
+NOTA: Si los resultados no son los esperados se debe comunicar con el stabdby de turno de la torre UNIX
+SUGERENCIA: Tomar la referenci del documento TCSECU_N1_UNIX_PROCEDIMIENTO_REVISION_KAFKA para mas detalles";Bitacora;30/1/2025;Edgar Ortiz;Aprobado;30/5/2025;Johana Mendoza;;"ecbplxakp1: 
+INC0113219
+
+ecbplxakp2
+INC0026434
+
+ecbplxakp3
+INC0064765
+
+ecbplxakp5
+INC0070600
+
+ecbplxakp6
+INC0049404
+";"Revisar
+Gestión Incidentes";"ecbplxakp1: 
+KDB0058048
+
+ecbplxakp2
+KDB0058049
+
+ecbplxakp3
+KDB0058050
+
+
+ecbplxakp5
+KDB0058051
+
+ecbplxakp6
+KDB0058052";Nominado;
+"ecbplxakp1
+ecbplxakp2
+ecbplxakp3
+ecbplxakp5
+ecbplxakp6
+ecbplxakp7
+Este procedimiento permite conocer el estado del cluster de KAFKA";PSKB0057;UNIX;ecbplxakp3;Evento en proceso de Aplicación;Este procedimiento permite conocer el estado del cluster de KAFKA;"1.- Ingresar a cada servidor por cyberack en el orden que se detalla a continuación:
+1.1. ecbplxakp1
+sh HealthCheckConectoresKafka.sh : Luego de la ejecucíón se deben revisar que todos los conectores esten en running.
+ps -ef | grep -i standalone : Luego de esta ejecución se debe revisa que este el proceso stndalone.
+sh HealthCheckKafka.sh : Luego de ejecutar el comando se debe esperar que el numero de topicos no sobrepase 500.
+systemctl status kafka:Se debe verificar que el servicio este activo
+1.2 ecbplxakp2
+systemctl status kafka: Se debe verificar que el servicio este activo
+1.3 ecbplxakp3
+sh HealthCheckConnectorsKafka.sh : Luego de la ejecucíón se deben revisar que todos los conectores esten en running.
+ps -ef | grep -i standalone : Luego de esta ejeución se debe revisa que este el proceso stndalone.
+systemctl status kafka: Se debe verificar que el servicio este activo
+1.4 ecbplxakp5
+systemctl status zookeeper.service: Se debe verificar que el servicio este activo
+1.5 ecbplxakp6
+systemctl status zookeeper.service: Se debe verificar que el servicio este activo
+1.6 ecbplxakp7
+systemctl status zookeeper.service: Se debe verificar que el servicio este activo.
+NOTA: Si los resultados no son los esperados se debe comunicar con el stabdby de turno de la torre UNIX
+SUGERENCIA: Tomar la referenci del documento TCSECU_N1_UNIX_PROCEDIMIENTO_REVISION_KAFKA para mas detalles";Bitacora;30/1/2025;Edgar Ortiz;Aprobado;30/5/2025;Johana Mendoza;;"ecbplxakp1: 
+INC0113219
+
+ecbplxakp2
+INC0026434
+
+ecbplxakp3
+INC0064765
+
+ecbplxakp5
+INC0070600
+
+ecbplxakp6
+INC0049404
+";"Revisar
+Gestión Incidentes";"ecbplxakp1: 
+KDB0058048
+
+ecbplxakp2
+KDB0058049
+
+ecbplxakp3
+KDB0058050
+
+
+ecbplxakp5
+KDB0058051
+
+ecbplxakp6
+KDB0058052";Nominado;
+"ecbplxakp1
+ecbplxakp2
+ecbplxakp3
+ecbplxakp5
+ecbplxakp6
+ecbplxakp7
+Este procedimiento permite conocer el estado del cluster de KAFKA";PSKB0057;UNIX;ecbplxakp5;Evento en proceso de Aplicación;Este procedimiento permite conocer el estado del cluster de KAFKA;"1.- Ingresar a cada servidor por cyberack en el orden que se detalla a continuación:
+1.1. ecbplxakp1
+sh HealthCheckConectoresKafka.sh : Luego de la ejecucíón se deben revisar que todos los conectores esten en running.
+ps -ef | grep -i standalone : Luego de esta ejecución se debe revisa que este el proceso stndalone.
+sh HealthCheckKafka.sh : Luego de ejecutar el comando se debe esperar que el numero de topicos no sobrepase 500.
+systemctl status kafka:Se debe verificar que el servicio este activo
+1.2 ecbplxakp2
+systemctl status kafka: Se debe verificar que el servicio este activo
+1.3 ecbplxakp3
+sh HealthCheckConnectorsKafka.sh : Luego de la ejecucíón se deben revisar que todos los conectores esten en running.
+ps -ef | grep -i standalone : Luego de esta ejeución se debe revisa que este el proceso stndalone.
+systemctl status kafka: Se debe verificar que el servicio este activo
+1.4 ecbplxakp5
+systemctl status zookeeper.service: Se debe verificar que el servicio este activo
+1.5 ecbplxakp6
+systemctl status zookeeper.service: Se debe verificar que el servicio este activo
+1.6 ecbplxakp7
+systemctl status zookeeper.service: Se debe verificar que el servicio este activo.
+NOTA: Si los resultados no son los esperados se debe comunicar con el stabdby de turno de la torre UNIX
+SUGERENCIA: Tomar la referenci del documento TCSECU_N1_UNIX_PROCEDIMIENTO_REVISION_KAFKA para mas detalles";Bitacora;30/1/2025;Edgar Ortiz;Aprobado;30/5/2025;Johana Mendoza;;"ecbplxakp1: 
+INC0113219
+
+ecbplxakp2
+INC0026434
+
+ecbplxakp3
+INC0064765
+
+ecbplxakp5
+INC0070600
+
+ecbplxakp6
+INC0049404
+";"Revisar
+Gestión Incidentes";"ecbplxakp1: 
+KDB0058048
+
+ecbplxakp2
+KDB0058049
+
+ecbplxakp3
+KDB0058050
+
+
+ecbplxakp5
+KDB0058051
+
+ecbplxakp6
+KDB0058052";Nominado;
+"ecbplxakp1
+ecbplxakp2
+ecbplxakp3
+ecbplxakp5
+ecbplxakp6
+ecbplxakp7
+Este procedimiento permite conocer el estado del cluster de KAFKA";PSKB0057;UNIX;ecbplxakp6;Evento en proceso de Aplicación;Este procedimiento permite conocer el estado del cluster de KAFKA;"1.- Ingresar a cada servidor por cyberack en el orden que se detalla a continuación:
+1.1. ecbplxakp1
+sh HealthCheckConectoresKafka.sh : Luego de la ejecucíón se deben revisar que todos los conectores esten en running.
+ps -ef | grep -i standalone : Luego de esta ejecución se debe revisa que este el proceso stndalone.
+sh HealthCheckKafka.sh : Luego de ejecutar el comando se debe esperar que el numero de topicos no sobrepase 500.
+systemctl status kafka:Se debe verificar que el servicio este activo
+1.2 ecbplxakp2
+systemctl status kafka: Se debe verificar que el servicio este activo
+1.3 ecbplxakp3
+sh HealthCheckConnectorsKafka.sh : Luego de la ejecucíón se deben revisar que todos los conectores esten en running.
+ps -ef | grep -i standalone : Luego de esta ejeución se debe revisa que este el proceso stndalone.
+systemctl status kafka: Se debe verificar que el servicio este activo
+1.4 ecbplxakp5
+systemctl status zookeeper.service: Se debe verificar que el servicio este activo
+1.5 ecbplxakp6
+systemctl status zookeeper.service: Se debe verificar que el servicio este activo
+1.6 ecbplxakp7
+systemctl status zookeeper.service: Se debe verificar que el servicio este activo.
+NOTA: Si los resultados no son los esperados se debe comunicar con el stabdby de turno de la torre UNIX
+SUGERENCIA: Tomar la referenci del documento TCSECU_N1_UNIX_PROCEDIMIENTO_REVISION_KAFKA para mas detalles";Bitacora;30/1/2025;Edgar Ortiz;Aprobado;30/5/2025;Johana Mendoza;;"ecbplxakp1: 
+INC0113219
+
+ecbplxakp2
+INC0026434
+
+ecbplxakp3
+INC0064765
+
+ecbplxakp5
+INC0070600
+
+ecbplxakp6
+INC0049404
+";"Revisar
+Gestión Incidentes";"ecbplxakp1: 
+KDB0058048
+
+ecbplxakp2
+KDB0058049
+
+ecbplxakp3
+KDB0058050
+
+
+ecbplxakp5
+KDB0058051
+
+ecbplxakp6
+KDB0058052";Nominado;
+"ecbplxakp1
+ecbplxakp2
+ecbplxakp3
+ecbplxakp5
+ecbplxakp6
+ecbplxakp7
+Este procedimiento permite conocer el estado del cluster de KAFKA";PSKB0057;UNIX;ecbplxakp7;Evento en proceso de Aplicación;Este procedimiento permite conocer el estado del cluster de KAFKA;"1.- Ingresar a cada servidor por cyberack en el orden que se detalla a continuación:
+1.1. ecbplxakp1
+sh HealthCheckConectoresKafka.sh : Luego de la ejecucíón se deben revisar que todos los conectores esten en running.
+ps -ef | grep -i standalone : Luego de esta ejecución se debe revisa que este el proceso stndalone.
+sh HealthCheckKafka.sh : Luego de ejecutar el comando se debe esperar que el numero de topicos no sobrepase 500.
+systemctl status kafka:Se debe verificar que el servicio este activo
+1.2 ecbplxakp2
+systemctl status kafka: Se debe verificar que el servicio este activo
+1.3 ecbplxakp3
+sh HealthCheckConnectorsKafka.sh : Luego de la ejecucíón se deben revisar que todos los conectores esten en running.
+ps -ef | grep -i standalone : Luego de esta ejeución se debe revisa que este el proceso stndalone.
+systemctl status kafka: Se debe verificar que el servicio este activo
+1.4 ecbplxakp5
+systemctl status zookeeper.service: Se debe verificar que el servicio este activo
+1.5 ecbplxakp6
+systemctl status zookeeper.service: Se debe verificar que el servicio este activo
+1.6 ecbplxakp7
+systemctl status zookeeper.service: Se debe verificar que el servicio este activo.
+NOTA: Si los resultados no son los esperados se debe comunicar con el stabdby de turno de la torre UNIX
+SUGERENCIA: Tomar la referenci del documento TCSECU_N1_UNIX_PROCEDIMIENTO_REVISION_KAFKA para mas detalles";Bitacora;30/1/2025;Edgar Ortiz;Aprobado;30/5/2025;Johana Mendoza;;"ecbplxakp1: 
+INC0113219
+
+ecbplxakp2
+INC0026434
+
+ecbplxakp3
+INC0064765
+
+ecbplxakp5
+INC0070600
+
+ecbplxakp6
+INC0049404
+";"Revisar
+Gestión Incidentes";"ecbplxakp1: 
+KDB0058048
+
+ecbplxakp2
+KDB0058049
+
+ecbplxakp3
+KDB0058050
+
+
+ecbplxakp5
+KDB0058051
+
+ecbplxakp6
+KDB0058052";Nominado;
+"PRECBPOC13
+PRECBPOC14Este procedimiento permite realizar la depuración del file system /backup de los servidores PRECBPOC13 y PRECBPOC14";PSKB0060;UNIX;PRECBPOC13;Incremento de espacio en filesystem;Este procedimiento permite realizar la depuración del file system /backup de los servidores PRECBPOC13 y PRECBPOC14;"Ingresar a los servidores PRECBPOC13 y PRECBPOC14 mediante Cyberark.
+1. Verificar el porcentaje de uso del file system /backup: df -gt /backup
+2. Ingresamos al directorio de logs del file system con el comando: cd /backup/LOGS
+3. Previo a depurar el file system, es importante consultar con respaldos cuando fue el último backup que generaron de los servidores PRECBPOC13 y PRECBPOC14, específicamente del file system /backup.
+4. Con la confirmación de que, si existe un respaldo vigente, se puede proceder a depurar los logs más antiguos a partir del día sábado. Con el siguiente comando, se podrá ir validando si existen logs antiguos para ser depurados:
+find . -type f -mtime +7 -ls | head
+find . -type f -mtime +7 -ls | tail
+find . -type f -mtime +7 | wc -l
+NOTA: una vez que el comando muestra un resultado, es importante presionar CONTROL + C para recuperar el control de la consola.
+5. El valor “+7” en el comando anterior indica que se van a buscar los archivos que tengas más de 7 días de antigüedad. Si al momento de ejecutar el comando no se tiene ningún resultado, se debe disminuir el valor del número hasta un máximo de ""+5""
+NOTA: es recomendable empezar con el valor de “+7”.
+6. Una vez que se determina cuales logs se van a depurar, se debe ingresar el siguiente comando, donde el valor de “+7” es el que se determinó en el paso anterior.
+find . -type f -mtime +7 -exec rm -f {} \; 
+NOTA: Comando para eliminar archivos mayores a 7 días.Validar siempre que se encuentren en la ruta /backup/LOGS (pwd)
+7. Para validar si disminuyó el espacio utilizado del file system, se ingresa el comando y se valida el %Used: df -gt /backup
+NOTA: Si los resultados no son los esperados se debe comunicar con el stabdby de turno de la torre UNIX
+SUGERENCIA: Tomar la referenci del documento TCSECU_N1_UNIX_Depuración_file_system_WAS_omni para mas detalles";Articulo de Conocimiento;30/1/2025;Bryan Meza;Aprobado;30/5/2025;Johana Mendoza;;"PRECBPOC13: 
+INC0083886
+
+
+PRECBPOC14:
+INC0106812";"Revisar
+Gestión Incidentes";"PRECBPOC13:
+KB0058055
+
+PRECBPOC14:
+KB0058056";Nominado;Link
+"PRECBPOC13
+PRECBPOC14Este procedimiento permite realizar la depuración del file system /backup de los servidores PRECBPOC13 y PRECBPOC14";PSKB0060;UNIX;PRECBPOC14;Incremento de espacio en filesystem;Este procedimiento permite realizar la depuración del file system /backup de los servidores PRECBPOC13 y PRECBPOC14;"Ingresar a los servidores PRECBPOC13 y PRECBPOC14 mediante Cyberark.
+1. Verificar el porcentaje de uso del file system /backup: df -gt /backup
+2. Ingresamos al directorio de logs del file system con el comando: cd /backup/LOGS
+3. Previo a depurar el file system, es importante consultar con respaldos cuando fue el último backup que generaron de los servidores PRECBPOC13 y PRECBPOC14, específicamente del file system /backup.
+4. Con la confirmación de que, si existe un respaldo vigente, se puede proceder a depurar los logs más antiguos a partir del día sábado. Con el siguiente comando, se podrá ir validando si existen logs antiguos para ser depurados:
+find . -type f -mtime +7 -ls | head
+find . -type f -mtime +7 -ls | tail
+find . -type f -mtime +7 | wc -l
+NOTA: una vez que el comando muestra un resultado, es importante presionar CONTROL + C para recuperar el control de la consola.
+5. El valor “+7” en el comando anterior indica que se van a buscar los archivos que tengas más de 7 días de antigüedad. Si al momento de ejecutar el comando no se tiene ningún resultado, se debe disminuir el valor del número hasta un máximo de ""+5""
+NOTA: es recomendable empezar con el valor de “+7”.
+6. Una vez que se determina cuales logs se van a depurar, se debe ingresar el siguiente comando, donde el valor de “+7” es el que se determinó en el paso anterior.
+find . -type f -mtime +7 -exec rm -f {} \; 
+NOTA: Comando para eliminar archivos mayores a 7 días.Validar siempre que se encuentren en la ruta /backup/LOGS (pwd)
+7. Para validar si disminuyó el espacio utilizado del file system, se ingresa el comando y se valida el %Used: df -gt /backup
+NOTA: Si los resultados no son los esperados se debe comunicar con el stabdby de turno de la torre UNIX
+SUGERENCIA: Tomar la referenci del documento TCSECU_N1_UNIX_Depuración_file_system_WAS_omni para mas detalles";Articulo de Conocimiento;30/1/2025;Bryan Meza;Aprobado;30/5/2025;Johana Mendoza;;"PRECBPOC13: 
+INC0083886
+
+
+PRECBPOC14:
+INC0106812";"Revisar
+Gestión Incidentes";"PRECBPOC13:
+KB0058055
+
+PRECBPOC14:
+KB0058056";Nominado;Link
+
+

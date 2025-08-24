@@ -299,6 +299,63 @@ async function loadInventarioTorresCSV() {
   });
   return data;
 }
+// Mostrar/ocultar panel lateral
+const searchIcon = document.getElementById('searchIcon');
+const searchPanel = document.getElementById('searchPanel');
+
+searchIcon.addEventListener('click', () => {
+  searchPanel.classList.toggle('active');
+});
+
+// Evento de búsqueda
+document.getElementById('searchBtn').addEventListener('click', async () => {
+  const query = document.getElementById('searchInput').value.trim().toLowerCase();
+  const resultDiv = document.getElementById('searchResult');
+
+  // Limpiar resaltado anterior
+  document.querySelectorAll('#alertTable tbody tr').forEach(row => {
+    row.classList.remove('highlight-row');
+  });
+
+  if (!query) {
+    resultDiv.innerHTML = '<p>Ingrese un término para buscar.</p>';
+    return;
+  }
+
+  const csvData = await loadCSVData();
+  const matches = csvData.filter(d =>
+    d["Nombre Componente"] &&
+    d["Nombre Componente"].toLowerCase().includes(query)
+  );
+
+  if (matches.length > 0) {
+    resultDiv.innerHTML = `
+      <h3>Resultados para: ${query}</h3>
+      ${matches.map(item => `
+        <div>
+          <strong>Componente:</strong> ${item["Nombre Componente"] || 'N/A'}<br>
+          <strong>Torre:</strong> ${item["Torre"] || 'N/A'}<br>
+          <strong>Tipo:</strong> ${item["Tipo de evento"] || 'N/A'}<br>
+          <strong>Descripción:</strong> ${item["Descripción Error"] || 'N/A'}<br>
+          <strong>Solución:</strong> ${item["Solución"] || 'N/A'}<br>
+          <strong>Id Conocimiento:</strong> ${item["Id Conocimiento"] || 'N/A'}<br>
+        </div>
+      `).join('')}
+    `;
+
+    // Resaltar filas en la tabla que tengan coincidencias
+    const affectedRows = document.querySelectorAll('#alertTable tbody tr');
+    affectedRows.forEach(row => {
+      const rowText = row.textContent.toLowerCase();
+      if (matches.some(item => rowText.includes(item["Nombre Componente"].toLowerCase()))) {
+        row.classList.add('highlight-row');
+      }
+    });
+
+  } else {
+    resultDiv.innerHTML = `<p>No se encontró información para <strong>${query}</strong>.</p>`;
+  }
+});
 
 
 window.onload = async () => {
@@ -322,3 +379,4 @@ document.getElementById('exportBtn').addEventListener('click', () => {
   const workbook = XLSX.utils.table_to_book(table, { sheet: "Problemas Dynatrace" });
   XLSX.writeFile(workbook, "dynatrace_problems.xlsx");
 });
+

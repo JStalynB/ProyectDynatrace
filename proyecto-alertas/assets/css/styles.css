@@ -123,3 +123,9 @@ input[type="text"] {
 .highlight-row {
   background-color: #e8e8e8 !important;
 }
+
+table tr:hover {
+    background-color: #d2d7dd; /* Azul claro, puedes cambiarlo */
+    cursor: pointer;
+}
+

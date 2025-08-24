@@ -45,4 +45,81 @@ th {
 input[type="text"] {
   width: 100%;
   padding: 5px;
+
+}
+
+
+
+/* Lupa flotante */
+.search-icon {
+  position: fixed;
+  top: 50%;
+  left: 10px;
+  background: #333;
+  color: #fff;
+  padding: 10px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 1000;
+  transition: background 0.3s;
+}
+.search-icon:hover {
+  background: #555;
+}
+
+/* Panel lateral oculto */
+.search-panel {
+  position: fixed;
+  top: 0;
+  left: -350px; /* oculto por defecto */
+  width: 350px;
+  height: 100%;
+  background: #f9f9f9;
+  border-right: 2px solid #ccc;
+  padding: 15px;
+  transition: left 0.3s ease;
+  z-index: 999;
+  overflow-y: auto;
+}
+
+/* Mostrar panel */
+.search-panel.active {
+  left: 0;
+}
+
+/* Cabecera del panel */
+.search-header {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+.search-header input {
+  flex: 1;
+  padding: 8px;
+}
+.search-header button {
+  padding: 8px 12px;
+  background: #0078d7;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.search-header button:hover {
+  background: #005a9e;
+}
+
+/* Resultados */
+.search-result div {
+  padding: 10px;
+  margin-bottom: 10px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+/* Fila resaltada en tabla */
+.highlight-row {
+  background-color: #e8e8e8 !important;
 }

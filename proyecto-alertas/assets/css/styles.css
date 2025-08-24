@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  margin: 20px;
+  margin: 50px;
   background-color: #f9f9f9;
 }
 
@@ -72,7 +72,7 @@ input[type="text"] {
 .search-panel {
   position: fixed;
   top: 0;
-  left: -350px; /* oculto por defecto */
+  left: -365px; /* oculto por defecto */
   width: 350px;
   height: 100%;
   background: #f9f9f9;
@@ -128,4 +128,5 @@ table tr:hover {
     background-color: #d2d7dd; /* Azul claro, puedes cambiarlo */
     cursor: pointer;
 }
+
 

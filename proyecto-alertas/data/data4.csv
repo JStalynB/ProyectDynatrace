@@ -1,9 +1,9 @@
-Concatenar;Id Conocimiento;Torre;Nombre Componente;Tipo de evento;DescripciÛn Error;SoluciÛn;Tipo Documento;Fecha creaciÛn;Responsable Torre;Estado;Fecha aprobaciÛn;Responsable de AprobaciÛn;Fecha ˙ltima actualizaciÛn;Ticket relacionado;# KDB Service Now;OBSERVACI”N;AutomatizaciÛn;Documento
+ÔªøConcatenar;Id Conocimiento;Torre;Nombre Componente;Tipo de evento;Descripci√≥n Error;Soluci√≥n;Tipo Documento;Fecha creaci√≥n;Responsable Torre;Estado;Fecha aprobaci√≥n;Responsable de Aprobaci√≥n;Fecha √∫ltima actualizaci√≥n;Ticket relacionado;# KDB Service Now;OBSERVACI√ìN;Automatizaci√≥n;Documento
 "DRECXDB002
 CPU Saturation AIX DCA";PSKB0001;BDD;"DRECXDB002
 ";CPU Saturation;CPU Saturation AIX DCA;"1. Ingresar a cyberark mediante el link https://privilegiados.uio.bpichincha.com/PasswordVault/v10/
 2. Buscar el nombre del servidor afectado.(columa C Nombre Componente)
-3. conectar por la opcion plsql (cyberak)                                                                                                                                                                                      4. Validar mediante el siguiente query que no se estÈ ejecutando un respaldo                                                                                                                                                    ""SELECT SID, START_TIME, TOTALWORK, sofar,  (sofar / totalwork) * 100 done, 
+3. conectar por la opcion plsql (cyberak)                                                                                                                                                                                      4. Validar mediante el siguiente query que no se est√© ejecutando un respaldo                                                                                                                                                    ""SELECT SID, START_TIME, TOTALWORK, sofar,  (sofar / totalwork) * 100 done, 
     SYSDATE + TIME_REMAINING / 3600 / 24 end_at 
   FROM v$session_longops 
   WHERE     totalwork > sofar AND opname NOT LIKE '%aggregate%'  AND opname LIKE 'RMAN%' 
@@ -13,12 +13,12 @@ SELECT sess.sid, sess.serial#, sess.username, sess.status, sql.sql_text
 FROM gv$session sess
 JOIN gv$sql sql ON sess.sql_id = sql.sql_id
 WHERE sess.status = 'ACTIVE' AND sql.sql_text LIKE 'ALTER INDEX%                                                                                                                                                                                                                                                     
-6. Si los querys retorna sessiones de backup,index o estadisticas corresponde a un evento controlado, caso contrario si la alerta persiste m·s de 1 hora reportar a bdd. 
-Nota: Los servidores del DCA no tienen los mismos recursos que el DCP por lo cual permanecen alertados, es un evento controlado.";Bitacora;30/01/2025;Henry MaÒay;Aprobado;27/02/2025;David Medina;;INC0275042;KB0058014;Registrado en ServiceNow;;
+6. Si los querys retorna sessiones de backup,index o estadisticas corresponde a un evento controlado, caso contrario si la alerta persiste m√°s de 1 hora reportar a bdd. 
+Nota: Los servidores del DCA no tienen los mismos recursos que el DCP por lo cual permanecen alertados, es un evento controlado.";Bitacora;30/01/2025;Henry Ma√±ay;Aprobado;27/02/2025;David Medina;;INC0275042;KB0058014;Registrado en ServiceNow;;
 ecbpbbdp1CPU Saturation AIX DCP;PSKB0002;BDD;ecbpbbdp1;CPU Saturation;CPU Saturation AIX DCP;"1. Ingresar a cyberark mediante el link https://privilegiados.uio.bpichincha.com/PasswordVault/v10/
 2. Buscar el nombre del servidor afectado.(columa C Nombre Componente)
 3. Conectar por la opcion plsql(cyberak)
-4. Ejecutamos un query para validar que no se estÈ ejecutando un respaldo                                                                                                                                                    ""SELECT SID, START_TIME, TOTALWORK, sofar,  (sofar / totalwork) * 100 done, 
+4. Ejecutamos un query para validar que no se est√© ejecutando un respaldo                                                                                                                                                    ""SELECT SID, START_TIME, TOTALWORK, sofar,  (sofar / totalwork) * 100 done, 
     SYSDATE + TIME_REMAINING / 3600 / 24 end_at 
   FROM v$session_longops 
   WHERE     totalwork > sofar AND opname NOT LIKE '%aggregate%'  AND opname LIKE 'RMAN%' 
@@ -28,9 +28,9 @@ SELECT sess.sid, sess.serial#, sess.username, sess.status, sql.sql_text
 FROM gv$session sess
 JOIN gv$sql sql ON sess.sql_id = sql.sql_id
 WHERE sess.status = 'ACTIVE' AND sql.sql_text LIKE 'ALTER INDEX%                                                                                                                                                                                                                                                     
-6. Si los  querys retorna sessiones de backup,index o estadisticas corresponde a un evento controlado, caso contrario si no existe la ejecuciÛn de estos querys y el evento  persiste m·s de 15 minutos notificar a BDD.
-Nota: Si el cpu se eleva por m·s de 5 minutos al 97% reportar de inmediato a bdd caso contrario cerrar como evento controlado ya como evento controlado ya que las alertas en la noche se dan por ejecucion del batch";Bitacora;30/01/2025;Henry MaÒay;Aprobado;27/02/2025;David Medina;;INC0056569;KB0058016;Registrado en ServiceNow;;
-DRECXDB003High network utilizaciÛn;PSKB0003;BDD;DRECXDB003;Networking;High network utilizaciÛn;"1 Ingresar a cyberark mediante el link https://privilegiados.uio.bpichincha.com/PasswordVault/v10/
+6. Si los  querys retorna sessiones de backup,index o estadisticas corresponde a un evento controlado, caso contrario si no existe la ejecuci√≥n de estos querys y el evento  persiste m√°s de 15 minutos notificar a BDD.
+Nota: Si el cpu se eleva por m√°s de 5 minutos al 97% reportar de inmediato a bdd caso contrario cerrar como evento controlado ya como evento controlado ya que las alertas en la noche se dan por ejecucion del batch";Bitacora;30/01/2025;Henry Ma√±ay;Aprobado;27/02/2025;David Medina;;INC0056569;KB0058016;Registrado en ServiceNow;;
+DRECXDB003High network utilizaci√≥n;PSKB0003;BDD;DRECXDB003;Networking;High network utilizaci√≥n;"1 Ingresar a cyberark mediante el link https://privilegiados.uio.bpichincha.com/PasswordVault/v10/
 2. Buscar el nombre del servidor afectado.(columa C Nombre Componente)
 3. Conectar por la opcion plsql (cyberak)
 4. Identificar los procesos que consumen mayor cantidad de red ejecutando el siguiente query 
@@ -68,7 +68,7 @@ and  stat.stat_inst_id = s.inst_id and stat.stat_sid = s.sid
 and  PS.SID (+) = S.SID AND PS.SERIAL# (+) = S.SERIAL# and PS.INST_ID (+) = S.INST_ID 
 order by MODULE, OWNERID; */
 
-Nota omitir la alerta ya que en el DCA los recursos son mÌnimos y dca con dcp hay intermintencias asi que es alerta contrada, si la alerta persiste m·s de 1 hora reportar a BDD. ";Bitacora;30/01/2025;Henry MaÒay;Aprobado;27/02/2025;David Medina;;INC0233120;KB0058017;Registrado en ServiceNow;;
+Nota omitir la alerta ya que en el DCA los recursos son m√≠nimos y dca con dcp hay intermintencias asi que es alerta contrada, si la alerta persiste m√°s de 1 hora reportar a BDD. ";Bitacora;30/01/2025;Henry Ma√±ay;Aprobado;27/02/2025;David Medina;;INC0233120;KB0058017;Registrado en ServiceNow;;
 ECBPEBSP7BLOQUEO DE SESIONES;PSKB0004;BDD;ECBPEBSP7;Bloqueo de sesiones;BLOQUEO DE SESIONES;"1 Ingresar a cyberark mediante el link https://privilegiados.uio.bpichincha.com/PasswordVault/v10/
 2. Buscar el nombre del servidor afectado.(columa C Nombre Componente)
 3. Conectar por la opcion plsq (cyberak)
@@ -81,8 +81,8 @@ where s1.sid=l1.sid and s2.sid=l2.sid
 and l1.BLOCK=1 and l2.request > 0
 and l1.id1 = l2.id1
 and l2.id2 = l2.id2 ;
-Nota  En caso que el SID BLOQUEANTE sea el mismo m·s de 15 minutos, notificar a BDD, caso contrario cerrar como evento controlado
-";Bitacora;30/01/2025;Henry MaÒay;Aprobado;27/02/2025;David Medina;;INC0139591;KB0058018;Registrado en ServiceNow;;
+Nota  En caso que el SID BLOQUEANTE sea el mismo m√°s de 15 minutos, notificar a BDD, caso contrario cerrar como evento controlado
+";Bitacora;30/01/2025;Henry Ma√±ay;Aprobado;27/02/2025;David Medina;;INC0139591;KB0058018;Registrado en ServiceNow;;
 "ecbpebsp1
 precxdb002
 tsecxdb010
@@ -103,13 +103,13 @@ precxdb004";Memory Saturation;Saturation de Memoria;"1. Ingresar a cyberark medi
 2. Buscar el nombre del servidor afectado.(columa C Nombre Componente) 
 3.Conectar por la opcion ssh (cyberak)
 4. Verificar el porcentaje de uso de memoria ejecutando el comando ""topas"", en la parte derecha se visualiza el porcentaje de memoria computacional (% Comp).
-Nota: Si el porcentaje es mayor al 93% y el evento persiste m·s de 15 minutos notificar a BDD, caso contrario, cerrar como evento controlado ya que las alertas se replica mas en la noche por ejecuciÛn del batch";Bitacora;30/01/2025;Henry MaÒay;Aprobado;30/05/2025;David Medina;;INC0218402;KBD0058045;Registrado en Service Now;;
+Nota: Si el porcentaje es mayor al 93% y el evento persiste m√°s de 15 minutos notificar a BDD, caso contrario, cerrar como evento controlado ya que las alertas se replica mas en la noche por ejecuci√≥n del batch";Bitacora;30/01/2025;Henry Ma√±ay;Aprobado;30/05/2025;David Medina;;INC0218402;KBD0058045;Registrado en Service Now;;
 ECBPEBSP7Saturation de Memoria;PSKB0006;BDD;ECBPEBSP7;Memory Saturation;Saturation de Memoria;"1. Ingresar a cyberark mediante el link https://privilegiados.uio.bpichincha.com/PasswordVault/v10/
 2. Buscar el nombre del servidor afectado.(columa C Nombre Componente)
 3.Conectar por la opcion ssh (cyberak)
 4. Verificar el porcentaje de uso de memoria ejecutando el comando ""topas, en la parte derecha se visualiza el porcentaje de memoria computacional (% Comp). 
-5. Si el porcentaje es mayor al 93% y el evento persiste m·s de 15 minutos notificar a BDD.
-Nota: El evento que presenta por saturacion de memoria en dynatrace  no es la real se debe verificar el dashbord de unix el cual toma  la memoria computacional, si se encuentra en rojo, reportar, caso contrario cerrar indicando que es un evento controlado y no reporta la memoria real https://xyc10065.live.dynatrace.com/index.jsp?state=W5OHiIGFgThLgMK_4bTMuLyC81C6RRzc95p8TRdR4L0&code=2679782c-1aab-46f4-8246-bce697239142#dashboard;gtf=-10m;gf=all;id=3e82d414-3faa-4997-ae73-fc014376add0";Bitacora;30/01/2025;Henry MaÒay;Aprobado;30/05/2025;David Medina;;INC0290581;KB0058038;Registrado en Service Now;;
+5. Si el porcentaje es mayor al 93% y el evento persiste m√°s de 15 minutos notificar a BDD.
+Nota: El evento que presenta por saturacion de memoria en dynatrace  no es la real se debe verificar el dashbord de unix el cual toma  la memoria computacional, si se encuentra en rojo, reportar, caso contrario cerrar indicando que es un evento controlado y no reporta la memoria real https://xyc10065.live.dynatrace.com/index.jsp?state=W5OHiIGFgThLgMK_4bTMuLyC81C6RRzc95p8TRdR4L0&code=2679782c-1aab-46f4-8246-bce697239142#dashboard;gtf=-10m;gf=all;id=3e82d414-3faa-4997-ae73-fc014376add0";Bitacora;30/01/2025;Henry Ma√±ay;Aprobado;30/05/2025;David Medina;;INC0290581;KB0058038;Registrado en Service Now;;
 "TSECXDB010
 drecbpyn01
 ecbpfcpt1
@@ -165,22 +165,22 @@ ecbpebst1
 precxdb005";Memory Saturation;Memory Saturation;"1.  Ingresar a cyberark mediante el link https://privilegiados.uio.bpichincha.com/PasswordVault/v10/
 2. Buscar el servidor afectado(columa C Nombre Componente)
 3.Conectar por la opcion ssh (cyberak)
-3. Verificar el porcentaje de uso de memoria ejecutando el comando ""topas"", en la parte derecha se visualiza el porcentaje de memoria computacional (% Comp). 4. Si el porcentaje es mayor al 93% y el evento persiste m·s de 15 minutos notificar a BDD.
-Nota: cerrar como controlado el servidor es del amibiente de test y no tienen muchos recursos en caso que la alerta pase los 25 minutos estacalar a bdd ";Bitacora;30/01/2025;Henry MaÒay;Aprobado;30/05/2025;David Medina;;INC0060639;KB0057992;"SERVIDORES DE BANCS PROD
+3. Verificar el porcentaje de uso de memoria ejecutando el comando ""topas"", en la parte derecha se visualiza el porcentaje de memoria computacional (% Comp). 4. Si el porcentaje es mayor al 93% y el evento persiste m√°s de 15 minutos notificar a BDD.
+Nota: cerrar como controlado el servidor es del amibiente de test y no tienen muchos recursos en caso que la alerta pase los 25 minutos estacalar a bdd ";Bitacora;30/01/2025;Henry Ma√±ay;Aprobado;30/05/2025;David Medina;;INC0060639;KB0057992;"SERVIDORES DE BANCS PROD
 Registrado y Aprobado en Service Now";;
 PRECXDB004Memory Saturation;PSKB0008;BDD;PRECXDB004;Memory Saturation;Memory Saturation;"1. Ingresar a cyberark mediante el link https://privilegiados.uio.bpichincha.com/PasswordVault/v10/
 2. Buscar el servidor afectado (columa C Nombre Componente)
 3. Conectar por la opcion ssh (cyberak)
 4. Verificar el porcentaje de uso de memoria ejecutando el comando ""topas"",                                                                                                                                                                      en la parte derecha se visualzia el porcentaje de memoria computacional (% Comp).
-5. Si el porcentaje es mayor al 93% y el evento persiste m·s de 15 minutos notificar a BDD.
-Nota: El evento que procede de saturaciÛn de memoria en los nodos PRECXDB004 yPRECXDB005 son por ejecuciÛn de flash copy de bancs en la noche, el cual baja todos los servicios y al subir los servicios registra como alertado, el mismo que es controlado, si existe una desconexiÛn de Dynatrace en el dÌa el evento se disparar· nuevamente, validar la memoria computacional del Dashboard en caso de superar 90% elevar a bdd PPECXIB003";Bitacora;30/01/2025;Henry MaÒay;Aprobado;30/05/2025;David Medina;;;KBD0058045-Act;;;
+5. Si el porcentaje es mayor al 93% y el evento persiste m√°s de 15 minutos notificar a BDD.
+Nota: El evento que procede de saturaci√≥n de memoria en los nodos PRECXDB004 yPRECXDB005 son por ejecuci√≥n de flash copy de bancs en la noche, el cual baja todos los servicios y al subir los servicios registra como alertado, el mismo que es controlado, si existe una desconexi√≥n de Dynatrace en el d√≠a el evento se disparar√° nuevamente, validar la memoria computacional del Dashboard en caso de superar 90% elevar a bdd PPECXIB003";Bitacora;30/01/2025;Henry Ma√±ay;Aprobado;30/05/2025;David Medina;;;KBD0058045-Act;;;
 PRECXDB005Memory Saturation;PSKB0009;BDD;PRECXDB005;Memory Saturation;Memory Saturation;"1. Ingresamos al cyberark.mediante el link https://privilegiados.uio.bpichincha.com/PasswordVault/v10/
 2. Buscamos el nombre del servidor para poder ingresar (columa C Nombre Componente)
 3.Conectar por la opcion ssh (cyberak) 
 4. En una consola del servidor ejecutamos el comando ""topas"".                                                                                                                                                                                   
-5 . Visualizamos en la parte derecha el porcentaje de memoria computacional (% Comp). Si el porcentaje es mayor al 93% y el evento persiste m·s de 15 minutos notificar a BDD.
-5. Caso contrario el evento se recupera autom·ticamente.
-Nota: el evento que procede de saturacion de memoria en los nodos PRECXDB004 yPRECXDB005 son por ejecucion de flash copy de bancs en la noche el cual baja todos los servicio y por ende todas las alertas del dynatrace que al momento de subir nuevamente grafica como que fuera alertado el mismo que es controlado si existe una desconexion del dynatrace en el dia el evento se disparara nuevamente validar la memoria computacional del dyboard en caso de superar 90% elevar a bdd";Bitacora;30/01/2025;Henry MaÒay;Aprobado;27/02/2025;David Medina;;INC0306581;KB0058019;Registrado en ServiceNow;;
+5 . Visualizamos en la parte derecha el porcentaje de memoria computacional (% Comp). Si el porcentaje es mayor al 93% y el evento persiste m√°s de 15 minutos notificar a BDD.
+5. Caso contrario el evento se recupera autom√°ticamente.
+Nota: el evento que procede de saturacion de memoria en los nodos PRECXDB004 yPRECXDB005 son por ejecucion de flash copy de bancs en la noche el cual baja todos los servicio y por ende todas las alertas del dynatrace que al momento de subir nuevamente grafica como que fuera alertado el mismo que es controlado si existe una desconexion del dynatrace en el dia el evento se disparara nuevamente validar la memoria computacional del dyboard en caso de superar 90% elevar a bdd";Bitacora;30/01/2025;Henry Ma√±ay;Aprobado;27/02/2025;David Medina;;INC0306581;KB0058019;Registrado en ServiceNow;;
 ECBPPRQ63Bloqueo de sesiones;PSKB0010;BDD;ECBPPRQ63;Bloqueo de sesiones;Bloqueo de sesiones;"1. Ingresar a cyberark mediante el link https://privilegiados.uio.bpichincha.com/PasswordVault/v10/
 2. Buscar el servidor afectado (columa C Nombre Componente)
 3. Conectar por la opcion rdp (cyberak) 
@@ -197,7 +197,7 @@ FROM sys.sysprocesses R
       CROSS APPLY sys.dm_exec_sql_text(R.SQL_HANDLE) T 
 GO
                                                                                                                                                                                                                                        
-Nota: Cerrar como controlado en caso que el bloqueo supere los 15 minutos reportar a bdd ";Bitacora;30/01/2025;Henry MaÒay;Aprobado;27/02/2025;Johana Mendoza;;INC0150782;KB0058022;Registrado en ServiceNow;;
+Nota: Cerrar como controlado en caso que el bloqueo supere los 15 minutos reportar a bdd ";Bitacora;30/01/2025;Henry Ma√±ay;Aprobado;27/02/2025;Johana Mendoza;;INC0150782;KB0058022;Registrado en ServiceNow;;
 PRECWDB013Bloqueo de sesiones;PSKB0011;BDD;PRECWDB013;Bloqueo de sesiones;Bloqueo de sesiones;"1. Ingresar a cyberark mediante el link https://privilegiados.uio.bpichincha.com/PasswordVault/v10/
 2. Buscar el servidor afectado (columa C Nombre Componente)
 3. Conectar por la opcion rdp (cyberak)
@@ -214,7 +214,7 @@ FROM sys.sysprocesses R
       CROSS APPLY sys.dm_exec_sql_text(R.SQL_HANDLE) T 
 GO
                                                                                                                                                                                                                                          
-Reportar a BDD en caso que el bloqueo supere los 15 minutos ya que las alertas son autorecuperadas.";Bitacora;30/01/2025;Henry MaÒay;Aprobado;27/02/2025;David Medina;;INC0140817;KB0058023;Registrado en ServiceNow;;
+Reportar a BDD en caso que el bloqueo supere los 15 minutos ya que las alertas son autorecuperadas.";Bitacora;30/01/2025;Henry Ma√±ay;Aprobado;27/02/2025;David Medina;;INC0140817;KB0058023;Registrado en ServiceNow;;
 ECBPPRQ48BLOQUEO DE SESIONES;PSKB0012;BDD;ECBPPRQ48;Bloqueo de sesiones;BLOQUEO DE SESIONES;"1. Ingresar a cyberark mediante el link https://privilegiados.uio.bpichincha.com/PasswordVault/v10/
 2. Buscar el servidor afectado .(columa C Nombre Componente)
 3.Conectar por la opcion rdp (cyberak)
@@ -230,7 +230,7 @@ INTO #T
 FROM sys.sysprocesses R 
       CROSS APPLY sys.dm_exec_sql_text(R.SQL_HANDLE) T 
 GO                                                                                                                                                                                                                        
-nota Reportar a base de datos en caso de que el bloqueo supere los 15 minutos ya que las alertas son autorecupeoradas";Bitacora;30/01/2025;Henry MaÒay;Aprobado;27/02/2025;Johana Mendoza;;INC0175472;KB0058024;Registrado en ServiceNow;;
+nota Reportar a base de datos en caso de que el bloqueo supere los 15 minutos ya que las alertas son autorecupeoradas";Bitacora;30/01/2025;Henry Ma√±ay;Aprobado;27/02/2025;Johana Mendoza;;INC0175472;KB0058024;Registrado en ServiceNow;;
 ECBPPRQ122Bloqueo de sesiones;PSKB0013;BDD;ECBPPRQ122;Bloqueo de sesiones;Bloqueo de sesiones;" 1. Ingresar a cyberark mediante el link https://privilegiados.uio.bpichincha.com/PasswordVault/v10/
 2. Buscar el nombre del servidor afectado.(columa C Nombre Componente)
 3. Conectar por la opcion rdp (cyberak)
@@ -247,7 +247,7 @@ FROM sys.sysprocesses R
       CROSS APPLY sys.dm_exec_sql_text(R.SQL_HANDLE) T 
 GO
                                                                                                                                                                                                                                          
-Nota:Reportar a base de datos en caso de que el bloqueo supere los 5 minutos ya que las alertas son autorecupeoradas";Bitacora;30/01/2025;Henry MaÒay;Aprobado;27/02/2025;Johana Mendoza;;INC0170652;KB0058025;Registrado en ServiceNow;;
+Nota:Reportar a base de datos en caso de que el bloqueo supere los 5 minutos ya que las alertas son autorecupeoradas";Bitacora;30/01/2025;Henry Ma√±ay;Aprobado;27/02/2025;Johana Mendoza;;INC0170652;KB0058025;Registrado en ServiceNow;;
 "ecbpprcl51
 ecuio242q02
 ecbpprq131
@@ -376,12 +376,12 @@ DROP TABLE #temperrorlog
 GO
 
 5. 
-6 - Identificar procesos de ejecuciÛn de BackUp, shrink (compactaciones), reindexaciones y procesos con mucho tiempo de ejecuciÛn con el siguiente query
+6 - Identificar procesos de ejecuci√≥n de BackUp, shrink (compactaciones), reindexaciones y procesos con mucho tiempo de ejecuci√≥n con el siguiente query
 
 EXEC sp_who2 active
 EXEC sp_who3
-NOTA: crerrar el evento como controlado En caso que la alerta se presente por m·s de 15 min reportar a BDD.Al tratarse de una arquitectura de Failover Cluster, esta se compone de 2 nodos ECBPPRCL50 y ECBPPRCL51 con 2 instancias: ECBPPRQ75\Q75 y ECBPPRQ29\Q29. Cada nodo aloja una instancia. Las alertas que se presentan en Dynatrace por Slow Disk muestran el nombre del servidor (nodo), m·s no el de la instancia. Por lo tanto, es importante revisar el disco que est· alertado, esto nos ayudar· a determinar en quÈ instancia debemos conectarnos para validar los procesos en ejecuciÛn. Ej. R:\Disk_18_Sql_Temp_Q75\ pertenece a la instancia Q75; J:\Disk_6_Sql_Data_Q29\ pertenece a la instancia Q29.""
-";Bitacora;30/01/2025;Henry MaÒay;Aprobado;27/02/2025;Johana Mendoza;;INC0056846;KB0058026;Registrado en ServiceNow;;
+NOTA: crerrar el evento como controlado En caso que la alerta se presente por m√°s de 15 min reportar a BDD.Al tratarse de una arquitectura de Failover Cluster, esta se compone de 2 nodos ECBPPRCL50 y ECBPPRCL51 con 2 instancias: ECBPPRQ75\Q75 y ECBPPRQ29\Q29. Cada nodo aloja una instancia. Las alertas que se presentan en Dynatrace por Slow Disk muestran el nombre del servidor (nodo), m√°s no el de la instancia. Por lo tanto, es importante revisar el disco que est√° alertado, esto nos ayudar√° a determinar en qu√© instancia debemos conectarnos para validar los procesos en ejecuci√≥n. Ej. R:\Disk_18_Sql_Temp_Q75\ pertenece a la instancia Q75; J:\Disk_6_Sql_Data_Q29\ pertenece a la instancia Q29.""
+";Bitacora;30/01/2025;Henry Ma√±ay;Aprobado;27/02/2025;Johana Mendoza;;INC0056846;KB0058026;Registrado en ServiceNow;;
 "ECBPPRQ53
 ecbpprcl12
 precwfs003
@@ -410,25 +410,25 @@ ecbpprw119";Memory Saturation;Memory Saturation;"1. Ingresar a cyberark mediante
 2. Buscar el nombre del servidor afectado.(columa C Nombre Componente)
 3. Conectar por la opcion rdp (cyberak)
 4. Si existe usuarios desconectados, validar con Wintel que cierren esas sessione, en caso de no poder y se libera espacio 
-5.  Identificar procesos de ejecuciÛn de BackUp, shrink (compactaciones), reindexaciones y procesos con mucho tiempo de ejecuciÛn con el siguiente query
+5.  Identificar procesos de ejecuci√≥n de BackUp, shrink (compactaciones), reindexaciones y procesos con mucho tiempo de ejecuci√≥n con el siguiente query
 
 EXEC sp_who2 active
 EXEC sp_who3
 Nota: Cerrar como controlado en caso que el bloqueo supere los 15 minutos reportar a bdd 
-";Bitacora;30/01/2025;Henry MaÒay;Aprobado;27/02/2025;Johana Mendoza;;INC0175563;KB0058027;Registrado en ServiceNow;;
+";Bitacora;30/01/2025;Henry Ma√±ay;Aprobado;27/02/2025;Johana Mendoza;;INC0175563;KB0058027;Registrado en ServiceNow;;
 ecbpprq133CPU Saturation;PSKB0016;BDD;ecbpprq133;CPU Saturation;CPU Saturation;"1.Ingresar a cyberark mediante el link https://privilegiados.uio.bpichincha.com/PasswordVault/v10/
 2. Buscar el nombre del servidor afectado.(columa C Nombre Componente)
 3 Conectar por la opcion rdp (cyberak)
-4.Identificar procesos en ejecuciÛn de BackUp, shrink (compactaciones), reindexaciones y procesos con mucho tiempo de ejecuciÛn con el siguiente query
+4.Identificar procesos en ejecuci√≥n de BackUp, shrink (compactaciones), reindexaciones y procesos con mucho tiempo de ejecuci√≥n con el siguiente query
 EXEC sp_who2 active
 EXEC sp_who3
-5. Si el proceso es por ejecuciÛn de backups o reindexaciones  cerrar como evento controlado.
+5. Si el proceso es por ejecuci√≥n de backups o reindexaciones  cerrar como evento controlado.
 6. Si es por compactaciones, reportar a BDD.
-Nota. cerrar el evento como controlado en caso que dure mas de 15 min notificar a bdd ";Bitacora;30/01/2025;Henry MaÒay;Aprobado;27/02/2025;Johana Mendoza;;INC0104046;KB0058028;Registrado en ServiceNow;;
+Nota. cerrar el evento como controlado en caso que dure mas de 15 min notificar a bdd ";Bitacora;30/01/2025;Henry Ma√±ay;Aprobado;27/02/2025;Johana Mendoza;;INC0104046;KB0058028;Registrado en ServiceNow;;
 TSECXDB005CPU Saturation;PSKB0017;BDD;TSECXDB005;CPU Saturation;CPU Saturation;"1.  Ingresar a cyberark mediante el link https://privilegiados.uio.bpichincha.com/PasswordVault/v10/
 2. Buscar el servidor afectado(columa C Nombre Componente)
 3.Conectar por la opcion plsql (cyberak)
-4.Ejecutamos un query para validar que no se estÈ ejecutando un respaldo                                                                                                                                                    ""SELECT SID, START_TIME, TOTALWORK, sofar,  (sofar / totalwork) * 100 done, 
+4.Ejecutamos un query para validar que no se est√© ejecutando un respaldo                                                                                                                                                    ""SELECT SID, START_TIME, TOTALWORK, sofar,  (sofar / totalwork) * 100 done, 
     SYSDATE + TIME_REMAINING / 3600 / 24 end_at 
   FROM v$session_longops 
   WHERE     totalwork > sofar AND opname NOT LIKE '%aggregate%'  AND opname LIKE 'RMAN%' 
@@ -438,12 +438,12 @@ SELECT sess.sid, sess.serial#, sess.username, sess.status, sql.sql_text
 FROM gv$session sess
 JOIN gv$sql sql ON sess.sql_id = sql.sql_id
 WHERE sess.status = 'ACTIVE' AND sql.sql_text LIKE 'ALTER INDEX%                                                                                                                                                                                                                                                     
-6. Si los  querys retorna sessiones de backup,index o estadisticas corresponde a un evento controlado, caso contrario si no existe la ejecuciÛn de estos querys se debe a la 
-nota cerrar como evento controaldo porejecuciÛn del proceso batch, si el consumo es mayor a 98% en un tiempo de 30 min, escalar  a bdd.";Bitacora;30/01/2025;Henry MaÒay;Aprobado;27/02/2025;David Medina;;INC0239835;KB0058029;Registrado en ServiceNow;;
+6. Si los  querys retorna sessiones de backup,index o estadisticas corresponde a un evento controlado, caso contrario si no existe la ejecuci√≥n de estos querys se debe a la 
+nota cerrar como evento controaldo porejecuci√≥n del proceso batch, si el consumo es mayor a 98% en un tiempo de 30 min, escalar  a bdd.";Bitacora;30/01/2025;Henry Ma√±ay;Aprobado;27/02/2025;David Medina;;INC0239835;KB0058029;Registrado en ServiceNow;;
 TSECXDB006CPU Saturation;PSKB0018;BDD;TSECXDB006;CPU Saturation;CPU Saturation;"1.  Ingresar a cyberark mediante el link https://privilegiados.uio.bpichincha.com/PasswordVault/v10/
 2. Buscar el servidor afectado(columa C Nombre Componente)
 3.Conectar por la opcion plsql (cyberak)
-4.Ejecutamos un query para validar que no se estÈ ejecutando un respaldo                                                                                                                                                    ""SELECT SID, START_TIME, TOTALWORK, sofar,  (sofar / totalwork) * 100 done, 
+4.Ejecutamos un query para validar que no se est√© ejecutando un respaldo                                                                                                                                                    ""SELECT SID, START_TIME, TOTALWORK, sofar,  (sofar / totalwork) * 100 done, 
     SYSDATE + TIME_REMAINING / 3600 / 24 end_at 
   FROM v$session_longops 
   WHERE     totalwork > sofar AND opname NOT LIKE '%aggregate%'  AND opname LIKE 'RMAN%' 
@@ -453,11 +453,11 @@ SELECT sess.sid, sess.serial#, sess.username, sess.status, sql.sql_text
 FROM gv$session sess
 JOIN gv$sql sql ON sess.sql_id = sql.sql_id
 WHERE sess.status = 'ACTIVE' AND sql.sql_text LIKE 'ALTER INDEX%                                                                                                                                                                                                                                                     
-6. Si los  querys retorna sessiones de backup,index o estadisticas corresponde a un evento controlado, caso contrario si no existe la ejecuciÛn de estos querys se debe a la 
-nota cerrar como evento controaldo porejecuciÛn del proceso batch, si el consumo es mayor a 98% en un tiempo de 30 min, escalar  a bdd.";Bitacora;30/01/2025;Henry MaÒay;Aprobado;27/02/2025;David Medina;;INC0076562;KB0058030;Registrado en ServiceNow;;
+6. Si los  querys retorna sessiones de backup,index o estadisticas corresponde a un evento controlado, caso contrario si no existe la ejecuci√≥n de estos querys se debe a la 
+nota cerrar como evento controaldo porejecuci√≥n del proceso batch, si el consumo es mayor a 98% en un tiempo de 30 min, escalar  a bdd.";Bitacora;30/01/2025;Henry Ma√±ay;Aprobado;27/02/2025;David Medina;;INC0076562;KB0058030;Registrado en ServiceNow;;
 ecbpprq131Slow Disk SQL;PSKB0019;BDD;ecbpprq131;Slow Disk SQL;Slow Disk SQL;"1. Ingresar al cyberark.mediante el link https://privilegiados.uio.bpichincha.com/PasswordVault/v10/
 2. Buscar el nombre del servidor para poder ingresar.(columa C Nombre Componente)
-3. Conectar por la opcion rdp  (cyberak)                                                                                                                                                                                        4. Ejecutamos un query para validar que no se estÈ ejecutando error de I/O en el error log   
+3. Conectar por la opcion rdp  (cyberak)                                                                                                                                                                                        4. Ejecutamos un query para validar que no se est√© ejecutando error de I/O en el error log   
 SET NOCOUNT ON     
 DECLARE @fechaini DATETIME, @fechafin DATETIME;
 CREATE TABLE #temperrorlog ([ErrorLogDate] DATETIME, [ProcessInfo] VARCHAR(50),[Text] NVARCHAR(4000)); 
@@ -472,18 +472,18 @@ FROM #temperrorlog
 WHERE [Text] LIKE '%error%' OR [Text] LIKE '%Suspect%' OR [Text] LIKE '%Recovery%'
 DROP TABLE #temperrorlog
 GO
-5 - Identificar procesos de ejecuciÛn de BackUp, shrink (compactaciones), reindexaciones y procesos con mucho tiempo de ejecuciÛn con el siguiente query
+5 - Identificar procesos de ejecuci√≥n de BackUp, shrink (compactaciones), reindexaciones y procesos con mucho tiempo de ejecuci√≥n con el siguiente query
 
 EXEC sp_who2 active
 EXEC sp_who3
 
  
-6. Al tratarse de una arquitectura de Failover Cluster, esta se compone de 2 nodos ECBPPRCL50 y ECBPPRCL51 con 2 instancias: ECBPPRQ75\Q75 y ECBPPRQ29\Q29. Cada nodo aloja una instancia. Las alertas que se presentan en Dynatrace por Slow Disk muestran el nombre del servidor (nodo), m·s no el de la instancia. Por lo tanto es importante fijarse el disco que est· alertado, esto nos ayudar· a determinar a quÈ instancia debemos conectarnos para validar los procesos en ejecuciÛn. Ej. R:\Disk_18_Sql_Temp_Q75\ pertenece a la instancia Q75; J:\Disk_6_Sql_Data_Q29\ pertenece a la instancia Q29.""
-Nota: la alerta se va a presentar en el transcuros de todo el dia  y noche ya que pasa informaciÛn de la bdd de  omni online por lo cual no transacciona y es un servidor histÛrico. alerta controlada ";Bitacora;30/01/2025;Henry MaÒay;Aprobado;27/02/2025;Johana Mendoza;;INC0044412;KB0058031;Registrado en ServiceNow;;
+6. Al tratarse de una arquitectura de Failover Cluster, esta se compone de 2 nodos ECBPPRCL50 y ECBPPRCL51 con 2 instancias: ECBPPRQ75\Q75 y ECBPPRQ29\Q29. Cada nodo aloja una instancia. Las alertas que se presentan en Dynatrace por Slow Disk muestran el nombre del servidor (nodo), m√°s no el de la instancia. Por lo tanto es importante fijarse el disco que est√° alertado, esto nos ayudar√° a determinar a qu√© instancia debemos conectarnos para validar los procesos en ejecuci√≥n. Ej. R:\Disk_18_Sql_Temp_Q75\ pertenece a la instancia Q75; J:\Disk_6_Sql_Data_Q29\ pertenece a la instancia Q29.""
+Nota: la alerta se va a presentar en el transcuros de todo el dia  y noche ya que pasa informaci√≥n de la bdd de  omni online por lo cual no transacciona y es un servidor hist√≥rico. alerta controlada ";Bitacora;30/01/2025;Henry Ma√±ay;Aprobado;27/02/2025;Johana Mendoza;;INC0044412;KB0058031;Registrado en ServiceNow;;
 ECBPPRQ50Slow Disk SQL;PSKB0020;BDD;ECBPPRQ50;Slow Disk SQL;Slow Disk SQL;"1. Ingresar al cyberark.mediante el link https://privilegiados.uio.bpichincha.com/PasswordVault/v10/
 2. Buscar el nombre del servidor para poder ingresar..(columa C Nombre Componente)
 3. Conectar por la opcion rdp  (cyberak)    
-4. Ejecutamos un query para validar que no se estÈ ejecutando error de I/O en el error log   
+4. Ejecutamos un query para validar que no se est√© ejecutando error de I/O en el error log   
 SET NOCOUNT ON     
 DECLARE @fechaini DATETIME, @fechafin DATETIME;
 CREATE TABLE #temperrorlog ([ErrorLogDate] DATETIME, [ProcessInfo] VARCHAR(50),[Text] NVARCHAR(4000)); 
@@ -499,14 +499,14 @@ WHERE [Text] LIKE '%error%' OR [Text] LIKE '%Suspect%' OR [Text] LIKE '%Recovery
 DROP TABLE #temperrorlog
 GO
 
-5 - Identificar procesos de ejecuciÛn de BackUp, shrink (compactaciones), reindexaciones y procesos con mucho tiempo de ejecuciÛn con el siguiente query
+5 - Identificar procesos de ejecuci√≥n de BackUp, shrink (compactaciones), reindexaciones y procesos con mucho tiempo de ejecuci√≥n con el siguiente query
 
 EXEC sp_who2 active
 EXEC sp_who3
-nota cerra el evento como controlado ya que la alerta se va a presentar en el transcuros de la noche haciendo referencia a que ejecuta el backup de la bdd de 20:30 a 21:00  ";Bitacora;30/01/2025;Henry MaÒay;Aprobado;27/02/2025;Johana Mendoza;;INC0294048;KB0058032;Registrado en ServiceNow;;
+nota cerra el evento como controlado ya que la alerta se va a presentar en el transcuros de la noche haciendo referencia a que ejecuta el backup de la bdd de 20:30 a 21:00  ";Bitacora;30/01/2025;Henry Ma√±ay;Aprobado;27/02/2025;Johana Mendoza;;INC0294048;KB0058032;Registrado en ServiceNow;;
 ECBPEBSP8CPU Saturation;PSKB0021;BDD;ECBPEBSP8;CPU Saturation;CPU Saturation;"1. Ingresar a cyberark mediante el link https://privilegiados.uio.bpichincha.com/PasswordVault/v10/
 2. Buscar el nombre del servidor afectado.(columa C Nombre Componente)
-3. Conectar por la opcion plsql                                                                                                                                                                                        4. Ejecutamos un query para validar que no se estÈ ejecutando un respaldo                                                                                                                                                    ""SELECT SID, START_TIME, TOTALWORK, sofar,  (sofar / totalwork) * 100 done, 
+3. Conectar por la opcion plsql                                                                                                                                                                                        4. Ejecutamos un query para validar que no se est√© ejecutando un respaldo                                                                                                                                                    ""SELECT SID, START_TIME, TOTALWORK, sofar,  (sofar / totalwork) * 100 done, 
     SYSDATE + TIME_REMAINING / 3600 / 24 end_at 
   FROM v$session_longops 
   WHERE     totalwork > sofar AND opname NOT LIKE '%aggregate%'  AND opname LIKE 'RMAN%' 
@@ -516,15 +516,15 @@ SELECT sess.sid, sess.serial#, sess.username, sess.status, sql.sql_text
 FROM gv$session sess
 JOIN gv$sql sql ON sess.sql_id = sql.sql_id
 WHERE sess.status = 'ACTIVE' AND sql.sql_text LIKE 'ALTER INDEX%                                                                                                                                                                                                                                                     
-6. Si los  querys retorna sessiones de backup,index o estadisticas corresponde a un evento controlado, caso contrario si no existe la ejecuciÛn de estos querys y el evento  persiste m·s de 15 minutos notificar a BDD.
+6. Si los  querys retorna sessiones de backup,index o estadisticas corresponde a un evento controlado, caso contrario si no existe la ejecuci√≥n de estos querys y el evento  persiste m√°s de 15 minutos notificar a BDD.
 
-nota cerrrar el evento como controlado n1 ya que es un sevidor de ebs historico que no transacciona registros  en el caso que la alerta sobrepase los 97% y dure mas de 15 min elevar a bdd  ";Bitacora;30/01/2025;Henry MaÒay;Aprobado;27/02/2025;David Medina;;INC0126897;KB0058034;Registrado en ServiceNow;;
+nota cerrrar el evento como controlado n1 ya que es un sevidor de ebs historico que no transacciona registros  en el caso que la alerta sobrepase los 97% y dure mas de 15 min elevar a bdd  ";Bitacora;30/01/2025;Henry Ma√±ay;Aprobado;27/02/2025;David Medina;;INC0126897;KB0058034;Registrado en ServiceNow;;
 PRECXDB008CPU Saturation;PSKB0022;BDD;PRECXDB008;CPU Saturation;CPU Saturation;"
-Nota:este servidor es de restauraciones de bdd  no existe transaccionabilidad asi que cada evento que reporte en este servidor colocar como cerrado como  controlado";Bitacora;30/01/2025;Henry MaÒay;Aprobado;27/02/2025;David Medina;;INC0295578;KB0058035;Registrado en ServiceNow;;
+Nota:este servidor es de restauraciones de bdd  no existe transaccionabilidad asi que cada evento que reporte en este servidor colocar como cerrado como  controlado";Bitacora;30/01/2025;Henry Ma√±ay;Aprobado;27/02/2025;David Medina;;INC0295578;KB0058035;Registrado en ServiceNow;;
 DRECXDB007CPU Saturation;PSKB0023;BDD;DRECXDB007;CPU Saturation;CPU Saturation;"1. Ingresar a cyberark mediante el link https://privilegiados.uio.bpichincha.com/PasswordVault/v10/
 2. Buscar el nombre del servidor afectado.(columa C Nombre Componente)
 3.conectar por la opcion plsql (cyberak)
-4. Validar mediante el siguiente query que no se estÈ ejecutando un respaldo                                                                                                                                                    ""SELECT SID, START_TIME, TOTALWORK, sofar,  (sofar / totalwork) * 100 done, 
+4. Validar mediante el siguiente query que no se est√© ejecutando un respaldo                                                                                                                                                    ""SELECT SID, START_TIME, TOTALWORK, sofar,  (sofar / totalwork) * 100 done, 
     SYSDATE + TIME_REMAINING / 3600 / 24 end_at 
   FROM v$session_longops 
   WHERE     totalwork > sofar AND opname NOT LIKE '%aggregate%'  AND opname LIKE 'RMAN%' 
@@ -534,9 +534,9 @@ SELECT sess.sid, sess.serial#, sess.username, sess.status, sql.sql_text
 FROM gv$session sess
 JOIN gv$sql sql ON sess.sql_id = sql.sql_id
 WHERE sess.status = 'ACTIVE' AND sql.sql_text LIKE 'ALTER INDEX%                                                                                                                                                                                                                                                     
-6. Si los querys retorna sessiones de backup,index o estadisticas corresponde a un evento controlado, caso contrario si la alerta persiste m·s de 1 hora reportar a bdd. 
+6. Si los querys retorna sessiones de backup,index o estadisticas corresponde a un evento controlado, caso contrario si la alerta persiste m√°s de 1 hora reportar a bdd. 
 
-Nota:este servidor es de restauraciones de bdd  no existe transaccionabilidad asi que cada evento que reporte en este servidor colocar como cerrado como  controlado,no existe tiempo ya que la resturacion puede tardar horas ";Bitacora;30/01/2025;Henry MaÒay;Aprobado;30/05/2025;David Medina;;INC0295578;KB0058035;Registrado en ServiceNow;;
+Nota:este servidor es de restauraciones de bdd  no existe transaccionabilidad asi que cada evento que reporte en este servidor colocar como cerrado como  controlado,no existe tiempo ya que la resturacion puede tardar horas ";Bitacora;30/01/2025;Henry Ma√±ay;Aprobado;30/05/2025;David Medina;;INC0295578;KB0058035;Registrado en ServiceNow;;
 ecbpprq121Evento Productivo - ECBPPRQ121.uio.bpichincha.com: Slow disk;PSKB0024;BDD;ecbpprq121;Slow Disk SQL;Evento Productivo - ECBPPRQ121.uio.bpichincha.com: Slow disk;"1. Ingresar a cyberark mediante el link https://privilegiados.uio.bpichincha.com/PasswordVault/v10/
 2. Buscar el nombre del servidor afectado.(columa C Nombre Componente)
 3.  Conectar por la opcion rdp (cyberak)
@@ -556,18 +556,18 @@ WHERE [Text] LIKE '%error%' OR [Text] LIKE '%Suspect%' OR [Text] LIKE '%Recovery
 DROP TABLE #temperrorlog
 GO
 
-5. En caso que la alerta se presente por m·s de 15 min reportar a BDD.
-6 - Identificar procesos de ejecuciÛn de BackUp, shrink (compactaciones), reindexaciones y procesos con mucho tiempo de ejecuciÛn con el siguiente query
+5. En caso que la alerta se presente por m√°s de 15 min reportar a BDD.
+6 - Identificar procesos de ejecuci√≥n de BackUp, shrink (compactaciones), reindexaciones y procesos con mucho tiempo de ejecuci√≥n con el siguiente query
 
 EXEC sp_who2 active
 EXEC sp_who3
-NOTA: cerrar el evento como controlado en caso que la alerta dure mas de 15 minutos escalar a bdd ";Bitacora;30/01/2025;Henry MaÒay;Aprobado;27/02/2025;Johana Mendoza;;INC0211701;"
+NOTA: cerrar el evento como controlado en caso que la alerta dure mas de 15 minutos escalar a bdd ";Bitacora;30/01/2025;Henry Ma√±ay;Aprobado;27/02/2025;Johana Mendoza;;INC0211701;"
 KB0057994";Registrado en ServiceNow;;
 "DRECXDB003
 CPU Saturation AIX DCA";PSKB0025;BDD;"DRECXDB003
 ";CPU Saturation;CPU Saturation AIX DCA;"1. Ingresar a cyberark mediante el link https://privilegiados.uio.bpichincha.com/PasswordVault/v10/
 2. Buscar el nombre del servidor afectado.(columa C Nombre Componente)
-3. conectar por la opcion plsql (cyberak)                                                                                                                                                                                       4. Validar mediante el siguiente query que no se estÈ ejecutando un respaldo                                                                                                                                                    ""SELECT SID, START_TIME, TOTALWORK, sofar,  (sofar / totalwork) * 100 done, 
+3. conectar por la opcion plsql (cyberak)                                                                                                                                                                                       4. Validar mediante el siguiente query que no se est√© ejecutando un respaldo                                                                                                                                                    ""SELECT SID, START_TIME, TOTALWORK, sofar,  (sofar / totalwork) * 100 done, 
     SYSDATE + TIME_REMAINING / 3600 / 24 end_at 
   FROM v$session_longops 
   WHERE     totalwork > sofar AND opname NOT LIKE '%aggregate%'  AND opname LIKE 'RMAN%' 
@@ -577,12 +577,12 @@ SELECT sess.sid, sess.serial#, sess.username, sess.status, sql.sql_text
 FROM gv$session sess
 JOIN gv$sql sql ON sess.sql_id = sql.sql_id
 WHERE sess.status = 'ACTIVE' AND sql.sql_text LIKE 'ALTER INDEX%                                                                                                                                                                                                                                                     
-6. Si los querys retorna sessiones de backup,index o estadisticas corresponde a un evento controlado, caso contrario si la alerta persiste m·s de 1 hora reportar a bdd. 
+6. Si los querys retorna sessiones de backup,index o estadisticas corresponde a un evento controlado, caso contrario si la alerta persiste m√°s de 1 hora reportar a bdd. 
 
-Nota: los servidores del Dca no tienen los mismos recuros que el dcp por lo cual permanecen alertados y sincroniza con DCP es un evento controlado si el tiempo dura mas de 1 hora enviar a bdd ";Bitacora;30/01/2025;Henry MaÒay;Aprobado;30/05/2025;David Medina;;INC0081751;KB0058117;;;
+Nota: los servidores del Dca no tienen los mismos recuros que el dcp por lo cual permanecen alertados y sincroniza con DCP es un evento controlado si el tiempo dura mas de 1 hora enviar a bdd ";Bitacora;30/01/2025;Henry Ma√±ay;Aprobado;30/05/2025;David Medina;;INC0081751;KB0058117;;;
 "DRECXDB002
-drecxdb003High network utilizaciÛn";PSKB0026;BDD;"DRECXDB002
-drecxdb003";Networking;High network utilizaciÛn;"1 Ingresar a cyberark mediante el link https://privilegiados.uio.bpichincha.com/PasswordVault/v10/
+drecxdb003High network utilizaci√≥n";PSKB0026;BDD;"DRECXDB002
+drecxdb003";Networking;High network utilizaci√≥n;"1 Ingresar a cyberark mediante el link https://privilegiados.uio.bpichincha.com/PasswordVault/v10/
 2. Buscar el nombre del servidor afectado.(columa C Nombre Componente)
 3.conectar por la opcion plsql (cyberak)
 4. Identificar los procesos que consumen mayor cantidad de red ejecutando el siguiente query 
@@ -621,39 +621,39 @@ and  PS.SID (+) = S.SID AND PS.SERIAL# (+) = S.SERIAL# and PS.INST_ID (+) = S.IN
 order by MODULE, OWNERID; */
 3. al ejecutar el script se verificara que se tiene sessiones ingresando a la base de datos 
 
-Nota omitir la alerta ya que en el DCA los recursos son mÌnimos y dca con dcp hay intermintencias asi que es alerta contrada, si la alerta persiste m·s de 1 hora reportar a BDD. ";Bitacora;30/01/2025;Henry MaÒay;Aprobado;30/05/2025;David Medina;;INC0036385;KB0058118;;;
+Nota omitir la alerta ya que en el DCA los recursos son m√≠nimos y dca con dcp hay intermintencias asi que es alerta contrada, si la alerta persiste m√°s de 1 hora reportar a BDD. ";Bitacora;30/01/2025;Henry Ma√±ay;Aprobado;30/05/2025;David Medina;;INC0036385;KB0058118;;;
 ECBPEBST7Memory Saturation;PSKB0027;BDD;ECBPEBST7;Memory Saturation;Memory Saturation;"1. Ingresar a cyberark mediante el link https://privilegiados.uio.bpichincha.com/PasswordVault/v10/
 2. Buscar el nombre del servidor afectado.(columa C Nombre Componente)
 3. Conectar por la opcion ssh
 4. En una consola del servidor ejecutamos el comando ""topas"".                                                                                                                                                                                   
 5. Visualizamos en la parte derecha el porcentaje de memoria computacional (% Comp).
-6. Si la memoria se eleva por m·s de 5 minutos al 97% reportar de inmediato a bdd, caso contrario.
-6. Si el porcentaje es mayor al 93% y el evento persiste m·s de 15 minutos notificar a BDD
- nota El evento que presenta por saturacion de memoria en dynatrace  no es la real se debe verificar el dashbord de unix el cual toma  la memoria computacional, si se encuentra en rojo, reportar, caso contrario cerrar indicando que es un evento controlado y no reporta la memoria real https://xyc10065.live.dynatrace.com/index.jsp?state=W5OHiIGFgThLgMK_4bTMuLyC81C6RRzc95p8TRdR4L0&code=2679782c-1aab-46f4-8246-bce697239142#dashboard;gtf=-10m;gf=all;id=3e82d414-3faa-4997-ae73-fc014376add0";Bitacora;30/01/2025;Henry MaÒay;Aprobado;30/05/2025;David Medina;;INC0310043;KB0058119;;;
+6. Si la memoria se eleva por m√°s de 5 minutos al 97% reportar de inmediato a bdd, caso contrario.
+6. Si el porcentaje es mayor al 93% y el evento persiste m√°s de 15 minutos notificar a BDD
+ nota El evento que presenta por saturacion de memoria en dynatrace  no es la real se debe verificar el dashbord de unix el cual toma  la memoria computacional, si se encuentra en rojo, reportar, caso contrario cerrar indicando que es un evento controlado y no reporta la memoria real https://xyc10065.live.dynatrace.com/index.jsp?state=W5OHiIGFgThLgMK_4bTMuLyC81C6RRzc95p8TRdR4L0&code=2679782c-1aab-46f4-8246-bce697239142#dashboard;gtf=-10m;gf=all;id=3e82d414-3faa-4997-ae73-fc014376add0";Bitacora;30/01/2025;Henry Ma√±ay;Aprobado;30/05/2025;David Medina;;INC0310043;KB0058119;;;
 PRECBPSG03 Memory Saturation;PSKB0028;BDD;PRECBPSG03 ;Memory Saturation;Memory Saturation;"1. Ingresar al cyberark.mediante el link https://privilegiados.uio.bpichincha.com/PasswordVault/v10/
 2. Buscamos el nombre del servidor para poder ingresar (columa C Nombre Componente)
 3.Conectar por la opcion ssh (cyberak)
 3. ejecutamos el comando ""topas"".                                                                                                                                                                                   
- 4. Visualizamos en la parte derecha el porcentaje de memoria computacional (% Comp). Si el porcentaje es mayor al 93% y el evento persiste m·s de 15 minutos notificar a BDD.
-Nota: El evento que presenta por saturacion de memoria en dynatrace  no es la real se debe verificar el dashbord de unix el cual toma  la memoria computacional, si se encuentra en rojo, reportar, caso contrario cerrar indicando que es un evento controlado y no reporta la memoria real https://xyc10065.live.dynatrace.com/index.jsp?state=W5OHiIGFgThLgMK_4bTMuLyC81C6RRzc95p8TRdR4L0&code=2679782c-1aab-46f4-8246-bce697239142#dashboard;gtf=-10m;gf=all;id=3e82d414-3faa-4997-ae73-fc014376add0";Bitacora;30/01/2025;Henry MaÒay;Aprobado;30/05/2025;David Medina;;INC0081770;KB0058120;;;
+ 4. Visualizamos en la parte derecha el porcentaje de memoria computacional (% Comp). Si el porcentaje es mayor al 93% y el evento persiste m√°s de 15 minutos notificar a BDD.
+Nota: El evento que presenta por saturacion de memoria en dynatrace  no es la real se debe verificar el dashbord de unix el cual toma  la memoria computacional, si se encuentra en rojo, reportar, caso contrario cerrar indicando que es un evento controlado y no reporta la memoria real https://xyc10065.live.dynatrace.com/index.jsp?state=W5OHiIGFgThLgMK_4bTMuLyC81C6RRzc95p8TRdR4L0&code=2679782c-1aab-46f4-8246-bce697239142#dashboard;gtf=-10m;gf=all;id=3e82d414-3faa-4997-ae73-fc014376add0";Bitacora;30/01/2025;Henry Ma√±ay;Aprobado;30/05/2025;David Medina;;INC0081770;KB0058120;;;
 "PRECXDB003
 PRECXDB002Memory Saturation";PSKB0029;BDD;"PRECXDB003
 PRECXDB002";Memory Saturation;Memory Saturation;"1. Ingresar a cyberark mediante el link https://privilegiados.uio.bpichincha.com/PasswordVault/v10/
 2. Buscar el servidor afectado (columa C Nombre Componente)
 3. Conectar por la opcion ssh (cyberak)
 4. En una consola del servidor ejecutamos el comando ""topas"".                                                                                                                                                                                   
-5. Visualizamos en la parte derecha el porcentaje de memoria computacional (% Comp). Si el porcentaje es mayor al 93% y el evento persiste m·s de 15 minutos notificar a BDD.
-Nota: El evento que presenta por saturacion de memoria en dynatrace  no es la real se debe verificar el dashbord de unix el cual toma  la memoria computacional, si se encuentra en rojo, reportar, caso contrario cerrar indicando que es un evento controlado y no reporta la memoria real https://xyc10065.live.dynatrace.com/index.jsp?state=W5OHiIGFgThLgMK_4bTMuLyC81C6RRzc95p8TRdR4L0&code=2679782c-1aab-46f4-8246-bce697239142#dashboard;gtf=-10m;gf=all;id=3e82d414-3faa-4997-ae73-fc014376add0";Bitacora;30/01/2025;Henry MaÒay;Aprobado;30/05/2025;David Medina;;INC0046496;KB0058122;;;
+5. Visualizamos en la parte derecha el porcentaje de memoria computacional (% Comp). Si el porcentaje es mayor al 93% y el evento persiste m√°s de 15 minutos notificar a BDD.
+Nota: El evento que presenta por saturacion de memoria en dynatrace  no es la real se debe verificar el dashbord de unix el cual toma  la memoria computacional, si se encuentra en rojo, reportar, caso contrario cerrar indicando que es un evento controlado y no reporta la memoria real https://xyc10065.live.dynatrace.com/index.jsp?state=W5OHiIGFgThLgMK_4bTMuLyC81C6RRzc95p8TRdR4L0&code=2679782c-1aab-46f4-8246-bce697239142#dashboard;gtf=-10m;gf=all;id=3e82d414-3faa-4997-ae73-fc014376add0";Bitacora;30/01/2025;Henry Ma√±ay;Aprobado;30/05/2025;David Medina;;INC0046496;KB0058122;;;
 ecbpfdbp2 Error en la instancia DB2 db2fndi1;PSKB0031;BDD;ecbpfdbp2;Evento DB2; Error en la instancia DB2 db2fndi1;"Depuracion Automatica de Logs ya no requeridos por la bdd 
 1.- El evento esta controlado, se esta trabajando para excluir la alerta.
-2.- Cuando se presenta la alerta Cerrar  con el comentario ""Alerta controlada por borrado de log""";Bitacora;30/01/2025;Henry MaÒay;Aprobado;30/05/2025;David Medina;;INC0298046;KB0058124;;;
+2.- Cuando se presenta la alerta Cerrar  con el comentario ""Alerta controlada por borrado de log""";Bitacora;30/01/2025;Henry Ma√±ay;Aprobado;30/05/2025;David Medina;;INC0298046;KB0058124;;;
 ecbpbinp1ORA-16401;PSKB0032;BDD;ecbpbinp1;Evento Oracle;ORA-16401;"El error ORA-16401 es controlado ya que un archivo de registro de archivelog fue rechazado  Este error generalmente ocurre en configuraciones de Data Guard y suele pasar por un error de networking 
-Nota Favor cerrar el evento como incidente controlado ";Bitacora;26/05/2025;Henry MaÒay;Aprobado;28/05/2025;David Medina;;INC0103544;KB0058125;;;
+Nota Favor cerrar el evento como incidente controlado ";Bitacora;26/05/2025;Henry Ma√±ay;Aprobado;28/05/2025;David Medina;;INC0103544;KB0058125;;;
 "ECBPEBSP7
 CPU Saturation AIX DCA";PSKB0033;BDD;"ECBPEBSP7
 ";CPU Saturation;CPU Saturation AIX DCA;"1. Ingresar a cyberark mediante el link https://privilegiados.uio.bpichincha.com/PasswordVault/v10/
 2. Buscar el nombre del servidor afectado.(columa C Nombre Componente)
-3. Conectar por la opcion plsql (cyberak)                                                                                                                                                                                       4. Ejecutamos un query para validar que no se estÈ ejecutando un respaldo                                                                                                                                                    ""SELECT SID, START_TIME, TOTALWORK, sofar,  (sofar / totalwork) * 100 done, 
+3. Conectar por la opcion plsql (cyberak)                                                                                                                                                                                       4. Ejecutamos un query para validar que no se est√© ejecutando un respaldo                                                                                                                                                    ""SELECT SID, START_TIME, TOTALWORK, sofar,  (sofar / totalwork) * 100 done, 
     SYSDATE + TIME_REMAINING / 3600 / 24 end_at 
   FROM v$session_longops 
   WHERE     totalwork > sofar AND opname NOT LIKE '%aggregate%'  AND opname LIKE 'RMAN%' 
@@ -663,8 +663,8 @@ SELECT sess.sid, sess.serial#, sess.username, sess.status, sql.sql_text
 FROM gv$session sess
 JOIN gv$sql sql ON sess.sql_id = sql.sql_id
 WHERE sess.status = 'ACTIVE' AND sql.sql_text LIKE 'ALTER INDEX%                                                                                                                                                                                                                                                     
-6. Si los  querys retorna sessiones de backup,index o estadisticas corresponde a un evento controlado, caso contrario si no existe la ejecuciÛn de estos querys y el evento  persiste m·s de 15 minutos notificar a BDD.
-Nota: cerrar como contrado ya que no es una bdd transaccional solo maneja ebs referencs  que es de consultas en el caso que la alerta sobrepase los 97% y dure mas de 15 min elevar a bdd  ";Bitacora;30/01/2025;Henry MaÒay;Aprobado;30/05/2025;David Medina;;INC0244333;KB0058126;;;
+6. Si los  querys retorna sessiones de backup,index o estadisticas corresponde a un evento controlado, caso contrario si no existe la ejecuci√≥n de estos querys y el evento  persiste m√°s de 15 minutos notificar a BDD.
+Nota: cerrar como contrado ya que no es una bdd transaccional solo maneja ebs referencs  que es de consultas en el caso que la alerta sobrepase los 97% y dure mas de 15 min elevar a bdd  ";Bitacora;30/01/2025;Henry Ma√±ay;Aprobado;30/05/2025;David Medina;;INC0244333;KB0058126;;;
 "PPECXDB002
 PPECXDB003
 PPECXDB004
@@ -674,31 +674,31 @@ PPECXDB003
 PPECXDB004
 PPECXDB005
 ";CPU Saturation;CPU Saturation AIX;"
-De acuerdo a las verificaciones realizadas los servidores a continuaciÛn son parte del proyecto de Bancs PreproducciÛn los mismos que todavÌa no est·n entregados a base de datos producciÛn para su respectiva administraciÛn por lo cual cualquier evento reportado por dynatrace relacionado a  Jes˙s Viciosa 
+De acuerdo a las verificaciones realizadas los servidores a continuaci√≥n son parte del proyecto de Bancs Preproducci√≥n los mismos que todav√≠a no est√°n entregados a base de datos producci√≥n para su respectiva administraci√≥n por lo cual cualquier evento reportado por dynatrace relacionado a  Jes√∫s Viciosa 
 javicios@pichincha.com
 ahmirand@pichincha.com
 fdgarcia@pichincha.com
-luiafern@pichincha.com";Bitacora;30/01/2025;Henry MaÒay;Aprobado;30/05/2025;David Medina;;INC0331425;KB0058127;;;
+luiafern@pichincha.com";Bitacora;30/01/2025;Henry Ma√±ay;Aprobado;30/05/2025;David Medina;;INC0331425;KB0058127;;;
 "Servidores Oracleerror por temas de firewoll o cuando trata de llegar a la bdd  el cual no registra el archivelog 
 ejemplo de error
 Oracle Database PPWSO2IS1:Oracle Errores ORA ORA-16055 - Oracle Database PPWSO2IS1";PSKB0035;BDD;Servidores Oracle;Evento Oracle;"error por temas de firewoll o cuando trata de llegar a la bdd  el cual no registra el archivelog 
 ejemplo de error
 Oracle Database PPWSO2IS1:Oracle Errores ORA ORA-16055 - Oracle Database PPWSO2IS1";"cerra el evento como controlado siempre se va a presentar estos tipos de errores ya que por algun cambios o versionamientos en la red o firewall se va a notificar en el alert log de la bdd  y presentandose el codifo de error ora-16055
-";Bitacora;26/05/2025;Henry MaÒay;Aprobado;28/05/2025;Johana Mendoza;;;;;;
-"Servidores Oracleerror por temas de generaciÛn de File Server (RFS)  archivos de sincronizaciÛn de datagard
+";Bitacora;26/05/2025;Henry Ma√±ay;Aprobado;28/05/2025;Johana Mendoza;;;;;;
+"Servidores Oracleerror por temas de generaci√≥n de File Server (RFS)  archivos de sincronizaci√≥n de datagard
 ejemplo de error
-Oracle Database PPWSO2IS1:Oracle Errores ORA ORA-16040 - Oracle Database PPWSO2IS1";PSKB0036;BDD;Servidores Oracle;Evento Oracle;"error por temas de generaciÛn de File Server (RFS)  archivos de sincronizaciÛn de datagard
+Oracle Database PPWSO2IS1:Oracle Errores ORA ORA-16040 - Oracle Database PPWSO2IS1";PSKB0036;BDD;Servidores Oracle;Evento Oracle;"error por temas de generaci√≥n de File Server (RFS)  archivos de sincronizaci√≥n de datagard
 ejemplo de error
 Oracle Database PPWSO2IS1:Oracle Errores ORA ORA-16040 - Oracle Database PPWSO2IS1";"cerra el evento como controlado siempre se va a presentar estos tipos de errores ya que por algun cambios o versionamientos en la red o firewall se va a notificar en el alert log de la bdd  y presentandose el codifo de error ora-16040
 Tambie se puede verificar por el siguiente link si se desincronizo los archive del datagar cuando son por mucho tiempo y el siguiente datshboard va aparecer como rojo y va a salatar una nueva alerta de error de replicai  
-https://xyc10065.apps.dynatrace.com/ui/apps/dynatrace.classic.dashboards/#dashboard;gtf=-2h;gf=all;id=e971dc37-57d2-485b-a704-02b1f2b5a549";Bitacora;26/05/2025;Henry MaÒay;Aprobado;28/05/2025;Johana Mendoza;;;;;;
+https://xyc10065.apps.dynatrace.com/ui/apps/dynatrace.classic.dashboards/#dashboard;gtf=-2h;gf=all;id=e971dc37-57d2-485b-a704-02b1f2b5a549";Bitacora;26/05/2025;Henry Ma√±ay;Aprobado;28/05/2025;Johana Mendoza;;;;;;
 "Servidores Oracleerror por problema de compilacion de codigo o permisos al conectarse a la bdd
 ejemplo de error
 Oracle Database LOGINS21:Oracle Errores ORA ORA-12012 - Oracle Database LOGINS21";PSKB0037;BDD;Servidores Oracle;Evento Oracle;"error por problema de compilacion de codigo o permisos al conectarse a la bdd
 ejemplo de error
-Oracle Database LOGINS21:Oracle Errores ORA ORA-12012 - Oracle Database LOGINS21";cerra el evento como controlado  el evento debe cerrar como controlado ya que las aplicaciones son las cuales se encargan de realizar compliaciones de codigo y cuadno falla les da este tipo de evento ;Bitacora;26/05/2025;Henry MaÒay;Aprobado;28/05/2025;Johana Mendoza;;;;;;
-PRECXDB006Nuimero de sessiones activas en la bdd;PSKB0038;BDD;PRECXDB006;Active Sessions BD;Nuimero de sessiones activas en la bdd;cerra el evento como controlado  Revisando el dynatrace de la alerta se verifica que las sesiones se suben cada fin de mes por  la depuraciÛn de bancs  por lo cual pueden cerrar el evento como Monitoreo N1  como controlado por depuraciÛn de bancs  cada fin de mes ;Bitacora;28/05/2025;Henry MaÒay;Aprobado;30/05/2025;Johana Mendoza;;;;;;
-PRECXDB007Nuimero de sessiones activas en la bdd;PSKB0039;BDD;PRECXDB007;Active Sessions BD;Nuimero de sessiones activas en la bdd;cerra el evento como controlado Revisando el dynatrace de la alerta se verifica que las sesiones se suben cada fin de mes por  la depuraciÛn de bancs  por lo cual pueden cerrar el evento como Monitoreo N1  como controlado por depuraciÛn de bancs  cada fin de mes ;Bitacora;28/05/2025;Henry MaÒay;Aprobado;30/05/2025;Johana Mendoza;;;;;;
+Oracle Database LOGINS21:Oracle Errores ORA ORA-12012 - Oracle Database LOGINS21";cerra el evento como controlado  el evento debe cerrar como controlado ya que las aplicaciones son las cuales se encargan de realizar compliaciones de codigo y cuadno falla les da este tipo de evento ;Bitacora;26/05/2025;Henry Ma√±ay;Aprobado;28/05/2025;Johana Mendoza;;;;;;
+PRECXDB006Nuimero de sessiones activas en la bdd;PSKB0038;BDD;PRECXDB006;Active Sessions BD;Nuimero de sessiones activas en la bdd;cerra el evento como controlado  Revisando el dynatrace de la alerta se verifica que las sesiones se suben cada fin de mes por  la depuraci√≥n de bancs  por lo cual pueden cerrar el evento como Monitoreo N1  como controlado por depuraci√≥n de bancs  cada fin de mes ;Bitacora;28/05/2025;Henry Ma√±ay;Aprobado;30/05/2025;Johana Mendoza;;;;;;
+PRECXDB007Nuimero de sessiones activas en la bdd;PSKB0039;BDD;PRECXDB007;Active Sessions BD;Nuimero de sessiones activas en la bdd;cerra el evento como controlado Revisando el dynatrace de la alerta se verifica que las sesiones se suben cada fin de mes por  la depuraci√≥n de bancs  por lo cual pueden cerrar el evento como Monitoreo N1  como controlado por depuraci√≥n de bancs  cada fin de mes ;Bitacora;28/05/2025;Henry Ma√±ay;Aprobado;30/05/2025;Johana Mendoza;;;;;;
 "ecbpbinp1
 precxodb002
 PRECLMN006
@@ -707,8 +707,8 @@ preclmn005
 ecbplxapp23
 PRECBPHCA1
 PRECBPMP02
-(WAS Batch Motor Pagos 1)Hay una saturaciÛn del CPU,  debido al proceso que realiza respaldos de una BDD de 00:00 a 01:20, todos los dÌas.
-OJO: si toma m·s de este tiempo se debe escalar ";PSKB0041;UNIX;"ecbpbinp1
+(WAS Batch Motor Pagos 1)Hay una saturaci√≥n del CPU,  debido al proceso que realiza respaldos de una BDD de 00:00 a 01:20, todos los d√≠as.
+OJO: si toma m√°s de este tiempo se debe escalar ";PSKB0041;UNIX;"ecbpbinp1
 precxodb002
 PRECLMN006
 PRECBPCM01
@@ -716,9 +716,9 @@ preclmn005
 ecbplxapp23
 PRECBPHCA1
 PRECBPMP02
-(WAS Batch Motor Pagos 1)";CPU Saturation;"Hay una saturaciÛn del CPU,  debido al proceso que realiza respaldos de una BDD de 00:00 a 01:20, todos los dÌas.
-OJO: si toma m·s de este tiempo se debe escalar ";"Articulo de conocimiento TCSECU_N1_UNIX_SaturaciÛn CPU-Memoria_procesos.docx
-Ruta: https://pichincha.sharepoint.com/:w:/r/sites/DOCUMENTACION_INFRAESTRUCTURA/Documentos%20compartidos/13.%20Documentaci%C3%B3n%20Gesti%C3%B3n%20Infraestructura%20%26%20OTI/Art%C3%ADculos%20de%20Conocimiento/N1/TCSECU_N1_UNIX_Saturaci%C3%B3n%20CPU-Memoria_procesos.docx?d=w21688e1140294a5083e56c18809ae1db&csf=1&web=1&e=ychHxe";Articulo de Conocimiento;30/01/2025;Ricardo Urbina;En certificaciÛn;30/05/2025;Johana Mendoza;;"INC0279021
+(WAS Batch Motor Pagos 1)";CPU Saturation;"Hay una saturaci√≥n del CPU,  debido al proceso que realiza respaldos de una BDD de 00:00 a 01:20, todos los d√≠as.
+OJO: si toma m√°s de este tiempo se debe escalar ";"Articulo de conocimiento TCSECU_N1_UNIX_Saturaci√≥n CPU-Memoria_procesos.docx
+Ruta: https://pichincha.sharepoint.com/:w:/r/sites/DOCUMENTACION_INFRAESTRUCTURA/Documentos%20compartidos/13.%20Documentaci%C3%B3n%20Gesti%C3%B3n%20Infraestructura%20%26%20OTI/Art%C3%ADculos%20de%20Conocimiento/N1/TCSECU_N1_UNIX_Saturaci%C3%B3n%20CPU-Memoria_procesos.docx?d=w21688e1140294a5083e56c18809ae1db&csf=1&web=1&e=ychHxe";Articulo de Conocimiento;30/01/2025;Ricardo Urbina;En certificaci√≥n;30/05/2025;Johana Mendoza;;"INC0279021
 INC0232269
 INC0151245
 INC0299664
@@ -726,74 +726,69 @@ INC0272258
 INC0031992
 INC0081723
 INC0126968";;;;
-precbpyn01Existen procesos que provocan la saturaciÛn del CPU. De ser el proceso BPBKAR se debe a que se esta ejecutando un respaldo por lo que puede alertar cpu y memoria;PSKB0045;UNIX;precbpyn01;CPU Saturation;Existen procesos que provocan la saturaciÛn del CPU. De ser el proceso BPBKAR se debe a que se esta ejecutando un respaldo por lo que puede alertar cpu y memoria;"1. Ingresar al servidor mediante Cyberark.
+precbpyn01Existen procesos que provocan la saturaci√≥n del CPU. De ser el proceso BPBKAR se debe a que se esta ejecutando un respaldo por lo que puede alertar cpu y memoria;PSKB0045;UNIX;precbpyn01;CPU Saturation;Existen procesos que provocan la saturaci√≥n del CPU. De ser el proceso BPBKAR se debe a que se esta ejecutando un respaldo por lo que puede alertar cpu y memoria;"1. Ingresar al servidor mediante Cyberark.
 2. Verificar el espacio utilizado del file system /Respaldo en la columa %Used: ingresando el siguiente comando: df -gt /Nombre del file 
 3. Depurar y acceder al servidor precbpyn01, ingresando el comando: cd /Nombre del file  
-4. Ver los archivos o directorios con m·s peso en GB ingresandoel comando: du -gs ./* | sort -n 
-5. Verificar cuales directorios tienen m·s peso, para ingresar se digita el comando: cd Nombre del directorio 
-6. Ingresar el comando cd, luego colocar nombre del directorio que m·s peso tiene. Ejemplo: cd PR1VIOS03  
+4. Ver los archivos o directorios con m√°s peso en GB ingresandoel comando: du -gs ./* | sort -n 
+5. Verificar cuales directorios tienen m√°s peso, para ingresar se digita el comando: cd Nombre del directorio 
+6. Ingresar el comando cd, luego colocar nombre del directorio que m√°s peso tiene. Ejemplo: cd PR1VIOS03  
 7. Visualizar los archivos ingresando el comando: ls -lrt *.mksysb 
-8. Confirmar previamente si se realizÛ un full back up hasta la fecha correspondiente.
-9. Luego de confirmar si se tiene el ˙ltimo respaldo generado, se procede a eliminar los archivos anteriores, escribiendo el comando: 
+8. Confirmar previamente si se realiz√≥ un full back up hasta la fecha correspondiente.
+9. Luego de confirmar si se tiene el √∫ltimo respaldo generado, se procede a eliminar los archivos anteriores, escribiendo el comando: 
 rm <nombre_archivo1> <nombre_archivo2> <nombre_archivoN> 
-10. Verificar si se han eliminado completamente los archivos y regresar al directorio de los file system, para verificar cual otro directorio tiene m·s peso. Se repite los pasos 3, 4, 5 y 6.
-11. Una vez detectado el nuevo directorio con m·s peso, se repiten los pasos 7, 8 y 9.
+10. Verificar si se han eliminado completamente los archivos y regresar al directorio de los file system, para verificar cual otro directorio tiene m√°s peso. Se repite los pasos 3, 4, 5 y 6.
+11. Una vez detectado el nuevo directorio con m√°s peso, se repiten los pasos 7, 8 y 9.
 12. Se debe repetir el procedimiento, desde el paso 5 hasta que el file system deje de estar alertado. 
 13. Cada que se eliminan archivos, se puede verificar el porcentaje usado en la columna %Used, usando el comando: df -gt /Nombre del file 
 
 OJO: Si ya se eliminaron todos los archivos dentro del directorio VIOS, y el file system sigue alertando o cerca del umbral, se debe depurar el directorio BACKUP-HMC:
 1. Ingresar al directorio BACKUP_HMC con el comando:  cd /Respaldo/BACKUP_HMC 
-2. Validar el directorio con m·s peso usando el comando: du -gs ./* | sort -n 
-3. Ingresar al directorio con m·s peso (es el ˙ltimo de la salida del comando anterior).
+2. Validar el directorio con m√°s peso usando el comando: du -gs ./* | sort -n 
+3. Ingresar al directorio con m√°s peso (es el √∫ltimo de la salida del comando anterior).
 4. Listar los archivos contenidos usando el comando cd <nombre_directorio> y luego ls -lrt.
-5. Eliminar los archivos m·s antiguos, usando el comando rm <nombre_archivo1> <nombre_archivo2> <nombre_archivoN> 
+5. Eliminar los archivos m√°s antiguos, usando el comando rm <nombre_archivo1> <nombre_archivo2> <nombre_archivoN> 
 6. Verificar el porcentaje usado en la columna %Used, usando el comando df -gt /Nombre del file. Ejemplo: df -gt /Respaldo.  
-7. Repetir el procedimiento anterior si al eliminar los archivos, a˙n sigue alertado o cerca del umbral, el file system.";Bitacora;30/01/2025;Ricardo Urbina;Aprobado;30/05/2025;Johana Mendoza;;INC0258525;;;;
+7. Repetir el procedimiento anterior si al eliminar los archivos, a√∫n sigue alertado o cerca del umbral, el file system.";Bitacora;30/01/2025;Ricardo Urbina;Aprobado;30/05/2025;Johana Mendoza;;INC0258525;;;;
 "PRECBPMP02
-(WAS Batch Motor Pagos 1)Existen procesos que provocan la saturaciÛn de Memoria. Existe todos los dias un pico de CPU a las 8 am hasta las 8:20 am.";PSKB0046;UNIX;"PRECBPMP02
-(WAS Batch Motor Pagos 1)";Memory Saturation;Existen procesos que provocan la saturaciÛn de Memoria. Existe todos los dias un pico de CPU a las 8 am hasta las 8:20 am.;"1. Validar que la alerta se encuentre acitva en Dynatrace.
-2. El servidor PRECBPMP02 se ejecutan procesos por control M de los servicios regularmente desde las 08:00 a las 08:30 que provocan saturaciÛn  de memoria en el servidor. Si se encuentra en este horario se debe esperar a que se normalice el consumo de memoria.
-3. En el caso de que no se normalice el consumo de memoria escalar a la torre para el an·lisis.
+(WAS Batch Motor Pagos 1)Existen procesos que provocan la saturaci√≥n de Memoria. Existe todos los dias un pico de CPU a las 8 am hasta las 8:20 am.";PSKB0046;UNIX;"PRECBPMP02
+(WAS Batch Motor Pagos 1)";Memory Saturation;Existen procesos que provocan la saturaci√≥n de Memoria. Existe todos los dias un pico de CPU a las 8 am hasta las 8:20 am.;"1. Validar que la alerta se encuentre acitva en Dynatrace.
+2. El servidor PRECBPMP02 se ejecutan procesos por control M de los servicios regularmente desde las 08:00 a las 08:30 que provocan saturaci√≥n  de memoria en el servidor. Si se encuentra en este horario se debe esperar a que se normalice el consumo de memoria.
+3. En el caso de que no se normalice el consumo de memoria escalar a la torre para el an√°lisis.
 4. En el caso de que se normalice el consumo de memoria y la alerta no persista en Dynatrace cerrar el ticket.
 ";Bitacora;30/01/2025;Ricardo Urbina;Aprobado;30/05/2025;Johana Mendoza;;INC0331999;;;;
-"ecbpfcnp1
-ecbpfcnp2Existen procesos propios de la aplicaciÛn que provocan la saturaciÛn de CPU. Existe en horario 08:00 - 22:00.";PSKB0047;UNIX;"ecbpfcnp1
-ecbpfcnp2";CPU Saturation;Existen procesos propios de la aplicaciÛn que provocan la saturaciÛn de CPU. Existe en horario 08:00 - 22:00.;"1. Validar en Dynatrace que servidor se relaciona con la alerta.
+ecbpfcnp1, ecbpfcnp2Existen procesos propios de la aplicaci√≥n que provocan la saturaci√≥n de CPU. Existe en horario 08:00 - 22:00.;PSKB0047;UNIX;ecbpfcnp1, ecbpfcnp2;CPU Saturation;Existen procesos propios de la aplicaci√≥n que provocan la saturaci√≥n de CPU. Existe en horario 08:00 - 22:00.;"1. Validar en Dynatrace que servidor se relaciona con la alerta.
 2.Ingresar al servidor mediante Cyberark.
 3. Ejecutar el comando topas.
-4. Aplastar la letra T (para que comunique todos los procesos que se est·n ejecutando).
+4. Aplastar la letra T (para que comunique todos los procesos que se est√°n ejecutando).
 5. Aplastar 3 vecces seguidas la letra c y validar el consumo de CPU.
-6. Validar que servicios tiene mayor consumo de CPU; para este servidor si existe saturaciÛn por procesos java, se debe realizar un monitoreo por 45 minutos, en el caso de que el consumo de CPU no se normalice, escalar a la torre UNIX con la evidencia correspondiente. Si los procesos que producen la sauraciÛn no corresponden a java escalar inmediatamente a la torre UNIX.
-7. Monitorear ejecuciÛn hasta su finalizaciÛn. 
+6. Validar que servicios tiene mayor consumo de CPU; para este servidor si existe saturaci√≥n por procesos java, se debe realizar un monitoreo por 45 minutos, en el caso de que el consumo de CPU no se normalice, escalar a la torre UNIX con la evidencia correspondiente. Si los procesos que producen la sauraci√≥n no corresponden a java escalar inmediatamente a la torre UNIX.
+7. Monitorear ejecuci√≥n hasta su finalizaci√≥n. 
 8. Validar que la alerta no persista en Dynatrace.
 9. Cerrar el ticket.";Bitacora;30/01/2025;Ricardo Urbina;Aprobado;30/05/2025;Johana Mendoza;;INC0057193;;;;
-DRECBPYN01Existen procesos que provocan la saturaciÛn de Memoria. Servidores empezados con DR (Disaster Recovery) tienen picos temporales. ;PSKB0048;UNIX;DRECBPYN01;Memory Saturation;Existen procesos que provocan la saturaciÛn de Memoria. Servidores empezados con DR (Disaster Recovery) tienen picos temporales. ;"1. Verificar que el consumo de recursos sea de manera normal, debido a un evento recurrente en el Cyberark
-2. Realizar seguimiento hasta su finalizaciÛn.
-3. El error debe solventarse autom·ticamente.";Bitacora;30/01/2025;Ricardo Urbina;Aprobado;30/05/2025;Johana Mendoza;;INC0310405;;;;
-;PSKB0049;UNIX;"PRECBPMP02
- (WAS Batch Motor Pagos 1)
+DRECBPYN01Existen procesos que provocan la saturaci√≥n de Memoria. Servidores empezados con DR (Disaster Recovery) tienen picos temporales. ;PSKB0048;UNIX;DRECBPYN01;Memory Saturation;Existen procesos que provocan la saturaci√≥n de Memoria. Servidores empezados con DR (Disaster Recovery) tienen picos temporales. ;"1. Verificar que el consumo de recursos sea de manera normal, debido a un evento recurrente en el Cyberark
+2. Realizar seguimiento hasta su finalizaci√≥n.
+3. El error debe solventarse autom√°ticamente.";Bitacora;30/01/2025;Ricardo Urbina;Aprobado;30/05/2025;Johana Mendoza;;INC0310405;;;;
+;PSKB0049;UNIX;"PRECBPMP02 (WAS Batch Motor Pagos 1)
 ecbpebsb1
 ecbpebsb2
-ecbpebsb3";Memory Saturation;Existen procesos que provocan la saturaciÛn de Memoria. Existe todos los dias un pico de CPU a las 8 am hasta las 8:20 am.;"1. Validar que la alerta se encuentre acitva en Dynatrace.
-2. El servidor PRECBPMP02 se ejecutan procesos por control M de los servicios regularmente desde las 08:00 a las 08:30 que provocan saturaciÛn  de memoria en el servidor. Si se encuentra en este horario se debe esperar a que se normalice el consumo de memoria.
-3. En el caso de que no se normalice el consumo de memoria escalar a la torre para el an·lisis.
+ecbpebsb3";Memory Saturation;Existen procesos que provocan la saturaci√≥n de Memoria. Existe todos los dias un pico de CPU a las 8 am hasta las 8:20 am.;"1. Validar que la alerta se encuentre acitva en Dynatrace.
+2. El servidor PRECBPMP02 se ejecutan procesos por control M de los servicios regularmente desde las 08:00 a las 08:30 que provocan saturaci√≥n  de memoria en el servidor. Si se encuentra en este horario se debe esperar a que se normalice el consumo de memoria.
+3. En el caso de que no se normalice el consumo de memoria escalar a la torre para el an√°lisis.
 4. En el caso de que se normalice el consumo de memoria y la alerta no persista en Dynatrace cerrar el ticket.";Bitacora;30/01/2025;Ricardo Urbina;Aprobado;30/05/2025;Johana Mendoza;;INC0331999;;;;
 "ecbpebsb2
 ecbphabn2
-ecbpmiht1Existen procesos que provocan la saturaciÛn de Memoria. Evento relacionado con picos y comportamiento continuo debido a un proceso puntual. ";PSKB0052;UNIX;"ecbpebsb2
+ecbpmiht1Existen procesos que provocan la saturaci√≥n de Memoria. Evento relacionado con picos y comportamiento continuo debido a un proceso puntual. ";PSKB0052;UNIX;"ecbpebsb2
 ecbphabn2
-ecbpmiht1";Memory Saturation;Existen procesos que provocan la saturaciÛn de Memoria. Evento relacionado con picos y comportamiento continuo debido a un proceso puntual. ;"Articulo de conocimiento TCSECU_N1_UNIX_SaturaciÛn CPU-Memoria_procesos.docx
-Ruta: https://pichincha.sharepoint.com/:w:/r/sites/DOCUMENTACION_INFRAESTRUCTURA/Documentos%20compartidos/13.%20Documentaci%C3%B3n%20Gesti%C3%B3n%20Infraestructura%20%26%20OTI/Art%C3%ADculos%20de%20Conocimiento/N1/TCSECU_N1_UNIX_Saturaci%C3%B3n%20CPU-Memoria_procesos.docx?d=w21688e1140294a5083e56c18809ae1db&csf=1&web=1&e=ychHxe";Articulo de Conocimiento;30/01/2025;Ricardo Urbina;En certificaciÛn;30/05/2025;Johana Mendoza;;"INC0229156
+ecbpmiht1";Memory Saturation;Existen procesos que provocan la saturaci√≥n de Memoria. Evento relacionado con picos y comportamiento continuo debido a un proceso puntual. ;"Articulo de conocimiento TCSECU_N1_UNIX_Saturaci√≥n CPU-Memoria_procesos.docx
+Ruta: https://pichincha.sharepoint.com/:w:/r/sites/DOCUMENTACION_INFRAESTRUCTURA/Documentos%20compartidos/13.%20Documentaci%C3%B3n%20Gesti%C3%B3n%20Infraestructura%20%26%20OTI/Art%C3%ADculos%20de%20Conocimiento/N1/TCSECU_N1_UNIX_Saturaci%C3%B3n%20CPU-Memoria_procesos.docx?d=w21688e1140294a5083e56c18809ae1db&csf=1&web=1&e=ychHxe";Articulo de Conocimiento;30/01/2025;Ricardo Urbina;En certificaci√≥n;30/05/2025;Johana Mendoza;;"INC0229156
 INC0231288
 INC0232678";;;;
-"ecbpfcpp1
-ecbpfcpp2Se cambia los archivos mas antiguos de la ruta saturada a un nuevo directorio.";PSKB0055;UNIX;"ecbpfcpp1
-ecbpfcpp2";DISCO SATURACION/LOW SPACE;Se cambia los archivos mas antiguos de la ruta saturada a un nuevo directorio.;"1. Validar en Dynatrace que proceso se relaciona con la alerta.
+ecbpfcpp1 / ecbpfcpp2Se cambia los archivos mas antiguos de la ruta saturada a un nuevo directorio.;PSKB0055;UNIX;ecbpfcpp1 / ecbpfcpp2;DISCO SATURACION/LOW SPACE;Se cambia los archivos mas antiguos de la ruta saturada a un nuevo directorio.;"1. Validar en Dynatrace que proceso se relaciona con la alerta.
 2.Ingresar al servidor mediante Cyberark.
 3. Ejecutar el comando  df -gt /Nombre del file. Ejemplo: df -gt /opt/IBM 
 4. Ingresar al siguiente directorio dentro del file correspondiente, donde se generan los ""java cores"". Ejemplo: cd /opt/IBM/WebSphere/AppServer/profiles/AppSrv01 
-5. Digitar el siguiente comando para enlistar los archivos, desde el m·s antiguo al m·s reciente: ls -lrt 
-5. 1. Al final del listado generado, observar los archivos que corresponden a los logs realcionados con errores de la aplicaciÛn con el siguiente patrÛn: 
+5. Digitar el siguiente comando para enlistar los archivos, desde el m√°s antiguo al m√°s reciente: ls -lrt 
+5. 1. Al final del listado generado, observar los archivos que corresponden a los logs realcionados con errores de la aplicaci√≥n con el siguiente patr√≥n: 
 core.20XXXXXX.XXXXXX.XXXXXX.XXXX.dmp 
 javacore.20XXXXXX.XXXXXX.XXXXXX.XXXX.txt
 Snap.20XXXXXX.XXXXXX.XXXXXX.XXXX.trc 
@@ -801,9 +796,9 @@ jitdump.20XXXXXX.XXXXXX.XXXXXX.XXXX.dmp
 7. Mover los archivos a otro espacio con mayor espacio de almacenamiento, usando el comando: mv <archivo_1> <archivo_2> <archivo_N> /Nombre del directorio. Ejemplo: mv <archivo_1> <archivo_2> <archivo_N> /bk_mksysb/ecbpfcpp1/ecbpfcpp1-coredumps.
 8. Verificar que los archivos se movieron, digitando el comando: ls -lrt /bk_mksysb/ecbpfcpp1/ecbpfcpp1-coredumps 
 9. Verificar el porcentaje utilizado del file system (columna %Used) se haya reducido, ingresar el siguiente comando: df -gt /opt/IBM
-10. Realizar el mismo proceso de depuraciÛn con el servidor ecbpfcpp2, modificando el comando del punto 7 y 8: ecbpfcpp2.
-11. Finalizado el proceso de depuraciÛn para los dos servidores ecbpfcpp1 y ecbpfcpp2, comunicar a la torre UNIX, para analizar los logs.";Bitacora;30/01/2025;Ricardo Urbina;Aprobado;30/05/2025;Johana Mendoza;;INC0282790;;;Nominado;
-preclsd001Umbral del 80% o Superior;PSKB0056;UNIX;preclsd001;DISCO SATURACION/LOW SPACE;Umbral del 80% o Superior;El FS /nxlog debe ser depurado por la CÈlula de Seguridad de Banco, dueÒo del servicio de nxlog se debe escalar la alerta al grupo TEC_BP_N3_PLATAFORMA_CS con responsable ERICK DAMIAN RISUENO BENITEZ, validar responsable de la aplicaciÛn. Enviar correo a los siguientes destinatarios frazambr, errisuen, plataformacentralizada, usrpctcs con el detalle de la alerta.;Bitacora;30/01/2025;Ricardo Urbina;Aprobado;30/05/2025;Johana Mendoza;;INC0279957;;;;
+10. Realizar el mismo proceso de depuraci√≥n con el servidor ecbpfcpp2, modificando el comando del punto 7 y 8: ecbpfcpp2.
+11. Finalizado el proceso de depuraci√≥n para los dos servidores ecbpfcpp1 y ecbpfcpp2, comunicar a la torre UNIX, para analizar los logs.";Bitacora;30/01/2025;Ricardo Urbina;Aprobado;30/05/2025;Johana Mendoza;;INC0282790;;;Nominado;
+preclsd001Umbral del 80% o Superior;PSKB0056;UNIX;preclsd001;DISCO SATURACION/LOW SPACE;Umbral del 80% o Superior;El FS /nxlog debe ser depurado por la C√©lula de Seguridad de Banco, due√±o del servicio de nxlog se debe escalar la alerta al grupo TEC_BP_N3_PLATAFORMA_CS con responsable ERICK DAMIAN RISUENO BENITEZ, validar responsable de la aplicaci√≥n. Enviar correo a los siguientes destinatarios frazambr, errisuen, plataformacentralizada, usrpctcs con el detalle de la alerta.;Bitacora;30/01/2025;Ricardo Urbina;Aprobado;30/05/2025;Johana Mendoza;;INC0279957;;;;
 "ecbplxakp1
 ecbplxakp2
 ecbplxakp3
@@ -816,17 +811,17 @@ ecbplxakp3
 ecbplxakp5
 ecbplxakp6
 ecbplxakp7
-";Evento en proceso de AplicaciÛn;Este procedimiento permite conocer el estado del cluster de KAFKA;"1.- Ingresar a cada servidor por cyberack en el orden que se detalla a continuaciÛn:
+";Evento en proceso de Aplicaci√≥n;Este procedimiento permite conocer el estado del cluster de KAFKA;"1.- Ingresar a cada servidor por cyberack en el orden que se detalla a continuaci√≥n:
 1.1. ecbplxakp1
-sh HealthCheckConectoresKafka.sh : Luego de la ejecucÌÛn se deben revisar que todos los conectores esten en running.
-ps -ef | grep -i standalone : Luego de esta ejecuciÛn se debe revisa que este el proceso stndalone.
+sh HealthCheckConectoresKafka.sh : Luego de la ejecuc√≠√≥n se deben revisar que todos los conectores esten en running.
+ps -ef | grep -i standalone : Luego de esta ejecuci√≥n se debe revisa que este el proceso stndalone.
 sh HealthCheckKafka.sh : Luego de ejecutar el comando se debe esperar que el numero de topicos no sobrepase 500.
 systemctl status kafka:Se debe verificar que el servicio este activo
 1.2 ecbplxakp2
 systemctl status kafka: Se debe verificar que el servicio este activo
 1.3 ecbplxakp3
-sh HealthCheckConnectorsKafka.sh : Luego de la ejecucÌÛn se deben revisar que todos los conectores esten en running.
-ps -ef | grep -i standalone : Luego de esta ejeuciÛn se debe revisa que este el proceso stndalone.
+sh HealthCheckConnectorsKafka.sh : Luego de la ejecuc√≠√≥n se deben revisar que todos los conectores esten en running.
+ps -ef | grep -i standalone : Luego de esta ejeuci√≥n se debe revisa que este el proceso stndalone.
 systemctl status kafka: Se debe verificar que el servicio este activo
 1.4 ecbplxakp5
 systemctl status zookeeper.service: Se debe verificar que el servicio este activo
@@ -850,7 +845,7 @@ INC0070600
 ecbplxakp6
 INC0049404
 ";"Revisar
-GestiÛn Incidentes";"ecbplxakp1: 
+Gesti√≥n Incidentes";"ecbplxakp1: 
 KDB0058048
 
 ecbplxakp2
@@ -867,12 +862,12 @@ ecbplxakp6
 KDB0058052";Nominado;
 "PRECBPSG01Este procedimiento permite conocer el estado de los 
 SNA- CICS en SIGLOXXI";PSKB0058;UNIX;PRECBPSG01;CICS SNA;"Este procedimiento permite conocer el estado de los 
-SNA- CICS en SIGLOXXI";"Ingresar al servidor por cyberack en el orden que se detalla a continuaciÛn:
-su - UCICS : Con este comando ingresamos al menu de opciones de administraciÛn.
-Escager opccion 77 ""SNA"" : AquÌ podemos ingresa al submen˙ de opciones de administraciÛn.
-Escoger opcion 4 ""Consulta Global de Conexiones"": Debemos escojer esta opciÛn para revisar que los SNA esta enestado activo a excepciÛn del SNA ""HPRDSN0X            Eth  Starting       Suc Norte"" que tiene un estado diferente a active.
-Se debe salir del menu de los SNA hasta llegar al men˙ principal y se deben seguir los siguientes pasos:
-Escoger opcion 1 ""Consulta Estado de CICS"": Para revisar que los CICS esten en estado active; asi cmo se muestra a continuaciÛn:
+SNA- CICS en SIGLOXXI";"Ingresar al servidor por cyberack en el orden que se detalla a continuaci√≥n:
+su - UCICS : Con este comando ingresamos al menu de opciones de administraci√≥n.
+Escager opccion 77 ""SNA"" : Aqu√≠ podemos ingresa al submen√∫ de opciones de administraci√≥n.
+Escoger opcion 4 ""Consulta Global de Conexiones"": Debemos escojer esta opci√≥n para revisar que los SNA esta enestado activo a excepci√≥n del SNA ""HPRDSN0X            Eth  Starting       Suc Norte"" que tiene un estado diferente a active.
+Se debe salir del menu de los SNA hasta llegar al men√∫ principal y se deben seguir los siguientes pasos:
+Escoger opcion 1 ""Consulta Estado de CICS"": Para revisar que los CICS esten en estado active; asi cmo se muestra a continuaci√≥n:
 
 Consulta Estado de CICS                                           PRECBPSG01
 ------------------------------------------------------------------------ChecCics
@@ -888,43 +883,43 @@ Consulta Estado de CICS                                           PRECBPSG01
 NOTA: Si los resultados no son los esperados se debe comunicar con el stabdby de turno de la torre UNIX
 SUGERENCIA: Tomar la referenci del docuento TCSECU_ITO_N1_UNIX_REVISIONES_SNA_SIGLOXXI para mas detalles
 ";Bitacora;30/01/2025;Edgar Ortiz;Aprobado;30/05/2025;Johana Mendoza;;INC0274271;"Revisar
-GestiÛn Incidentes";KDB0058053;;
-precbpyn01Este procedimiento permite realizar la depuraciÛn del file system /opt/IBM cuando se generar archivos de log pesados;PSKB0059;UNIX;precbpyn01;Incremento de espacio en filesystem;Este procedimiento permite realizar la depuraciÛn del file system /opt/IBM cuando se generar archivos de log pesados;"Ingresar al servidor precbpyn01
+Gesti√≥n Incidentes";KDB0058053;;
+precbpyn01Este procedimiento permite realizar la depuraci√≥n del file system /opt/IBM cuando se generar archivos de log pesados;PSKB0059;UNIX;precbpyn01;Incremento de espacio en filesystem;Este procedimiento permite realizar la depuraci√≥n del file system /opt/IBM cuando se generar archivos de log pesados;"Ingresar al servidor precbpyn01
 1. Verificar el espacio utlizado del file system /Respaldo en la columa %Used: df -gt /Respaldo
 2. Para depurarlo, se debe ingresar el siguiente comando: cd /Respaldo
-3. Ingresamos el siguiente comando para ver los archivos/directorios con m·s peso en GB, las ˙ltimas filas son los que m·s peso tienen: du -gs ./* | sort -n
-4. Los directorios VIOS y BACKUP_HMC son los que m·s peso tienen y generan la alerta. Ingresamos al direcotorio con m·s peso con el siguiente comando: 
-cd VIOS (en caso de que VIOS pese m·s) 
-cd BACKUP_HMC (en caso de que BACKUP_HMC m·s) 
-5. Ingresamos el siguiente comando para verificar los directorios con m·s peso: du -gs ./* | sort -n
-6. Ingresamos al ˙ltimo directorio que es el que m·s peso tiene con el siguiente comando:
+3. Ingresamos el siguiente comando para ver los archivos/directorios con m√°s peso en GB, las √∫ltimas filas son los que m√°s peso tienen: du -gs ./* | sort -n
+4. Los directorios VIOS y BACKUP_HMC son los que m√°s peso tienen y generan la alerta. Ingresamos al direcotorio con m√°s peso con el siguiente comando: 
+cd VIOS (en caso de que VIOS pese m√°s) 
+cd BACKUP_HMC (en caso de que BACKUP_HMC m√°s) 
+5. Ingresamos el siguiente comando para verificar los directorios con m√°s peso: du -gs ./* | sort -n
+6. Ingresamos al √∫ltimo directorio que es el que m√°s peso tiene con el siguiente comando:
  cd <NOMBRE_DIRECTORIO_MAS_PESADO>
 7. Ingresamos el siguiente comando para visualizar los archivos:
  ls -lrt *.mksysb (en caso de haber ingresado al directorio VIOS)
  ls -lrt (en caso de haber ingresado al directorio BACKUP_HMC)
-8. Se obtiene un listado de los archivos de backup desde el m·s antiguo al m·s nuevo. Del listado obtenido, el ˙ltimo en la lista es el backup m·s reciente, se procede a eliminar los backups m·s antiguos con el comando: rm <nombre_archivo1> <nombre_archivo2> <nombre_archivoN>
-9. Una vez eliminados los archivos, se debe regresar al directorio anterior para ingresar al directorio que tenga m·s peso:
+8. Se obtiene un listado de los archivos de backup desde el m√°s antiguo al m√°s nuevo. Del listado obtenido, el √∫ltimo en la lista es el backup m√°s reciente, se procede a eliminar los backups m√°s antiguos con el comando: rm <nombre_archivo1> <nombre_archivo2> <nombre_archivoN>
+9. Una vez eliminados los archivos, se debe regresar al directorio anterior para ingresar al directorio que tenga m√°s peso:
  cd ..
  du -gs ./* | sort -n
 10. Repetimos el proceso de los pasos 7 y 8
 NOTA: cada vez que se ralice el paso 8, es necesario validar el estado del file system con el comando df -gt /Respaldo. Validar hasta que se tenga un porcentaje de %Used del 70% aproximadamente.
-SUGERENCIA: Tomar la referenci del documento TCSECU_N1_UNIX_DepuraciÛn_file_system_precbpyn01 para mas detalles";Bitacora;30/01/2025;Bryan Meza;Aprobado;30/05/2025;Johana Mendoza;;INC0280011;"Revisar
-GestiÛn Incidentes";KDB0058054;Nominado;
+SUGERENCIA: Tomar la referenci del documento TCSECU_N1_UNIX_Depuraci√≥n_file_system_precbpyn01 para mas detalles";Bitacora;30/01/2025;Bryan Meza;Aprobado;30/05/2025;Johana Mendoza;;INC0280011;"Revisar
+Gesti√≥n Incidentes";KDB0058054;Nominado;
 "PRECBPOC13
-PRECBPOC14Este procedimiento permite realizar la depuraciÛn del file system /backup de los servidores PRECBPOC13 y PRECBPOC14";PSKB0060;UNIX;"PRECBPOC13
-PRECBPOC14";Incremento de espacio en filesystem;Este procedimiento permite realizar la depuraciÛn del file system /backup de los servidores PRECBPOC13 y PRECBPOC14;"Articulo de conocimiento: TCSECU_N1_UNIX_DepuraciÛn_log_file_system_WAS_omni_Menu
-Ruta: https://pichincha.sharepoint.com/:w:/r/sites/DOCUMENTACION_INFRAESTRUCTURA/Documentos%20compartidos/13.%20Documentaci%C3%B3n%20Gesti%C3%B3n%20Infraestructura%20%26%20OTI/Art%C3%ADculos%20de%20Conocimiento/N1/TCSECU_N1_UNIX_Saturaci%C3%B3n%20CPU-Memoria_procesos.docx?d=w21688e1140294a5083e56c18809ae1db&csf=1&web=1&e=clOdMC";Articulo de Conocimiento;30/01/2025;Ricardo Urbina;En CertificaciÛn;30/05/2025;Johana Mendoza;04/08/2025;"PRECBPOC13: 
+PRECBPOC14Este procedimiento permite realizar la depuraci√≥n del file system /backup de los servidores PRECBPOC13 y PRECBPOC14";PSKB0060;UNIX;"PRECBPOC13
+PRECBPOC14";Incremento de espacio en filesystem;Este procedimiento permite realizar la depuraci√≥n del file system /backup de los servidores PRECBPOC13 y PRECBPOC14;"Articulo de conocimiento: TCSECU_N1_UNIX_Depuraci√≥n_log_file_system_WAS_omni_Menu
+Ruta: https://pichincha.sharepoint.com/:w:/r/sites/DOCUMENTACION_INFRAESTRUCTURA/Documentos%20compartidos/13.%20Documentaci%C3%B3n%20Gesti%C3%B3n%20Infraestructura%20%26%20OTI/Art%C3%ADculos%20de%20Conocimiento/N1/TCSECU_N1_UNIX_Saturaci%C3%B3n%20CPU-Memoria_procesos.docx?d=w21688e1140294a5083e56c18809ae1db&csf=1&web=1&e=clOdMC";Articulo de Conocimiento;30/01/2025;Ricardo Urbina;En Certificaci√≥n;30/05/2025;Johana Mendoza;04/08/2025;"PRECBPOC13: 
 INC0083886
 
 
 PRECBPOC14:
 INC0106812";"Revisar
-GestiÛn Incidentes";"PRECBPOC13:
+Gesti√≥n Incidentes";"PRECBPOC13:
 KB0058055
 
 PRECBPOC14:
 KB0058056";Nominado;Link
-PRECBPSG01En caso de encontrar el FS /var/log alertado se realiza los siguientes pasos para su depuraciÛn;PSKB0061;UNIX;PRECBPSG01;Incremento de espacio en filesystem;En caso de encontrar el FS /var/log alertado se realiza los siguientes pasos para su depuraciÛn;"Nota: No se debe eliminar ni los directorios ni los archivos, se debe realizar la copia del contenido de los archivos en un backup y posterior se lo vacia.
+PRECBPSG01En caso de encontrar el FS /var/log alertado se realiza los siguientes pasos para su depuraci√≥n;PSKB0061;UNIX;PRECBPSG01;Incremento de espacio en filesystem;En caso de encontrar el FS /var/log alertado se realiza los siguientes pasos para su depuraci√≥n;"Nota: No se debe eliminar ni los directorios ni los archivos, se debe realizar la copia del contenido de los archivos en un backup y posterior se lo vacia.
 
 Ingresar al servidor que presenta la alerta en este caso PRECBPSG01
 1. Revisar el espacio utilizado y verificar si el filesystem supera el umbral establecido /var/log 
@@ -933,7 +928,7 @@ df -gt
 cd /var/log
 3. listar los archivos que se encuentren en el filesystem 
 ls -lrt
-4. ordenar los archivos seg˙n su peso
+4. ordenar los archivos seg√∫n su peso
 du -gs ./* | sort -n
 Nota: Se genera la lista con los directorios que tienen mas peso en ese caso se debe liberar el espacio generando un backup.
 5. Realizar la copia del archivo que se va a vaciar en un filesystem con mas espacio puede ser backup
@@ -950,10 +945,10 @@ cd /var/log
 df -gt 
 En caso que se necesite liberar mas espacio se puede repetir el mismo proceso en archivos como mail, user, daemon, secure.
 
-SUGERENCIA: Tomar la referenci del documento TCSECU_N1_UNIX_DepuraciÛn_file_system_var_log_AIX para mas detalles";Bitacora;30/01/2025;Jeniffer Guaman ;Aprobado;30/05/2025;Johana Mendoza;;INC0131661;"Revisar
-GestiÛn Incidentes";KB0058057;;
-Control M - AIXEste procedimiento trata de como validar que el servicio de Control M se encuentra arriba, caso contrario se deber· subir manualmente;PSKB0062;UNIX;Control M - AIX;Agente Control M;Este procedimiento trata de como validar que el servicio de Control M se encuentra arriba, caso contrario se deber· subir manualmente;"0. Ejecutar el comando ps-ef |grep ctm
-Este comando permitir· visualizar si existen procesos propios de la aplicaciÛn arriba
+SUGERENCIA: Tomar la referenci del documento TCSECU_N1_UNIX_Depuraci√≥n_file_system_var_log_AIX para mas detalles";Bitacora;30/01/2025;Jeniffer Guaman ;Aprobado;30/05/2025;Johana Mendoza;;INC0131661;"Revisar
+Gesti√≥n Incidentes";KB0058057;;
+Control M - AIXEste procedimiento trata de como validar que el servicio de Control M se encuentra arriba, caso contrario se deber√° subir manualmente;PSKB0062;UNIX;Control M - AIX;Agente Control M;Este procedimiento trata de como validar que el servicio de Control M se encuentra arriba, caso contrario se deber√° subir manualmente;"0. Ejecutar el comando ps-ef |grep ctm
+Este comando permitir√° visualizar si existen procesos propios de la aplicaci√≥n arriba
 
 NOTA: En el caso de que si existan procesos relacionado al agente de control M, se debe reiniciar el agente.
 
@@ -976,8 +971,8 @@ cd /home1/cmbpv9/ctmagt/ctm/scripts
 ./start-ag
 Presionar Enter en Ambas Preguntas
 
-NOTA: Puede existir otra versiÛn instalada de agente de control M, por lo que la ruta puede cambiar a /home1/cmbpv8.";Bitacora;30/01/2025;Mauricio Ruiz;En revisiÛn;Pendiente;Johana Mendoza;;INC0226051†;;;Nominado;
-PRECLES003En caso de encontrar el FS /var/log alertado se realiza los siguientes pasos para su depuraciÛn;PSKB0063;UNIX;PRECLES003;Incremento de espacio en filesystem;En caso de encontrar el FS /var/log alertado se realiza los siguientes pasos para su depuraciÛn;"
+NOTA: Puede existir otra versi√≥n instalada de agente de control M, por lo que la ruta puede cambiar a /home1/cmbpv8.";Bitacora;30/01/2025;Mauricio Ruiz;En revisi√≥n;Pendiente;Johana Mendoza;;INC0226051¬†;;;Nominado;
+PRECLES003En caso de encontrar el FS /var/log alertado se realiza los siguientes pasos para su depuraci√≥n;PSKB0063;UNIX;PRECLES003;Incremento de espacio en filesystem;En caso de encontrar el FS /var/log alertado se realiza los siguientes pasos para su depuraci√≥n;"
 Ingresar al servidor que presenta la alerta en este caso PRECLES003
 1. Revisar el espacio utilizado y verificar si el filesystem supera el umbral establecido /var/log 
 df -h
@@ -992,9 +987,9 @@ ls -lSr
 6. Comprobar el espacio del filesystem
 df -h .
 
-SUGERENCIA: Tomar la referenci del documento TCSECU_N1_UNIX_DepuraciÛn_file_system_var_log_REDHAT para mas detalles
+SUGERENCIA: Tomar la referenci del documento TCSECU_N1_UNIX_Depuraci√≥n_file_system_var_log_REDHAT para mas detalles
 ";Bitacora;30/01/2025;Jeniffer Guaman ;Aprobado;30/05/2025;Johana Mendoza;;;;;Nominado;
-ecbplxapd4En caso de alertar bajo el detalle: Evento EnP - ecbplxapd4.desa.bpichincha.com: Low disk space Û Saturacion de Disco;PSKB0064;Unix;ecbplxapd4;DISCO SATURACION/LOW SPACE;En caso de alertar bajo el detalle: Evento EnP - ecbplxapd4.desa.bpichincha.com: Low disk space Û Saturacion de Disco;"1. Ingresar a la alerta sobre el servidor ecbplxapd4
+ecbplxapd4En caso de alertar bajo el detalle: Evento EnP - ecbplxapd4.desa.bpichincha.com: Low disk space √≥ Saturacion de Disco;PSKB0064;Unix;ecbplxapd4;DISCO SATURACION/LOW SPACE;En caso de alertar bajo el detalle: Evento EnP - ecbplxapd4.desa.bpichincha.com: Low disk space √≥ Saturacion de Disco;"1. Ingresar a la alerta sobre el servidor ecbplxapd4
 2. Validar que la ruta inicial que se esta alertando sea sobre: "" /var/lib/docker/devicemapper/mnt/"" 
 3. Colocar como comentario en el problema: ""Servidor pertenece al pull de servidores de Openshift Desarrollo; al ser una ruta de contenedores esta se autodepura""
 4.  Esperar 20 Minutos.
@@ -1002,23 +997,21 @@ ecbplxapd4En caso de alertar bajo el detalle: Evento EnP - ecbplxapd4.desa.bpich
 
 Nota: En caso de que posterior a los 20 minutos siga el incidente, comunicar al StandBy de Unix para validar si existen trabajos sobre ese servidor";Bitacora;30/01/2025;Erick Iza ;Aprobado;30/05/2025;Johana Mendoza;;"INC0352272
 INC0351821";;;;
-preclsa022TCP connectivity;PSKB0065;UNIX;preclsa022;Evento-nxlog;TCP connectivity;La alerta por conectividad de NXLOG debe ser escalado a la CÈlula de Seguridad de Banco, quienes son los dueÒos del servicio de nxlog, se debe escalar al grupo TEC_BP_N3_PLATAFORMA_CS con responsable ERICK DAMIAN RISUENO BENITEZ, validar responsable de la aplicaciÛn. Enviar correo a los siguientes destinatarios frazambr, errisuen, plataformacentralizada, usrpctcs con el detalle de la alerta.;Bitacora;30/01/2025;Ricardo Urbina;Aprobado;30/05/2025;Johana Mendoza;;INC0279957;;;;
-preclsa009TCP connectivity;PSKB0066;UNIX;preclsa009;Evento-nxlog;TCP connectivity;La alerta por conectividad de NXLOG debe ser escalado a la CÈlula de Seguridad de Banco, quienes son los dueÒos del servicio de nxlog, se debe escalar al grupo TEC_BP_N3_PLATAFORMA_CS con responsable ERICK DAMIAN RISUENO BENITEZ, validar responsable de la aplicaciÛn. Enviar correo a los siguientes destinatarios frazambr, errisuen, plataformacentralizada, usrpctcs con el detalle de la alerta.;Bitacora;30/01/2025;Ricardo Urbina;Aprobado;30/05/2025;Johana Mendoza;;INC0279957;;;;
-"ecbpprap17 
-ecbpprap18Caso verificado y coordinado con TEUNO y BP";PSKB0067;WINTEL;"ecbpprap17 
-ecbpprap18";DISCO SATURACION/LOW SPACE;Caso verificado y coordinado con TEUNO y BP;"1. Ingresar al servidor mediante el Cyberark.
+preclsa022TCP connectivity;PSKB0065;UNIX;preclsa022;Evento-nxlog;TCP connectivity;La alerta por conectividad de NXLOG debe ser escalado a la C√©lula de Seguridad de Banco, quienes son los due√±os del servicio de nxlog, se debe escalar al grupo TEC_BP_N3_PLATAFORMA_CS con responsable ERICK DAMIAN RISUENO BENITEZ, validar responsable de la aplicaci√≥n. Enviar correo a los siguientes destinatarios frazambr, errisuen, plataformacentralizada, usrpctcs con el detalle de la alerta.;Bitacora;30/01/2025;Ricardo Urbina;Aprobado;30/05/2025;Johana Mendoza;;INC0279957;;;;
+preclsa009TCP connectivity;PSKB0066;UNIX;preclsa009;Evento-nxlog;TCP connectivity;La alerta por conectividad de NXLOG debe ser escalado a la C√©lula de Seguridad de Banco, quienes son los due√±os del servicio de nxlog, se debe escalar al grupo TEC_BP_N3_PLATAFORMA_CS con responsable ERICK DAMIAN RISUENO BENITEZ, validar responsable de la aplicaci√≥n. Enviar correo a los siguientes destinatarios frazambr, errisuen, plataformacentralizada, usrpctcs con el detalle de la alerta.;Bitacora;30/01/2025;Ricardo Urbina;Aprobado;30/05/2025;Johana Mendoza;;INC0279957;;;;
+ecbpprap17 y ecbpprap18Caso verificado y coordinado con TEUNO y BP;PSKB0067;WINTEL;ecbpprap17 y ecbpprap18;DISCO SATURACION/LOW SPACE;Caso verificado y coordinado con TEUNO y BP;"1. Ingresar al servidor mediante el Cyberark.
 2. Dentro del servidor ingresar al disco C, e ingresar a la carpeta ""temp"", dentro de la carpeta ""treesize"".
 3. Ejecutar como administrador el programa ""treesize"".
-4. Verificar quÈ esta saturando el disco.
+4. Verificar qu√© esta saturando el disco.
 5. Tomar una captura a la pantalla y generar un correo dirigido a Jessica Cabrera jessica.cabrera@teuno.com (administradores de los discos C y D de esos servidores).
-6. En el correo especificar, la necesidad de depuraciÛn de los discos al generar una alerta en la infraestructura.
-7. Una vez ejecutada la depuraciÛn la alerta no debe persentarse.";Bitacora;30/01/2025;Juan Robalino;Aprobado;Pendiente;Johana Mendoza;;"
+6. En el correo especificar, la necesidad de depuraci√≥n de los discos al generar una alerta en la infraestructura.
+7. Una vez ejecutada la depuraci√≥n la alerta no debe persentarse.";Bitacora;30/01/2025;Juan Robalino;Aprobado;Pendiente;Johana Mendoza;;"
 INC0245708";KB0057987;Registrado y aprobado en Service Now;;
 ecbpprw96Workaround definido y probado. En ambiente productivo;PSKB0068;WINTEL;ecbpprw96;DISCO SATURACION/LOW SPACE;Workaround definido y probado. En ambiente productivo;"1. Ingresar al servidor alertado
 2. Abrir el programa ""TreeSizeFree-Portable"" que se encuentra en la siguiente ruta C:\temp\TreeSizeFree-Portable (click derecho y correr como administrador)
-3. Proceder con la depuraciÛn de archivos con extesiÛn .log con tiempo de antiguedad mayor a un mes de la ruta ""D:\sitios\pub\Tcs.Checklist\log"". ";Bitacora;30/01/2025;Juan Robalino;Aprobado;Pendiente;Johana Mendoza;;INC0028455;KB0058046;Registrado en Service Now;;
-"ecbpprw28En Dynatrace aparece la alerta ""BanRed File Update"", para lo cual antes de realizar el workaround se debe esperar que solicite el equipo de Shiftleaders";PSKB0069;WINTEL;ecbpprw28;Evento en proceso de AplicaciÛn;"En Dynatrace aparece la alerta ""BanRed File Update"", para lo cual antes de realizar el workaround se debe esperar que solicite el equipo de Shiftleaders";"Esperar la solicitud de matar el proceso Standln.exe por parte del equipo de Shiftleaders, para lo cual realizar lo siguiente:
-1. Verificar en Service Now la existencia de una tarea asignada al grupo TEC_TCS_N1_RYR_ICC_EVENTOS, misma que debiÛ ser creada por SMO Banco (esto implica que est· autorizado por Banco, no puede ser creada por alguien de TCS).
+3. Proceder con la depuraci√≥n de archivos con extesi√≥n .log con tiempo de antiguedad mayor a un mes de la ruta ""D:\sitios\pub\Tcs.Checklist\log"". ";Bitacora;30/01/2025;Juan Robalino;Aprobado;Pendiente;Johana Mendoza;;INC0028455;KB0058046;Registrado en Service Now;;
+"ecbpprw28En Dynatrace aparece la alerta ""BanRed File Update"", para lo cual antes de realizar el workaround se debe esperar que solicite el equipo de Shiftleaders";PSKB0069;WINTEL;ecbpprw28;Evento en proceso de Aplicaci√≥n;"En Dynatrace aparece la alerta ""BanRed File Update"", para lo cual antes de realizar el workaround se debe esperar que solicite el equipo de Shiftleaders";"Esperar la solicitud de matar el proceso Standln.exe por parte del equipo de Shiftleaders, para lo cual realizar lo siguiente:
+1. Verificar en Service Now la existencia de una tarea asignada al grupo TEC_TCS_N1_RYR_ICC_EVENTOS, misma que debi√≥ ser creada por SMO Banco (esto implica que est√° autorizado por Banco, no puede ser creada por alguien de TCS).
 2. Ingresar al servidor ecbpprw28
 3. Dar click derecho sobre la barra de tareas e Ingresar al task manager>Details
 4. Click derecho sobre Standln.exe y luego dar click sobre End task
@@ -1029,20 +1022,20 @@ ecbpprw96Workaround definido y probado. En ambiente productivo;PSKB0068;WINTEL;e
 precwcl006
 precwcl005
 precwcl009
-precxdb004Alta utilizaciÛn de tarjeta de red";PSKB0070;WINTEL;"precwcl010
+precxdb004Alta utilizaci√≥n de tarjeta de red";PSKB0070;WINTEL;"precwcl010
 precwcl006
 precwcl005
 precwcl009
-precxdb004";Networking;Alta utilizaciÛn de tarjeta de red;"Para verificar se debe realizar los siguientes pasos:
+precxdb004";Networking;Alta utilizaci√≥n de tarjeta de red;"Para verificar se debe realizar los siguientes pasos:
 1. Ingresar al servidor alertado
 2. Dar click derecho sobre la barra de tareas e Ingresar al administrador de tareas
 3.  Ir a Performance>Open Resourse Monitor>Network
-4. Luego en la secciÛn de Network Activity> Dar click sobre Total (B/Sec) para ordenar descendentemente
+4. Luego en la secci√≥n de Network Activity> Dar click sobre Total (B/Sec) para ordenar descendentemente
 5. Si el proceso que mas consume se llama ""pbx_exchange.exe"" es porque se debe a procesos de respaldos, por lo cual no se debe generar incidente, solo mantener el monitoreo.";Bitacora;30/01/2025;Arsecio Vergara;Aprobado;Pendiente;Johana Mendoza;;;;;;
 DRECXDB008CPU Saturation;PSKB0071;BDD;DRECXDB008;CPU Saturation;CPU Saturation;"1. Ingresamos al cyberark.
 2. Buscar el nombre del servidor afectado.(columa C Nombre Componente)
 3,conectar por la opcion plsql
-4.. Ejecutamos un query para validar que no se estÈ ejecutando un respaldo                                                                                                                                                    ""SELECT SID, START_TIME, TOTALWORK, sofar,  (sofar / totalwork) * 100 done, 
+4.. Ejecutamos un query para validar que no se est√© ejecutando un respaldo                                                                                                                                                    ""SELECT SID, START_TIME, TOTALWORK, sofar,  (sofar / totalwork) * 100 done, 
     SYSDATE + TIME_REMAINING / 3600 / 24 end_at 
   FROM v$session_longops 
   WHERE     totalwork > sofar AND opname NOT LIKE '%aggregate%'  AND opname LIKE 'RMAN%' 
@@ -1052,8 +1045,8 @@ SELECT sess.sid, sess.serial#, sess.username, sess.status, sql.sql_text
 FROM gv$session sess
 JOIN gv$sql sql ON sess.sql_id = sql.sql_id
 WHERE sess.status = 'ACTIVE' AND sql.sql_text LIKE 'ALTER INDEX%                                                                                                                                                                                                                                                     
-6. Si los  querys retorna sessiones de backup,index o estadisticas corresponde a un evento controlado, caso contrario si no existe la ejecuciÛn de estos querys y el evento  persiste m·s de 15 minutos notificar a BDD.
-Nota:este servidor es de restauraciones de bdd  no existe transaccionabilidad asi que cada evento que reporte en este servidor colocar como cerrado como  controlado,no existe tiempo ya que la resturacion puede tardar horas ";Bitacora;30/01/2025;Henry MaÒay;Aprobado;30/05/2025;David Medina;;INC0328302;;;;
+6. Si los  querys retorna sessiones de backup,index o estadisticas corresponde a un evento controlado, caso contrario si no existe la ejecuci√≥n de estos querys y el evento  persiste m√°s de 15 minutos notificar a BDD.
+Nota:este servidor es de restauraciones de bdd  no existe transaccionabilidad asi que cada evento que reporte en este servidor colocar como cerrado como  controlado,no existe tiempo ya que la resturacion puede tardar horas ";Bitacora;30/01/2025;Henry Ma√±ay;Aprobado;30/05/2025;David Medina;;INC0328302;;;;
 ecbpprq102Slow disk;PSKB0072;BDD;ecbpprq102;Slow Disk SQL;Slow disk;"1. Ingresar a cyberark mediante el link https://privilegiados.uio.bpichincha.com/PasswordVault/v10/
 2. Buscar el nombre del servidor afectado.(columa C Nombre Componente)
 3.  Conectar por la opcion rdp (cyberak)
@@ -1073,23 +1066,23 @@ WHERE [Text] LIKE '%error%' OR [Text] LIKE '%Suspect%' OR [Text] LIKE '%Recovery
 DROP TABLE #temperrorlog
 GO
 
-5. En caso que la alerta se presente por m·s de 15 min reportar a BDD.
-6 - Identificar procesos de ejecuciÛn de BackUp, shrink (compactaciones), reindexaciones y procesos con mucho tiempo de ejecuciÛn con el siguiente query
+5. En caso que la alerta se presente por m√°s de 15 min reportar a BDD.
+6 - Identificar procesos de ejecuci√≥n de BackUp, shrink (compactaciones), reindexaciones y procesos con mucho tiempo de ejecuci√≥n con el siguiente query
 
 EXEC sp_who2 active
 EXEC sp_who3
-NOTA: cerrar el evento como controlado en caso que la alerta dure mas de 15 minutos escalar a bdd ";Bitacora;30/01/2025;Henry MaÒay;RevisiÛn;30/05/2025;David Medina;;;;;;
-;PSKB0073;BDD;PRECXDB004;p014banr1;Oracle monitoring - Instance status;"Preguntar a Centro de Computo si se est· ejecutando en el batch el flash copy de Bancs y Cerrar el evento como controlado, este evento sucede 2 veces a media noche  y en la madrugada;  en caso que suceda en el dÌa por favor reportar a base de datos";Bitacora;18/07/2025;Henry MaÒay;En proceso;18/07/2025;Santiago Valencia;N/A;;;;;
-;PSKB0074;BDD;PRECXDB005;p014banr2;Oracle monitoring - Instance status;"Preguntar a Centro de Computo si se est· ejecutando en el batch el flash copy de Bancs y Cerrar el evento como controlado, este evento sucede 2 veces a media noche  y en la madrugada;  en caso que suceda en el dÌa por favor reportar a base de datos";Bitacora;18/07/2025;Henry MaÒay;En proceso;18/07/2025;Santiago Valencia;N/A;;;;;
-;PSKB0075;BDD;ECBPEBSP7;Oracle Database prodref;Multiple infrastructure problems;"Preguntar a Centro de Computo si se est· ejecutando en el batch el flash copy de Ebs y Cerrar el evento como controlado, este evento sucede solo en la madrugada;  en caso que suceda en el dÌa por favor reportar a base de datos ";Bitacora;18/07/2025;Henry MaÒay;En proceso;18/07/2025;Santiago Valencia;N/A;;;;;
-;PSKB0076;BDD;ECBPEBSP7;Oracle Database prodref;Oracle componente RAC ora.prodref.db OFFLINE;"Preguntar a Centro de Computo si se est· ejecutando en el batch el flash copy de Ebs y Cerrar el evento como controlado, este evento sucede solo en la madrugada;  en caso que suceda en el dÌa por favor reportar a base de datos";Bitacora;18/07/2025;Henry MaÒay;En proceso;18/07/2025;Santiago Valencia;N/A;;;;;
+NOTA: cerrar el evento como controlado en caso que la alerta dure mas de 15 minutos escalar a bdd ";Bitacora;30/01/2025;Henry Ma√±ay;Revisi√≥n;30/05/2025;David Medina;;;;;;
+;PSKB0073;BDD;PRECXDB004;p014banr1;Oracle monitoring - Instance status;"Preguntar a Centro de Computo si se est√° ejecutando en el batch el flash copy de Bancs y Cerrar el evento como controlado, este evento sucede 2 veces a media noche  y en la madrugada;  en caso que suceda en el d√≠a por favor reportar a base de datos";Bitacora;18/07/2025;Henry Ma√±ay;En proceso;18/07/2025;Santiago Valencia;N/A;;;;;
+;PSKB0074;BDD;PRECXDB005;p014banr2;Oracle monitoring - Instance status;"Preguntar a Centro de Computo si se est√° ejecutando en el batch el flash copy de Bancs y Cerrar el evento como controlado, este evento sucede 2 veces a media noche  y en la madrugada;  en caso que suceda en el d√≠a por favor reportar a base de datos";Bitacora;18/07/2025;Henry Ma√±ay;En proceso;18/07/2025;Santiago Valencia;N/A;;;;;
+;PSKB0075;BDD;ECBPEBSP7;Oracle Database prodref;Multiple infrastructure problems;"Preguntar a Centro de Computo si se est√° ejecutando en el batch el flash copy de Ebs y Cerrar el evento como controlado, este evento sucede solo en la madrugada;  en caso que suceda en el d√≠a por favor reportar a base de datos ";Bitacora;18/07/2025;Henry Ma√±ay;En proceso;18/07/2025;Santiago Valencia;N/A;;;;;
+;PSKB0076;BDD;ECBPEBSP7;Oracle Database prodref;Oracle componente RAC ora.prodref.db OFFLINE;"Preguntar a Centro de Computo si se est√° ejecutando en el batch el flash copy de Ebs y Cerrar el evento como controlado, este evento sucede solo en la madrugada;  en caso que suceda en el d√≠a por favor reportar a base de datos";Bitacora;18/07/2025;Henry Ma√±ay;En proceso;18/07/2025;Santiago Valencia;N/A;;;;;
 ;PSKB0077;BDD;"precbpsg03
 precbpsg04";Memory Saturation;Memory Saturation;"1. Ingresar al cyberark.mediante el link https://privilegiados.uio.bpichincha.com/PasswordVault/v10/
 2. Buscamos el nombre del servidor para poder ingresar (columa C Nombre Componente)
 3.Conectar por la opcion ssh (cyberak)
 3. ejecutamos el comando ""topas"".                                                                                                                                                                                   
- 4. Visualizamos en la parte derecha el porcentaje de memoria computacional (% Comp). Si el porcentaje es mayor al 93% y el evento persiste m·s de 15 minutos notificar a BDD.
-Nota: El evento que presenta por saturacion de memoria en dynatrace  no es la real se debe verificar el dashbord de unix el cual toma  la memoria computacional, si se encuentra en rojo, reportar, caso contrario cerrar indicando que es un evento controlado y no reporta la memoria real https://xyc10065.live.dynatrace.com/index.jsp?state=W5OHiIGFgThLgMK_4bTMuLyC81C6RRzc95p8TRdR4L0&code=2679782c-1aab-46f4-8246-bce697239142#dashboard;gtf=-10m;gf=all;id=3e82d414-3faa-4997-ae73-fc014376add0";Bitacora;18/07/2025;Henry MaÒay;En proceso;18/07/2025;Santiago Valencia;N/A;;;;;
+ 4. Visualizamos en la parte derecha el porcentaje de memoria computacional (% Comp). Si el porcentaje es mayor al 93% y el evento persiste m√°s de 15 minutos notificar a BDD.
+Nota: El evento que presenta por saturacion de memoria en dynatrace  no es la real se debe verificar el dashbord de unix el cual toma  la memoria computacional, si se encuentra en rojo, reportar, caso contrario cerrar indicando que es un evento controlado y no reporta la memoria real https://xyc10065.live.dynatrace.com/index.jsp?state=W5OHiIGFgThLgMK_4bTMuLyC81C6RRzc95p8TRdR4L0&code=2679782c-1aab-46f4-8246-bce697239142#dashboard;gtf=-10m;gf=all;id=3e82d414-3faa-4997-ae73-fc014376add0";Bitacora;18/07/2025;Henry Ma√±ay;En proceso;18/07/2025;Santiago Valencia;N/A;;;;;
 ;PSKB0040;UNIX;"ecbpbinp1
 ecbpebsp1
 precbpsg04
@@ -1102,26 +1095,26 @@ ecbpebsb3
 ecbpebst1
 ecbpebsb2";CPU Saturation;;"1. Validar en Dynatrace que servidor se relaciona con la alerta.
 2.Ingresar al servidor mediante Cyberark.
-3. Ejecutar el comando†nmon.
-4. Tipear†la†letra T (para que comunique todos los procesos que se est·n ejecutando).
-5. Escribir el†n˙mero 4 para ordenar de mayor a menor.
+3. Ejecutar el comando¬†nmon.
+4. Tipear¬†la¬†letra T (para que comunique todos los procesos que se est√°n ejecutando).
+5. Escribir el¬†n√∫mero 4 para ordenar de mayor a menor.
 6. Se relaciona el proceso ejecutado con los procesos AIOSERVER, BPBKAR, WSCANSW, RTSORA
 
--†AIOSERVER: La saturaciÛn de CPU producida a causa de procesos aioserver dentro del servidor se debe validar con Base de Datos, debido a que son procesos asociados a procesos de base de datos dentro del servidor.
-†
-- BPBKAR: La saturaciÛn de CPU producida a causa de procesos BPBKAR dentro del servidor se debe a que dentro del servidor se est· realizando procesos de respaldo. La primera acciÛn a tomar serÌa validar los respaldos que se encuentran ejecutando en el servidor con el ·rea de Respaldos.
-Validar dentro del Dynatrace la ejecuciÛn de este proceso en dÌas o semanas anteriores y correlacionar el evento.
+-¬†AIOSERVER: La saturaci√≥n de CPU producida a causa de procesos aioserver dentro del servidor se debe validar con Base de Datos, debido a que son procesos asociados a procesos de base de datos dentro del servidor.
+¬†
+- BPBKAR: La saturaci√≥n de CPU producida a causa de procesos BPBKAR dentro del servidor se debe a que dentro del servidor se est√° realizando procesos de respaldo. La primera acci√≥n a tomar ser√≠a validar los respaldos que se encuentran ejecutando en el servidor con el √°rea de Respaldos.
+Validar dentro del Dynatrace la ejecuci√≥n de este proceso en d√≠as o semanas anteriores y correlacionar el evento.
 
-- WSCANSW: La saturaciÛn de Memoria producida a causa de procesos WSCANSW dentro del servidor se debe a que dentro del servidor se encuentra corriendo el proceso de autodescubrimiento del ILMT, este proceso no dura m·s de 45 minutos dentro del servidor por lo que se deberÌa considerar como un comportamiento normal. Si excede el tiempo se debe realizar una revisiÛn del proceso dentro del servidor.
+- WSCANSW: La saturaci√≥n de Memoria producida a causa de procesos WSCANSW dentro del servidor se debe a que dentro del servidor se encuentra corriendo el proceso de autodescubrimiento del ILMT, este proceso no dura m√°s de 45 minutos dentro del servidor por lo que se deber√≠a considerar como un comportamiento normal. Si excede el tiempo se debe realizar una revisi√≥n del proceso dentro del servidor.
 
-- RTSORA:† La saturaciÛn de CPU producida a causa de procesos RTSORA dentro del servidor se debe a que dentro del servidor se est· realizando procesos de respaldo. La primera acciÛn a tomar serÌa validar los respaldos que se encuentran ejecutando en el servidor con el ·rea de Respaldos.
-Validar dentro del Dynatrace la ejecuciÛn de este proceso en dÌas o semanas anteriores y correlacionar el evento.
+- RTSORA:¬† La saturaci√≥n de CPU producida a causa de procesos RTSORA dentro del servidor se debe a que dentro del servidor se est√° realizando procesos de respaldo. La primera acci√≥n a tomar ser√≠a validar los respaldos que se encuentran ejecutando en el servidor con el √°rea de Respaldos.
+Validar dentro del Dynatrace la ejecuci√≥n de este proceso en d√≠as o semanas anteriores y correlacionar el evento.
 
-8. Monitorear alerta hasta su finalizaciÛn.†
+8. Monitorear alerta hasta su finalizaci√≥n.¬†
 9. Revisar que los valores se hayan estabilizado.
 10. En caso de que los valores no se estabilicen, escalar a Torre.
-11. En caso que que los valores sean estables, cerrar el ticket.";Bitacora;;;;;;†;INC0279021;;;;
-;†;;;;;;;;;;;;;;;;;
+11. En caso que que los valores sean estables, cerrar el ticket.";Bitacora;;;;;;¬†;INC0279021;;;;
+;¬†;;;;;;;;;;;;;;;;;
 ;;BDD;;CPU Saturation;;;;;;;;;;;;;;
 ;;BDD;;CPU Saturation;;;;;;;;;;;;;;
 ;;BDD;;CPU Saturation;;;;;;;;;;;;;;
